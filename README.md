@@ -16,3 +16,4 @@ It was created with intuition of to have more information about me. This is a Re
  - React JS
  - Styled-components
  - React-simple-typewriter
+ - Radix-ui
