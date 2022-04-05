@@ -8,7 +8,7 @@ import Header from './components/Header/Index';
 
 export default function AppRoutes() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Header />
       
       <Routes>
