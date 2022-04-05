@@ -22,7 +22,7 @@ export default function Home() {
           </TextAbout>
 
           <TextInfoAbout>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta iure aut repellendus tenetur iusto dolore quaerat dolorem? Hic, pariatur? Eveniet, saepe. Quibusdam ipsa iusto officiis tempora eveniet repellat laboriosam ad?
+            Sou estudante do 3 semestre de análise e desenvolvimento de sistemas pela FATEC de Ribeirão Preto. Tenho habilidades com HTML, CSS, JavaScript, Git, ReactJs, Styled Components. Apaixonado por aprender e enfrentar novos desafios, sempre busco me aperfeiçoar e sair da minha zona de conforto. Além disso, sempre dou toda minha energia nos desafios que surgem.
           </TextInfoAbout>
         </Slide>
 
