@@ -1,22 +1,34 @@
-import About from '../../components/About/Index';
-import Contact from '../../components/Contact/Index';
-import { Home } from '../../components/Header/Index';
-import Presentation from '../../components/Presentation/Index';
-import Skill from '../../components/Skills/Index';
+import Header from '../../components/Header';
+import Presentation from '../../components/Presentation';
+import Slide from 'react-reveal/Slide';
 
-function Index() {
+import {
+  SectionAbout,
+  TextAbout,
+  TextInfoAbout
+} from './Style';
+
+export default function Home() {
   return (
-    <div style={{backgroundColor: '#282929'}}>
+    <>
       
-      <Home/>
-      <main>
-        <Presentation/>
-        <About />
-        <Skill />
-        <Contact />
-      </main>
-    </div>
+      <Header />
+      <Presentation />
+      
+      <SectionAbout>
+        <Slide left>
+          <TextAbout>
+            Sobre mim
+          </TextAbout>
+
+          <TextInfoAbout>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta iure aut repellendus tenetur iusto dolore quaerat dolorem? Hic, pariatur? Eveniet, saepe. Quibusdam ipsa iusto officiis tempora eveniet repellat laboriosam ad?
+          </TextInfoAbout>
+        </Slide>
+
+        
+      </SectionAbout>
+      
+    </>
   );
 }
-
-export default Index;

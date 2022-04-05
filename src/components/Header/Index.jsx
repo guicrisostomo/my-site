@@ -2,18 +2,17 @@ import {
   HamburgerMenuIcon,
   DotFilledIcon,
 } from '@radix-ui/react-icons';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import {
   DropdownMenu,
-  DropdownMenuArrow,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItemIndicator,
-  DropdownMenuSeparator,
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem
-} from '../Navbar/Index'
+} from '../Navbar'
 
 import {
   Box,
@@ -21,130 +20,108 @@ import {
 } from '../Navbar/Style'
 
 import {
-    Header,
+    Hheader,
     ContentTextHeader,
     AbbreviationName,
     TextHeader,
     MenuImgHeader
 } from './Style';
 
-export const Home = () => {
-  const [nigthMode, setNigthMode] = React.useState(true);
-  const [language, setLanguage] = React.useState(true);
-  const [pages, setPages] = React.useState('apresentacao');
+import {Link} from 'react-router-dom';
+
+export default function Header() {
+  const [pages, setPages] = useState('apresentacao');
+  const [scrolled, setScrolled] = useState(0);
+
+  window.addEventListener('scroll', (event) => {
+    setScrolled(window.scrollY);
+  });
+  
+  useEffect(() => {
+    const FixURL = window.location;
+    setPages(FixURL.pathname.replace('/', ''));
+  }, [])
 
   return (
-    <Header>
-        <ContentTextHeader>
+    
+    <Hheader style={{backgroundColor: scrolled > 1 ? 'black' : 'transparent'}}>
+      <ContentTextHeader>
 
+        <Link to="/" style={{textDecoration: 'none', alignSelf: 'center'}}>
           <AbbreviationName>
             GCS
           </AbbreviationName>
-
+        </Link>
+        
+        <Link to="/" style={{textDecoration: 'none', alignSelf: 'center'}}>
           <TextHeader>
             Sobre
           </TextHeader>
+        </Link>
 
+        <Link to="/skill" style={{textDecoration: 'none', alignSelf: 'center'}}>
           <TextHeader>
             Habilidades
           </TextHeader>
+        </Link>
 
+        <Link to="/contact" style={{textDecoration: 'none', alignSelf: 'center'}}>
           <TextHeader>
-            Contato
+            Contatos
           </TextHeader>
+        </Link>
 
 
-          <MenuImgHeader>
-            <Box>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <IconButton aria-label="Customise options">
-                    <HamburgerMenuIcon />
-                  </IconButton>
-                </DropdownMenuTrigger>
+        <MenuImgHeader>
+          <Box>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <IconButton aria-label="Customise options" style={{backgroundColor: scrolled > 30 ? 'black' : 'transparent'}}>
+                  <HamburgerMenuIcon />
+                </IconButton>
+              </DropdownMenuTrigger>
 
-                <DropdownMenuContent sideOffset={5} style={{marginLeft: -12}}>
-                  <DropdownMenuLabel>Páginas</DropdownMenuLabel>
+              <DropdownMenuContent sideOffset={5} style={{marginLeft: -12, top: 0}}>
+                <DropdownMenuLabel>Páginas</DropdownMenuLabel>
 
-                  <DropdownMenuRadioGroup value={pages} onValueChange={setPages}>
-                  
-                  <DropdownMenuRadioItem value='apresentacao'>
-                    <DropdownMenuItemIndicator>
-                      <DotFilledIcon />
-                    </DropdownMenuItemIndicator>
-                    Apresentação
-                  </DropdownMenuRadioItem>
+                <DropdownMenuRadioGroup value={pages} onValueChange={setPages}>
 
-                  <DropdownMenuRadioItem value='sobre'>
-                    <DropdownMenuItemIndicator>
-                      <DotFilledIcon />
-                    </DropdownMenuItemIndicator>
-                    Sobre
-                  </DropdownMenuRadioItem>
-
-                  <DropdownMenuRadioItem value='habilidades'>
-                    <DropdownMenuItemIndicator>
-                      <DotFilledIcon />
-                    </DropdownMenuItemIndicator>
-                    Habilidades
-                  </DropdownMenuRadioItem>
-                
-                  <DropdownMenuRadioItem value='contato'>
-                    <DropdownMenuItemIndicator>
-                      <DotFilledIcon />
-                    </DropdownMenuItemIndicator>
-                    Contato
-                  </DropdownMenuRadioItem>
-
-                  </DropdownMenuRadioGroup>
-
-                  <DropdownMenuSeparator />
-
-                  <DropdownMenuLabel>Idioma</DropdownMenuLabel>
-
-                  <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
-                    <DropdownMenuRadioItem value={true}>
+                  <Link to="/" style={{textDecoration: 'none'}}>
+                    <DropdownMenuRadioItem value=''>
                       <DropdownMenuItemIndicator>
                         <DotFilledIcon />
                       </DropdownMenuItemIndicator>
-                      Português
+                      Sobre
                     </DropdownMenuRadioItem>
+                  </Link>
 
-                    <DropdownMenuRadioItem value={false}>
+                  <Link to="/skill" style={{textDecoration: 'none'}}>
+                    <DropdownMenuRadioItem value='skill'>
                       <DropdownMenuItemIndicator>
                         <DotFilledIcon />
                       </DropdownMenuItemIndicator>
-                      Inglês
+                      Habilidades
                     </DropdownMenuRadioItem>
-                  </DropdownMenuRadioGroup>
+                  </Link>
 
-                  <DropdownMenuSeparator />
-                  <DropdownMenuLabel>Modo noturno</DropdownMenuLabel>
-                  <DropdownMenuRadioGroup value={nigthMode} onValueChange={setNigthMode}>
-                    <DropdownMenuRadioItem value={true}>
+                  <Link to="/contact" style={{textDecoration: 'none'}}>
+                    <DropdownMenuRadioItem value='contact'>
                       <DropdownMenuItemIndicator>
                         <DotFilledIcon />
                       </DropdownMenuItemIndicator>
-                      Ativado
+                      Contato
                     </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value={false}>
-                      <DropdownMenuItemIndicator>
-                        <DotFilledIcon />
-                      </DropdownMenuItemIndicator>
-                      Desativado
-                    </DropdownMenuRadioItem>
-                  </DropdownMenuRadioGroup>
-                  <DropdownMenuArrow />
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </Box>
-          </MenuImgHeader>
+                  </Link>
 
+                </DropdownMenuRadioGroup>
 
-        </ContentTextHeader>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </Box>
+        </MenuImgHeader>
 
-        
-        
-    </Header>
+      </ContentTextHeader>
+    </Hheader>
   )
+  
 }

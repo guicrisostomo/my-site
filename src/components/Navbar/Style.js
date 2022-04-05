@@ -36,7 +36,7 @@ padding: '0 5px',
 position: 'relative',
 paddingLeft: 25,
 userSelect: 'none',
-
+transition: 'all 0.5s',
 '&[data-disabled]': {
     color: '#909096',
     pointerEvents: 'none',
@@ -69,8 +69,9 @@ export const IconButton = styled('button', {
   justifyContent: 'center',
   color: 'white',
   backgroundColor: 'black',
+  transition: 'all 0.9s',
   boxShadow: `0 2px 10px ${blackA.blackA7}`,
-  '&:hover': { backgroundColor: 'white',
+  '&:hover': { backgroundColor: 'white!important',
                color: 'black' 
              },
   '&:focus': { boxShadow: `0 0 0 2px black` },
