@@ -17,7 +17,7 @@
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://guicrisostomo.github.io/my-site",
+  "homepage": ".",
   "scripts": {
     "predeploy": "npm run build",
 	  "deploy": "gh-pages -d build",
