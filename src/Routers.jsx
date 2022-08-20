@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Pages/home';
-import Skill from './Pages/skills';
-import Contact from './Pages/contact';
-import Error from './Pages/error';
+import Home from './pages/home';
+import Skill from './pages/skills';
+import Contact from './pages/contact';
+import Error from './pages/error';
 import Header from './components/header';
 
 export default function AppRoutes() {
