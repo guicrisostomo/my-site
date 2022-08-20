@@ -5,7 +5,7 @@ import {
   SectionAbout,
   TextAbout,
   TextInfoAbout
-} from './Style';
+} from './style.js';
 
 export default function Home() {
   return (

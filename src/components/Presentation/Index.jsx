@@ -9,7 +9,7 @@ import {
   TextInfo,
   PhotoPresentation,
   Icons
-} from './Style.js'
+} from './style.js'
 
 export default function Presentation() {
   

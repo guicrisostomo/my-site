@@ -17,7 +17,7 @@ import {
 import {
   Box,
   IconButton
-} from '../navbar/Style'
+} from '../navbar/style.js'
 
 import {
     Hheader,
@@ -25,7 +25,7 @@ import {
     AbbreviationName,
     TextHeader,
     MenuImgHeader
-} from './Style';
+} from './style.js';
 
 import {Link} from 'react-router-dom';
 

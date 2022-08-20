@@ -5,7 +5,7 @@ import {
   TextInfoError,
   DivInfoError,
   DivButtonReturn
-} from './Style';
+} from './style.js';
 import { useNavigate } from 'react-router-dom';
 
 export default function Error() {

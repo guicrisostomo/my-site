@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   ArticleAbout
-} from './Style'
+} from './style.js'
 
 export default function Skill() {
   return (

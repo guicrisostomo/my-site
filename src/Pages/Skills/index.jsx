@@ -5,7 +5,7 @@ import {
   Items,
   ItemSkill,
   TextInfoSkill
-} from './Style'
+} from './style.js'
 import { SiReact, SiCss3, SiHtml5, SiJavascript, SiMicrosoftsqlserver, SiGit } from "react-icons/si";
 import Header from '../../components/header';
 

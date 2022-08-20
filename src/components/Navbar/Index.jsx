@@ -8,7 +8,7 @@ import {
   StyledSeparator,
   StyledItemIndicator,
   StyledArrow
-} from './Style';
+} from './style.js';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 // Exports
