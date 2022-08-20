@@ -1,5 +1,5 @@
-import Header from '../../components/Header';
-import Presentation from '../../components/Presentation';
+import Header from '../../components/header';
+import Presentation from '../../components/presentation';
 
 import {
   SectionAbout,

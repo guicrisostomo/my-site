@@ -1,5 +1,5 @@
 import React from 'react'
-import Home from '../../components/Header'
+import Home from '../../components/header'
 import {
   SectionError,
   TextInfoError,

@@ -12,12 +12,12 @@ import {
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem
-} from '../Navbar'
+} from '../navbar'
 
 import {
   Box,
   IconButton
-} from '../Navbar/Style'
+} from '../navbar/Style'
 
 import {
     Hheader,

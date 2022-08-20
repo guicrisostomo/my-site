@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home';
-import Skill from './Pages/Skills';
-import Contact from './Pages/Contact';
-import Error from './Pages/Error';
-import Header from './components/Header';
+import Home from './Pages/home';
+import Skill from './Pages/skills';
+import Contact from './Pages/contact';
+import Error from './Pages/error';
+import Header from './components/header';
 
 export default function AppRoutes() {
   return (
