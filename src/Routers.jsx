@@ -4,7 +4,7 @@ import Home from './Pages/Home';
 import Skill from './Pages/Skills';
 import Contact from './Pages/Contact';
 import Error from './Pages/Error';
-import Header from './components/Header/Index';
+import Header from './components/Header';
 
 export default function AppRoutes() {
   return (
@@ -17,6 +17,6 @@ export default function AppRoutes() {
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<Error />} />
       </Routes>
-    </ Router>
+    </Router>
   );
 }

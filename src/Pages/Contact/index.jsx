@@ -6,7 +6,6 @@ import {
   ItemContact,
   TextInfoContact
 } from './Style'
-import Slide from 'react-reveal/Slide';
 import Header from '../../components/Header';
 import { GoLocation } from "react-icons/go";
 import { AiOutlineMail, AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
@@ -17,7 +16,6 @@ export default function Contact() {
       <Header />
 
       <SectionContact style={{backgroundColor: '#100f0f'}}>
-        <Slide left>
           <TextContact>Contato</TextContact>
 
           <Items>
@@ -41,7 +39,6 @@ export default function Contact() {
               <TextInfoContact>/guilherme-crisostomo-da-silva</TextInfoContact>
             </ItemContact>
           </Items>
-        </Slide>
 
       </SectionContact>
     </>

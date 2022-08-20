@@ -6,10 +6,10 @@ import {
   DivInfoError,
   DivButtonReturn
 } from './Style';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Error() {
-  const history = useHistory();
+  const history = useNavigate();
 
   function goBack(){
     history.goBack();

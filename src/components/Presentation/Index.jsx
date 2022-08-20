@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import { AiOutlineMail, AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
-import Slide from 'react-reveal/Slide';
 import PathPhotoPresentation from '../../assets/img/photoPresentation.jpg';
 
 import {
@@ -17,7 +16,6 @@ export default function Presentation() {
 
   return (
     <SectionPresentation>
-      <Slide right>
         <PhotoPresentation src={PathPhotoPresentation}/>
 
         <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -50,7 +48,6 @@ export default function Presentation() {
             <AiOutlineMail fontSize={30} cursor="pointer" />
           </Icons>
         </div>
-      </Slide>
     </SectionPresentation>
   )
 }

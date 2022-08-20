@@ -7,7 +7,6 @@ import {
   TextInfoSkill
 } from './Style'
 import { SiReact, SiCss3, SiHtml5, SiJavascript, SiMicrosoftsqlserver, SiGit } from "react-icons/si";
-import Slide from 'react-reveal/Slide';
 import Header from '../../components/Header';
 
 export default function Skill() {
@@ -16,7 +15,6 @@ export default function Skill() {
       <Header />
 
       <SectionSkills style={{backgroundColor: '#100f0f'}}>
-        <Slide left>
           <TextSkill>Habilidades</TextSkill>
 
           <Items>
@@ -56,7 +54,6 @@ export default function Skill() {
               <TextInfoSkill>GIT</TextInfoSkill>
             </ItemSkill>
           </Items>
-        </Slide>
 
       </SectionSkills>
 
