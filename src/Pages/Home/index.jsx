@@ -21,7 +21,7 @@ export default function Home() {
           </TextAbout>
 
           <TextInfoAbout>
-            Sou estudante do 3 semestre de análise e desenvolvimento de sistemas pela FATEC de Ribeirão Preto. Tenho habilidades com HTML, CSS, JavaScript, Git, ReactJs, Styled Components. Apaixonado por aprender e enfrentar novos desafios, sempre busco me aperfeiçoar e sair da minha zona de conforto. Além disso, sempre dou toda minha energia nos desafios que surgem.
+            Sou estudante do 4 semestre de análise e desenvolvimento de sistemas pela FATEC de Ribeirão Preto. Tenho habilidades com HTML, CSS, JavaScript, Git, ReactJs, Styled Components. Apaixonado por aprender e enfrentar novos desafios, sempre busco me aperfeiçoar e sair da minha zona de conforto. Além disso, sempre dou toda minha energia nos desafios que surgem.
           </TextInfoAbout>
 
         

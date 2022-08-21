@@ -6,14 +6,10 @@ import {
   DivInfoError,
   DivButtonReturn
 } from './style.js';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function Error() {
-  const history = useNavigate();
-
-  function goBack(){
-    history.goBack();
-  }
+  const navigate = useNavigate();
 
   return (
     <>
@@ -25,7 +21,7 @@ export default function Error() {
           <TextInfoError>Página não encontrada!
           </TextInfoError>
 
-          <DivButtonReturn onClick={goBack}>
+          <DivButtonReturn onClick={() => navigate(-1)}>
             Retornar
           </DivButtonReturn>
         </DivInfoError>
