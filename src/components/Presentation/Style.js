@@ -28,7 +28,7 @@ export const TextPresentation = styled.h1`
     }
 
     @media (max-width: 500px) {
-        font-size: 16px;
+        font-size: 20px;
     }
 `;
 
@@ -38,7 +38,7 @@ export const TextInfo = styled.h3`
     }
 
     @media (max-width: 1250px) {
-        font-size: 16px;
+        font-size: 14px;
     }
 `;
 

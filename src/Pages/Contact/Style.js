@@ -10,6 +10,10 @@ export const SectionContact = styled.section`
     justify-content: start;
     height: 100%;
     padding-top: 72px;
+
+    @media (max-width: 600px) {
+        text-align: -webkit-center;
+    }
 `;
 
 export const TextContact = styled.h1`
@@ -20,6 +24,10 @@ export const TextContact = styled.h1`
     
     @media (max-width: 400px) {
         font-size: 20px;
+    }
+
+    @media (max-width: 600px) {
+        text-align: left;
     }
 `;
 
@@ -68,4 +76,8 @@ export const Items = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+
+    @media (max-width: 600px) {
+        width: 80%;
+    }
 `;

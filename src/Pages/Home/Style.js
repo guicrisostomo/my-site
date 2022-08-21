@@ -18,7 +18,7 @@ export const TextAbout = styled.h1`
     margin: 0px;
     font-size: 32px;
 
-    @media (max-width: 400px) {
+    @media (max-width: 500px) {
         font-size: 20px;
     }
 `;
@@ -26,4 +26,8 @@ export const TextAbout = styled.h1`
 export const TextInfoAbout = styled.p`
     color: white;
     padding: 10px;
+
+    @media (max-width: 500px) {
+        font-size: 14px;
+    }
 `;

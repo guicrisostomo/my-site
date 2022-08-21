@@ -63,7 +63,7 @@ export const TextHeader = styled.span`
     font-size: 20px;
     margin: 10px;
     cursor: pointer;
-    transition: all 0.9s;
+    transition: 500ms all;
     margin-top: 15px;
 
     &:hover {

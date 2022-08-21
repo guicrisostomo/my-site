@@ -68,7 +68,7 @@ export const IconButton = styled('button', {
   alignItems: 'center',
   justifyContent: 'center',
   color: 'white',
-  backgroundColor: 'black',
+  backgroundColor: 'black!important',
   transition: 'all 0.9s',
   boxShadow: `0 2px 10px ${blackA.blackA7}`,
   '&:hover': { backgroundColor: 'white!important',
