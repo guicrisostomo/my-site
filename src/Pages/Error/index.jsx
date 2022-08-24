@@ -6,7 +6,7 @@ import {
   DivInfoError,
   DivButtonReturn
 } from './style.js';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Error() {
   const navigate = useNavigate();
