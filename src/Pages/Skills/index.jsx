@@ -7,7 +7,7 @@ import {
   TextInfoSkill
 } from './style.js'
 import { SiReact, SiCss3, SiHtml5, SiJavascript, SiMicrosoftsqlserver, SiGit } from "react-icons/si";
-import Header from '../../components/header';
+import Header from '../../components/Header';
 
 export default function Skill() {
   return (

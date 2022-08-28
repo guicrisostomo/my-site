@@ -6,7 +6,7 @@ import {
   ItemContact,
   TextInfoContact
 } from './style.js'
-import Header from '../../components/header';
+import Header from '../../components/Header';
 import { GoLocation } from "react-icons/go";
 import { AiOutlineMail, AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
 
