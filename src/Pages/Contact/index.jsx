@@ -6,17 +6,22 @@ import {
   ItemContact,
   TextInfoContact
 } from './style.js'
-import Header from '../../components/header';
+import Header from '../../components/Header';
 import { GoLocation } from "react-icons/go";
 import { AiOutlineMail, AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
+import { useTranslation } from 'react-i18next';
 
 export default function Contact() {
+  const { t } = useTranslation()
+  
   return (
     <>
       <Header />
 
       <SectionContact style={{backgroundColor: '#100f0f'}}>
-          <TextContact>Contato</TextContact>
+          <TextContact>
+            {t('contact.title')}
+          </TextContact>
 
           <Items>
             <ItemContact>
