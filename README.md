@@ -17,7 +17,6 @@ It was created with intuition of to have more information about me. This is a Re
  - Styled-components
  - React-simple-typewriter
  - Radix-ui
- - React-reveal
  - React-router-dom
  - React-icons
  - React-i18next
