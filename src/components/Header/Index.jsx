@@ -3,6 +3,7 @@ import {
   DotFilledIcon,
 } from '@radix-ui/react-icons';
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
   DropdownMenu,
@@ -28,10 +29,17 @@ import {
 } from './style.js';
 
 import {Link} from 'react-router-dom';
+import { t } from 'i18next';
 
 export default function Header() {
   const [pages, setPages] = useState('apresentacao');
+  const [language, setLanguage] = useState('portuguese');
   const [scrolled, setScrolled] = useState(0);
+  const { i18n } = useTranslation()
+
+  function handleChangeLanguage(language) {
+    i18n.changeLanguage(language)
+  }
 
   window.addEventListener('scroll', (event) => {
     setScrolled(window.scrollY);
@@ -40,6 +48,8 @@ export default function Header() {
   useEffect(() => {
     const FixURL = window.location;
     setPages(FixURL.pathname.replace('/', ''));
+
+    setLanguage(i18n.language)
   }, [])
 
   return (
@@ -55,19 +65,25 @@ export default function Header() {
         
         <Link to="/" style={{textDecoration: 'none', alignSelf: 'center'}}>
           <TextHeader>
-            Sobre
+            {t('header.about')}
           </TextHeader>
         </Link>
 
         <Link to="/skill" style={{textDecoration: 'none', alignSelf: 'center'}}>
           <TextHeader>
-            Habilidades
+            {t('header.skills')}
           </TextHeader>
         </Link>
 
         <Link to="/contact" style={{textDecoration: 'none', alignSelf: 'center'}}>
           <TextHeader>
-            Contatos
+            {t('header.contact')}
+          </TextHeader>
+        </Link>
+
+        <Link to="/projects" style={{textDecoration: 'none', alignSelf: 'center'}}>
+          <TextHeader>
+            {t('header.projects')}
           </TextHeader>
         </Link>
 
@@ -82,7 +98,9 @@ export default function Header() {
               </DropdownMenuTrigger>
 
               <DropdownMenuContent sideOffset={5} style={{marginLeft: -12, top: 0}}>
-                <DropdownMenuLabel>Páginas</DropdownMenuLabel>
+                <DropdownMenuLabel>
+                  {t('header.pages')}
+                </DropdownMenuLabel>
 
                 <DropdownMenuRadioGroup value={pages} onValueChange={setPages}>
 
@@ -91,7 +109,7 @@ export default function Header() {
                       <DropdownMenuItemIndicator>
                         <DotFilledIcon />
                       </DropdownMenuItemIndicator>
-                      Sobre
+                      {t('header.about')}
                     </DropdownMenuRadioItem>
                   </Link>
 
@@ -100,7 +118,7 @@ export default function Header() {
                       <DropdownMenuItemIndicator>
                         <DotFilledIcon />
                       </DropdownMenuItemIndicator>
-                      Habilidades
+                      {t('header.skills')}
                     </DropdownMenuRadioItem>
                   </Link>
 
@@ -109,9 +127,42 @@ export default function Header() {
                       <DropdownMenuItemIndicator>
                         <DotFilledIcon />
                       </DropdownMenuItemIndicator>
-                      Contato
+                      {t('header.contact')}
                     </DropdownMenuRadioItem>
                   </Link>
+
+                  <Link to="/projects" style={{textDecoration: 'none'}}>
+                    <DropdownMenuRadioItem value='projects'>
+                      <DropdownMenuItemIndicator>
+                        <DotFilledIcon />
+                      </DropdownMenuItemIndicator>
+                      {t('header.projects')}
+                    </DropdownMenuRadioItem>
+                  </Link>
+
+                </DropdownMenuRadioGroup>
+
+                <DropdownMenuLabel>
+                  {t('header.language')}
+                </DropdownMenuLabel>
+
+                <DropdownMenuRadioGroup  value={language} onValueChange={setLanguage}>
+
+                  
+                  <DropdownMenuRadioItem onClick={() => handleChangeLanguage('pt-BR')} value='pt-BR'>
+                    <DropdownMenuItemIndicator>
+                      <DotFilledIcon />
+                    </DropdownMenuItemIndicator>
+                    {t('header.portuguese')}
+                  </DropdownMenuRadioItem>
+
+                  
+                  <DropdownMenuRadioItem onClick={() => handleChangeLanguage('en-US')} value='en-US'>
+                    <DropdownMenuItemIndicator>
+                      <DotFilledIcon />
+                    </DropdownMenuItemIndicator>
+                    {t('header.english')}
+                  </DropdownMenuRadioItem>
 
                 </DropdownMenuRadioGroup>
 

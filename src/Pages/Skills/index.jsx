@@ -8,14 +8,19 @@ import {
 } from './style.js'
 import { SiReact, SiCss3, SiHtml5, SiJavascript, SiMicrosoftsqlserver, SiGit } from "react-icons/si";
 import Header from '../../components/Header';
+import { useTranslation } from 'react-i18next';
 
 export default function Skill() {
+  const { t } = useTranslation()
+
   return (
     <>
       <Header />
 
       <SectionSkills style={{backgroundColor: '#100f0f'}}>
-          <TextSkill>Habilidades</TextSkill>
+          <TextSkill>
+            {t('skill.title')}
+          </TextSkill>
 
           <Items>
             <ItemSkill href="https://github.com/guicrisostomo/Projetos-DIO/tree/master/HTML%20e%20CSS" target='_blank'>
