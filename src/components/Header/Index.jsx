@@ -87,6 +87,11 @@ export default function Header() {
           </TextHeader>
         </Link>
 
+        <Link to="/certificates" style={{textDecoration: 'none', alignSelf: 'center'}}>
+          <TextHeader>
+            {t('header.certificates')}
+          </TextHeader>
+        </Link>
 
         <MenuImgHeader>
           <Box>
@@ -137,6 +142,15 @@ export default function Header() {
                         <DotFilledIcon />
                       </DropdownMenuItemIndicator>
                       {t('header.projects')}
+                    </DropdownMenuRadioItem>
+                  </Link>
+
+                  <Link to="/certificates" style={{textDecoration: 'none'}}>
+                    <DropdownMenuRadioItem value='certificates'>
+                      <DropdownMenuItemIndicator>
+                        <DotFilledIcon />
+                      </DropdownMenuItemIndicator>
+                      {t('header.certificates')}
                     </DropdownMenuRadioItem>
                   </Link>
 

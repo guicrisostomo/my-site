@@ -6,6 +6,7 @@ export default {
             skills: "Habilidades",
             contact: "Contato",
             projects: "Projetos",
+            certificates: "Certificados",
             language: "Idioma",
             portuguese: "Português",
             english: "Inglês"

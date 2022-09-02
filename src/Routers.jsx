@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import Error from './pages/Error';
 import Header from './components/Header';
 import { Projects } from './pages/Projects';
+import { Certificates } from './pages/Certificates';
 
 export default function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ export default function AppRoutes() {
           <Route path="/skill" element={<Skill />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/certificates" element={<Certificates />} />
           <Route path="*" element={<Error />} />
       </Routes>
     </Router>
