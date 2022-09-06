@@ -4,8 +4,19 @@ import {
     Items,
     ItemCertificates,
     TextCertificates,
-    TextInfoCertificates
+    TextInfoCertificates,
 } from "./style";
+
+import imgDIO from '../../assets/img/imgDIO.jpg';
+import imgCisco from '../../assets/img/imgCisco.jpg';
+import imgIFSP from '../../assets/img/imgIFSP.jpg';
+
+import pdfMRV from '../../assets/certificates/MRV Fullstack Developer.pdf';
+import pdfMobileAppDevelopment from '../../assets/certificates/Programação de Computadores e Dispositivos Móveis.pdf';
+import pdfDevelopmentWEB from '../../assets/certificates/Introdução à Programação para WEB.pdf';
+import pdfIntroductionNetwork from '../../assets/certificates/CCNAv7 Introdução às redes.pdf';
+import pdfIntroductionCybersecurity from '../../assets/certificates/Introduction to Cybersecurity.pdf';
+import pdfLinux from '../../assets/certificates/NDG Linux Unhatched Português.pdf';
 
 export function Certificates() {
     return(
@@ -15,32 +26,32 @@ export function Certificates() {
             </TextCertificates>
 
             <Items>
-                <ItemCertificates href="https://github.com/guicrisostomo/Projetos-DIO/tree/master/HTML%20e%20CSS" target='_blank'>
+                <ItemCertificates href={pdfMRV} target='_blank' urlImage={imgDIO}>
                     <TextInfoCertificates>MRV Fullstack Developer</TextInfoCertificates>
                 </ItemCertificates>
 
-                <ItemCertificates href="https://github.com/guicrisostomo/Projetos-DIO/tree/master/HTML%20e%20CSS" target='_blank'>
+                <ItemCertificates href={pdfMobileAppDevelopment} target='_blank' urlImage={imgIFSP}>
                     <TextInfoCertificates>Programação de Computadores e Dispositivos Móveis
                     </TextInfoCertificates>
                 </ItemCertificates>
 
-                <ItemCertificates href="https://github.com/guicrisostomo/Projetos-DIO/tree/master/HTML%20e%20CSS" target='_blank'>
-                    <TextInfoCertificates>Introdução às redes</TextInfoCertificates>
-                </ItemCertificates>
-
-                <ItemCertificates href="https://github.com/guicrisostomo/Projetos-DIO/tree/master/HTML%20e%20CSS" target='_blank'>
+                <ItemCertificates href={pdfDevelopmentWEB} target='_blank'  urlImage={imgIFSP}>
                     <TextInfoCertificates>
                     Introdução à Programação WEB
                     </TextInfoCertificates>
                 </ItemCertificates>
 
-                <ItemCertificates href="https://github.com/guicrisostomo/Projetos-DIO/tree/master/HTML%20e%20CSS" target='_blank'>
+                <ItemCertificates href={pdfIntroductionNetwork} target='_blank' urlImage={imgCisco}>
+                    <TextInfoCertificates>Introdução às redes</TextInfoCertificates>
+                </ItemCertificates>
+
+                <ItemCertificates href={pdfIntroductionCybersecurity} target='_blank'  urlImage={imgCisco}>
                     <TextInfoCertificates>
                     Introduction to Cybersecurity
                     </TextInfoCertificates>
                 </ItemCertificates>
 
-                <ItemCertificates href="https://github.com/guicrisostomo/Projetos-DIO/tree/master/HTML%20e%20CSS" target='_blank'>
+                <ItemCertificates href={pdfLinux} target='_blank'  urlImage={imgCisco}>
                     <TextInfoCertificates>NDG Linux Unhatched
                     </TextInfoCertificates>
                 </ItemCertificates>
