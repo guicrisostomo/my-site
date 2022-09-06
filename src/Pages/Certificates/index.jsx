@@ -1,9 +1,14 @@
-import { SectionCertifications } from "./style";
+import { 
+    SectionCertifications,
+    TextCertificates
+} from "./style";
 
 export function Certificates() {
     return(
         <SectionCertifications>
-            <h1>Hello world</h1>
+            <TextCertificates>
+                Certificates
+            </TextCertificates>
         </SectionCertifications>
     )
 }

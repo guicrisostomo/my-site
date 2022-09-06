@@ -16,3 +16,14 @@ background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgCe
     padding-top: 85px;
     padding-bottom: 30px;
 `;
+
+export const TextCertificates = styled.h1`
+    padding: 10px;
+    color: white;
+    margin: 0px;
+    font-size: 32px;
+
+    @media (max-width: 400px) {
+        font-size: 20px;
+    }
+`;
