@@ -1,5 +1,9 @@
+import { SectionCertifications } from "./style";
+
 export function Certificates() {
     return(
-        <h1>Hello world</h1>
+        <SectionCertifications>
+            <h1>Hello world</h1>
+        </SectionCertifications>
     )
 }
