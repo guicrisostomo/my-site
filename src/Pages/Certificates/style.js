@@ -28,6 +28,11 @@ export const TextCertificates = styled.h1`
 `;
 
 export const ItemCertificates = styled.a`
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${props => props.urlImage});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    justify-content: start;
     color: white;
     display: flex;
     flex-direction: column;
@@ -49,7 +54,7 @@ export const ItemCertificates = styled.a`
     transition: 1s all;
 
     :hover {
-        background-color: white;
+        background: white;
         color: black;
         transform: scale(100%, 100%);
     }
