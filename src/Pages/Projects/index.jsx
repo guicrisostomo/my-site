@@ -1,5 +1,15 @@
+import React from 'react';
+import { 
+    SectionProjects,
+    TextProjects,
+} from "../Projects/style";
+
 export function Projects() {
     return(
-        <h1>Teste</h1>
+        <SectionProjects>
+            <TextProjects>
+                Projects
+            </TextProjects>
+        </SectionProjects>
     )
 }
