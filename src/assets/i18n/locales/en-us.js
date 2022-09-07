@@ -23,6 +23,11 @@ export default {
 
         skill: {
             title: 'Skills'
+        },
+
+        certificates: {
+            title: 'Certificates',
+            
         }
     }
 }

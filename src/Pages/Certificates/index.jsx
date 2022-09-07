@@ -17,12 +17,15 @@ import pdfDevelopmentWEB from '../../assets/certificates/Introdução à Program
 import pdfIntroductionNetwork from '../../assets/certificates/CCNAv7 Introdução às redes.pdf';
 import pdfIntroductionCybersecurity from '../../assets/certificates/Introduction to Cybersecurity.pdf';
 import pdfLinux from '../../assets/certificates/NDG Linux Unhatched Português.pdf';
+import { useTranslation } from 'react-i18next';
 
 export function Certificates() {
+    const { t } = useTranslation()
+
     return(
         <SectionCertifications>
             <TextCertificates>
-                Certificates
+                {t('certificates.title')}
             </TextCertificates>
 
             <Items>
