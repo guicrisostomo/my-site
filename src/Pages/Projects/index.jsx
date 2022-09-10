@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../../components/Header';
 import { 
     SectionProjects,
     TextProjects,
@@ -6,10 +7,14 @@ import {
 
 export function Projects() {
     return(
-        <SectionProjects>
-            <TextProjects>
-                Projects
-            </TextProjects>
-        </SectionProjects>
+        <>
+            <Header />
+            
+            <SectionProjects>
+                <TextProjects>
+                    Projects
+                </TextProjects>
+            </SectionProjects>
+        </>
     )
 }
