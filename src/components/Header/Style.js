@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components';
+import styled,{css, keyframes} from 'styled-components';
 
 
 const heartBeat = keyframes`
@@ -56,7 +56,7 @@ export const AbbreviationName = styled.h1`
     }
 `;
 
-export const TextHeader = styled.span`
+export const TextHeaderStyle = styled.span`
     text-transform: uppercase;
     color: white;
     align-self: center;
@@ -66,11 +66,13 @@ export const TextHeader = styled.span`
     transition: 500ms all;
     margin-top: 15px;
 
-    &:hover {
-        color: black;
-        background-color: white;
-        padding: 5px;
-        border-radius: 10px;
+    ${props => props.active === false && css`
+      &:hover {
+          color: black;
+          background-color: white;
+          padding: 5px;
+          border-radius: 10px;
+      }`
     }
 
     @media (max-width: 600px) {

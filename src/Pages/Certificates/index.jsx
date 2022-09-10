@@ -17,46 +17,54 @@ import pdfDevelopmentWEB from '../../assets/certificates/Introdução à Program
 import pdfIntroductionNetwork from '../../assets/certificates/CCNAv7 Introdução às redes.pdf';
 import pdfIntroductionCybersecurity from '../../assets/certificates/Introduction to Cybersecurity.pdf';
 import pdfLinux from '../../assets/certificates/NDG Linux Unhatched Português.pdf';
+import { useTranslation } from 'react-i18next';
+import Header from '../../components/Header';
 
 export function Certificates() {
+    const { t } = useTranslation()
+
     return(
-        <SectionCertifications>
-            <TextCertificates>
-                Certificates
-            </TextCertificates>
+        <>
+            <Header />
 
-            <Items>
-                <ItemCertificates href={pdfMRV} target='_blank' urlImage={imgDIO}>
-                    <TextInfoCertificates>MRV Fullstack Developer</TextInfoCertificates>
-                </ItemCertificates>
+            <SectionCertifications>
+                <TextCertificates>
+                    {t('certificates.title')}
+                </TextCertificates>
 
-                <ItemCertificates href={pdfMobileAppDevelopment} target='_blank' urlImage={imgIFSP}>
-                    <TextInfoCertificates>Programação de Computadores e Dispositivos Móveis
-                    </TextInfoCertificates>
-                </ItemCertificates>
+                <Items>
+                    <ItemCertificates href={pdfMRV} target='_blank' urlImage={imgDIO}>
+                        <TextInfoCertificates>MRV Fullstack Developer</TextInfoCertificates>
+                    </ItemCertificates>
 
-                <ItemCertificates href={pdfDevelopmentWEB} target='_blank'  urlImage={imgIFSP}>
-                    <TextInfoCertificates>
-                    Introdução à Programação WEB
-                    </TextInfoCertificates>
-                </ItemCertificates>
+                    <ItemCertificates href={pdfMobileAppDevelopment} target='_blank' urlImage={imgIFSP}>
+                        <TextInfoCertificates>Programação de Computadores e Dispositivos Móveis
+                        </TextInfoCertificates>
+                    </ItemCertificates>
 
-                <ItemCertificates href={pdfIntroductionNetwork} target='_blank' urlImage={imgCisco}>
-                    <TextInfoCertificates>Introdução às redes</TextInfoCertificates>
-                </ItemCertificates>
+                    <ItemCertificates href={pdfDevelopmentWEB} target='_blank'  urlImage={imgIFSP}>
+                        <TextInfoCertificates>
+                        Introdução à Programação WEB
+                        </TextInfoCertificates>
+                    </ItemCertificates>
 
-                <ItemCertificates href={pdfIntroductionCybersecurity} target='_blank'  urlImage={imgCisco}>
-                    <TextInfoCertificates>
-                    Introduction to Cybersecurity
-                    </TextInfoCertificates>
-                </ItemCertificates>
+                    <ItemCertificates href={pdfIntroductionNetwork} target='_blank' urlImage={imgCisco}>
+                        <TextInfoCertificates>Introdução às redes</TextInfoCertificates>
+                    </ItemCertificates>
 
-                <ItemCertificates href={pdfLinux} target='_blank'  urlImage={imgCisco}>
-                    <TextInfoCertificates>NDG Linux Unhatched
-                    </TextInfoCertificates>
-                </ItemCertificates>
+                    <ItemCertificates href={pdfIntroductionCybersecurity} target='_blank'  urlImage={imgCisco}>
+                        <TextInfoCertificates>
+                        Introduction to Cybersecurity
+                        </TextInfoCertificates>
+                    </ItemCertificates>
 
-            </Items>
-        </SectionCertifications>
+                    <ItemCertificates href={pdfLinux} target='_blank'  urlImage={imgCisco}>
+                        <TextInfoCertificates>NDG Linux Unhatched
+                        </TextInfoCertificates>
+                    </ItemCertificates>
+
+                </Items>
+            </SectionCertifications>
+        </>
     )
 }
