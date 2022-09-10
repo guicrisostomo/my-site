@@ -24,7 +24,7 @@ import {
     Hheader,
     ContentTextHeader,
     AbbreviationName,
-    TextHeader,
+    TextHeaderStyle,
     MenuImgHeader
 } from './style.js';
 
@@ -32,7 +32,7 @@ import {Link} from 'react-router-dom';
 import { t } from 'i18next';
 
 export default function Header() {
-  const [pages, setPages] = useState('apresentacao');
+  const [pages, setPages] = useState('');
   const [language, setLanguage] = useState('portuguese');
   const [scrolled, setScrolled] = useState(0);
   const { i18n } = useTranslation()
@@ -52,6 +52,22 @@ export default function Header() {
     setLanguage(i18n.language)
   }, [])
 
+  function TextHeader(props) {
+    if (props.expected === pages) {
+      return (
+        <TextHeaderStyle active={true}>
+          {props.children}
+        </TextHeaderStyle>
+      )
+    } else {
+      return (
+        <TextHeaderStyle active={false}>
+          {props.children}
+        </TextHeaderStyle>
+      )
+    }
+  }
+
   return (
     
     <Hheader style={{backgroundColor: scrolled > 1 ? 'black' : 'transparent'}}>
@@ -63,32 +79,32 @@ export default function Header() {
           </AbbreviationName>
         </Link>
         
-        <Link to="/" style={{textDecoration: 'none', alignSelf: 'center'}}>
-          <TextHeader>
+        <Link to="/" style={{backgroundColor: pages === '' ? '#282929' : 'transparent', borderRadius: pages === '' ? '10px' : '', padding: pages === '' ? '5px' : '', textDecoration: 'none', alignSelf: 'center'}}>
+          <TextHeader expected="">
             {t('header.about')}
           </TextHeader>
         </Link>
 
-        <Link to="/skill" style={{textDecoration: 'none', alignSelf: 'center'}}>
-          <TextHeader>
+        <Link to="/skill" style={{backgroundColor: pages === 'skill' ? '#282929' : 'transparent', borderRadius: pages === 'skill' ? '10px' : '', padding: pages === 'skill' ? '5px' : '', textDecoration: 'none', alignSelf: 'center'}}>
+          <TextHeader expected="skill">
             {t('header.skills')}
           </TextHeader>
         </Link>
 
-        <Link to="/contact" style={{textDecoration: 'none', alignSelf: 'center'}}>
-          <TextHeader>
+        <Link to="/contact" style={{backgroundColor: pages === 'contact' ? '#282929' : 'transparent', borderRadius: pages === 'contact' ? '10px' : '', padding: pages === 'contact' ? '5px' : '', textDecoration: 'none', alignSelf: 'center'}}>
+          <TextHeader expected="contact">
             {t('header.contact')}
           </TextHeader>
         </Link>
 
-        <Link to="/projects" style={{textDecoration: 'none', alignSelf: 'center'}}>
-          <TextHeader>
+        <Link to="/projects" style={{backgroundColor: pages === 'projects' ? '#282929' : 'transparent', borderRadius: pages === 'projects' ? '10px' : '', padding: pages === 'projects' ? '5px' : '', textDecoration: 'none', alignSelf: 'center'}}>
+          <TextHeader expected="projects">
             {t('header.projects')}
           </TextHeader>
         </Link>
 
-        <Link to="/certificates" style={{textDecoration: 'none', alignSelf: 'center'}}>
-          <TextHeader>
+        <Link to="/certificates" style={{backgroundColor: pages === 'certificates' ? '#282929' : 'transparent', borderRadius: pages === 'certificates' ? '10px' : '', padding: pages === 'certificates' ? '5px' : '', textDecoration: 'none', alignSelf: 'center'}}>
+          <TextHeader expected="certificates">
             {t('header.certificates')}
           </TextHeader>
         </Link>
