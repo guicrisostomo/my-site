@@ -15,8 +15,11 @@ import {
 
 import imgIfood from '../../assets/img/imgIfood.svg'
 import { SiHtml5, SiCss3, SiJavascript, SiReact } from 'react-icons/si';
+import { useTranslation } from 'react-i18next';
 
 export function Projects() {
+    const { t } = useTranslation()
+
     return(
         <>
             <Header />
@@ -33,9 +36,13 @@ export function Projects() {
                         </ItemProjectImg>
                         
                         <ItemProjectText>
-                            <TextTitleProject>Clone ifood</TextTitleProject>
+                            <TextTitleProject>
+                                {t('projects.title.info1')}
+                            </TextTitleProject>
 
-                            <TextInfoProject>Projeto criado no bootcamp MRV FullStack Developer da DIO</TextInfoProject>
+                            <TextInfoProject>
+                                {t('projects.info.item1')}
+                            </TextInfoProject>
 
                             <ItemLanguagesProject>
 

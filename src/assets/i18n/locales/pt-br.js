@@ -27,7 +27,16 @@ export default {
 
         certificates: {
             title: 'Certificados',
+        },
+
+        projects: {
+            title: {
+                item1: 'Clone Ifood'
+            },
             
+            info: {
+                item1: 'Projeto criado no bootcamp MRV FullStack Developer da DIO',
+            },
         }
     }
 }
