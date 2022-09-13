@@ -37,7 +37,7 @@ export function Projects() {
                         
                         <ItemProjectText>
                             <TextTitleProject>
-                                {t('projects.title.info1')}
+                                {t('projects.title.item1')}
                             </TextTitleProject>
 
                             <TextInfoProject>
