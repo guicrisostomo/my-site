@@ -26,7 +26,7 @@ export function Projects() {
             
             <SectionProjects>
                 <TextProjects>
-                    Projects
+                    {t('projects.title.main')}
                 </TextProjects>
 
                 <Items>

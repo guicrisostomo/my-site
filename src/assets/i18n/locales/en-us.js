@@ -31,7 +31,8 @@ export default {
 
         projects: {
             title: {
-                item1: 'Clone Ifood'
+                main: 'Projects',
+                item1: 'Clone Ifood',
             },
             
             info: {
