@@ -14,7 +14,8 @@ import {
 } from "../Projects/style";
 
 import imgIfood from '../../assets/img/imgIfood.svg'
-import { SiHtml5, SiCss3, SiJavascript, SiReact } from 'react-icons/si';
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiFlutter } from 'react-icons/si';
+import { IoPizzaOutline } from 'react-icons/io5'
 import { useTranslation } from 'react-i18next';
 
 export function Projects() {
@@ -53,6 +54,31 @@ export function Projects() {
                                 <SiJavascript style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px'}}/>
 
                                 <SiReact style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px'}}/>
+
+                            </ItemLanguagesProject>
+                        </ItemProjectText>
+                        
+                    </ItemProject>
+                </Items>
+
+                <Items>
+                    <ItemProject href='https://github.com/guicrisostomo/tcc' target='_blank'>
+                        <ItemProjectImg>
+                            <IoPizzaOutline style={{width: 100, height: 100}} />
+                        </ItemProjectImg>
+                        
+                        <ItemProjectText>
+                            <TextTitleProject>
+                                {t('projects.title.item2')}
+                            </TextTitleProject>
+
+                            <TextInfoProject>
+                                {t('projects.info.item2')}
+                            </TextInfoProject>
+
+                            <ItemLanguagesProject>
+
+                                <SiFlutter style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px'}}/>
 
                             </ItemLanguagesProject>
                         </ItemProjectText>

@@ -37,6 +37,7 @@ export default {
             
             info: {
                 item1: 'Project created in the bootcamp MRV FullStack Developer of the DIO',
+                item2: 'Project created for to help customer, employees and managers of a pizzaria. Besides, It is my Course Completion Works of the college (work in progress)',
             },
         }
     }
