@@ -65,7 +65,7 @@ export const TextTitleProject = styled.h2`
     margin-right: 10px;
 
     @media (max-width: 1278px) {
-        width: 100vw;
+        width: 100%;
         text-align: center;
     }
 
