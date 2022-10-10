@@ -64,8 +64,9 @@ export const TextTitleProject = styled.h2`
     padding-top: 10px;
     margin-right: 10px;
 
-    @media (max-width: 640px) {
-        align-self: center;
+    @media (max-width: 1278px) {
+        width: 100vw;
+        text-align: center;
     }
 
     @media (max-width: 400px) {
@@ -86,7 +87,7 @@ export const ItemProjectImg = styled.div`
     display: flex;
     padding: 10px;
 
-    @media (max-width: 640px) {
+    @media (max-width: 1278px) {
         width: 100%;
         place-content: center;
     }
