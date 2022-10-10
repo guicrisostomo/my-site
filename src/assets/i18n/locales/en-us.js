@@ -33,6 +33,7 @@ export default {
             title: {
                 main: 'Projects',
                 item1: 'Clone Ifood',
+                item2: 'CCW - application for pizzaria'
             },
             
             info: {
