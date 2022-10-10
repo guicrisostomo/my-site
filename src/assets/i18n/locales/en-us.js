@@ -27,10 +27,20 @@ export default {
 
         certificates: {
             title: 'Certificates',
+        },
+
+        projects: {
+            title: {
+                main: 'Projects',
+                item1: 'Clone Ifood',
+            },
             
             info: {
                 item1: 'Project created in the bootcamp MRV FullStack Developer of the DIO',
+<<<<<<< HEAD
                 item2: 'Project created for to help customer, employees and managers of a pizzaria. Besides, It is my Course Completion Works of the college (work in progress)',
+=======
+>>>>>>> a65e20df9bd4df52f24fd20275ba758db4fe526e
             },
         }
     }

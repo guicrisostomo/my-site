@@ -20,13 +20,15 @@ import { IoPizzaOutline } from 'react-icons/io5'
 import { useTranslation } from 'react-i18next';
 
 export function Projects() {
+    const { t } = useTranslation()
+
     return(
         <>
             <Header />
             
             <SectionProjects>
                 <TextProjects>
-                    Projects
+                    {t('projects.title.main')}
                 </TextProjects>
 
                 <Items>
@@ -36,9 +38,13 @@ export function Projects() {
                         </ItemProjectImg>
                         
                         <ItemProjectText>
-                            <TextTitleProject>Clone ifood</TextTitleProject>
+                            <TextTitleProject>
+                                {t('projects.title.item1')}
+                            </TextTitleProject>
 
-                            <TextInfoProject>Projeto criado no bootcamp MRV FullStack Developer da DIO</TextInfoProject>
+                            <TextInfoProject>
+                                {t('projects.info.item1')}
+                            </TextInfoProject>
 
                             <ItemLanguagesProject>
 

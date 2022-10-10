@@ -23,3 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .vercel
+
+.bashrc
+
+vercel.cmd
+vercel.ps1
