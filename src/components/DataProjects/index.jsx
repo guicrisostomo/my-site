@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, query, orderBy } from "firebase/firestore";
 import db from "../../assets/database/config/index";
 import {
     Items,
@@ -23,7 +23,8 @@ export function DataProjects() {
 
     async function fetchProjects() {
         const projectsCol = collection(db, 'projects');
-        const projectsSnapshot = await getDocs(projectsCol);
+        const projectsColOrder = query(projectsCol, orderBy("order", "asc"));
+        const projectsSnapshot = await getDocs(projectsColOrder);
         setProjects(projectsSnapshot.docs.map(doc => doc.data()));
         return projects;
     }
