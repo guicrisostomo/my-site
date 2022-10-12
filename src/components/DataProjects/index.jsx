@@ -12,7 +12,7 @@ import {
     TextTitleProject,
     TextInfoProject,
     ImgProject
-} from "../../pages/Projects/style";
+} from "../style";
 import { SiHtml5, SiCss3, SiJavascript, SiReact, SiFlutter } from 'react-icons/si';
 import { useTranslation } from 'react-i18next';
 
