@@ -6,6 +6,7 @@ import {
     ItemProject,
     ItemProjectImg,
     ItemProjectText,
+    ItemSkillImg,
     ItemLanguagesProject,
     TextTitleProject,
     TextInfoProject,
@@ -17,6 +18,9 @@ import { useTranslation } from 'react-i18next';
 export function DataProjects() {
     const [projects,setProjects]=useState([]);
     const { i18n } = useTranslation()
+    const runCallback = (cb) => {
+        return cb();
+    };
 
     async function fetchProjects() {
         const projectsCol = collection(db, 'projects');
@@ -61,8 +65,15 @@ export function DataProjects() {
                         </TextInfoProject>
 
                         <ItemLanguagesProject>
-
-                            <SiHtml5 style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px'}}/>
+                            {
+                                runCallback(() => {
+                                const row = [];
+                                for (var i = 0; i < value.lenghtSkills; i++) {
+                                    row.push(<ItemSkillImg Img={value.skill1} ImgDark={value.skillDark}/>);
+                                }
+                                return row;
+                                })
+                            }
 
                             <SiCss3 style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px'}}/>
 

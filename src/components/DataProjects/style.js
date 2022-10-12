@@ -31,6 +31,25 @@ export const ItemProject = styled.a`
         color: black;
         transform: scale(90%, 90%);
     }
+
+    :hover :host ::ng-deep :nth-child() {
+        src: 'gdgfb',
+    }
+`;
+
+export const ItemSkillImg = styled.img.attrs(props => ({
+    src: props.Img,
+}))`
+    display: flex;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    padding: 5px;
+    color: white;
 `;
 
 export const TextTitleProject = styled.h2`
