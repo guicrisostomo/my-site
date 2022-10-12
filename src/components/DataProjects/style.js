@@ -39,11 +39,8 @@ export const ItemSkillImg = styled.img`
     height: 50px;
     margin-right: 10px;
     border-radius: 50%;
-    border-style: solid;
-    border-width: 1px;
-    border-color: white;
     padding: 5px;
-    color: white;
+    background-color: white;
 `;
 
 export const TextTitleProject = styled.h2`
