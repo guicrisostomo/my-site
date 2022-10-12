@@ -68,19 +68,13 @@ export function DataProjects() {
                                 runCallback(() => {
                                     const row = [];
 
-                                    for (var i = 0; i < value.lenghtSkills; i++) {
+                                    for (var i = 0; i < value.skills.length; i++) {
                                         row.push(<ItemSkillImg Img={value.skills[i]} ImgDark={value.skillDark} key={'skill' + i}/>);
                                     }
-                                    
+
                                     return row;
                                 })
                             }
-
-                            <SiCss3 style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px'}}/>
-
-                            <SiJavascript style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px'}}/>
-
-                            <SiReact style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px'}}/>
 
                         </ItemLanguagesProject>
                     </ItemProjectText>
