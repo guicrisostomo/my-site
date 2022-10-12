@@ -22,6 +22,9 @@ It was created with intuition of to have more information about me. This is a Re
  - React-i18next
  - I18next
  - I18next-browser-languagedetector
+ - I18next-browser-languagedetector
+ - Firebase/firestore
+ - Firebase/database
 
 ## Photo project
 ![ImageSite1](https://user-images.githubusercontent.com/41306417/161869804-7015579c-d6ff-4927-b15a-8d5556d3031e.png)
