@@ -31,7 +31,6 @@ export function DataProjects() {
 
     useEffect(() => {
         fetchProjects()
-        console.log(projects)
     }, []);
     
     return(
@@ -67,11 +66,13 @@ export function DataProjects() {
                         <ItemLanguagesProject>
                             {
                                 runCallback(() => {
-                                const row = [];
-                                for (var i = 0; i < value.lenghtSkills; i++) {
-                                    row.push(<ItemSkillImg Img={value.skill1} ImgDark={value.skillDark}/>);
-                                }
-                                return row;
+                                    const row = [];
+
+                                    for (var i = 0; i < value.lenghtSkills; i++) {
+                                        row.push(<ItemSkillImg Img={value.skills[i]} ImgDark={value.skillDark} key={'skill' + i}/>);
+                                    }
+                                    
+                                    return row;
                                 })
                             }
 
