@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { getDocs, collection } from "firebase/firestore"; 
-import "firebase/compat/database";
+import { getDocs, collection } from "firebase/firestore";
 import db from "../../assets/database/config/index";
 import {
     Items,
