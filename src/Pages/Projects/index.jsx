@@ -3,19 +3,7 @@ import Header from '../../components/Header';
 import { 
     SectionProjects,
     TextProjects,
-    Items,
-    ItemProject,
-    ItemProjectImg,
-    ItemProjectText,
-    ItemLanguagesProject,
-    TextTitleProject,
-    TextInfoProject,
-    ImgProject
 } from "../Projects/style";
-
-import imgIfood from '../../assets/img/imgIfood.svg'
-import { SiHtml5, SiCss3, SiJavascript, SiReact, SiFlutter } from 'react-icons/si';
-import { IoPizzaOutline } from 'react-icons/io5'
 import { useTranslation } from 'react-i18next';
 import { DataProjects } from '../../components/DataProjects';
 
@@ -24,7 +12,7 @@ export function Projects() {
     
     return(
         <>
-        
+
             <Header />
             
             <SectionProjects>
