@@ -68,7 +68,7 @@ export function DataProjects() {
                                     const row = [];
 
                                     for (var i = 0; i < value.skills.length; i++) {
-                                        row.push(<ItemSkillImg Img={value.skills[i]} ImgDark={value.skillDark} key={'skill' + i}/>);
+                                        row.push(<ItemSkillImg src={value.skills[i]} ImgDark={value.skillDark} key={'skill' + i}/>);
                                     }
 
                                     return row;

@@ -31,15 +31,9 @@ export const ItemProject = styled.a`
         color: black;
         transform: scale(90%, 90%);
     }
-
-    :hover :host ::ng-deep :nth-child() {
-        src: 'gdgfb',
-    }
 `;
 
-export const ItemSkillImg = styled.img.attrs(props => ({
-    src: props.Img,
-}))`
+export const ItemSkillImg = styled.img`
     display: flex;
     width: 50px;
     height: 50px;
