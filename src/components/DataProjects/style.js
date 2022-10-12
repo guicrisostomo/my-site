@@ -49,11 +49,8 @@ export const ItemSkillImg = styled.img`
 export const TextTitleProject = styled.h2`
     padding-top: 10px;
     margin-right: 10px;
-
-    @media (max-width: 1278px) {
-        width: 100%;
-        text-align: center;
-    }
+    width: 100%;
+    text-align: center;
 
     @media (max-width: 400px) {
         font-size: 16px;
@@ -72,11 +69,8 @@ export const ImgProject = styled.img`
 export const ItemProjectImg = styled.div`
     display: flex;
     padding: 10px;
-
-    @media (max-width: 1278px) {
-        width: 100%;
-        place-content: center;
-    }
+    width: 100%;
+    place-content: center;
 `;
 
 export const ItemProjectText = styled.div`
@@ -84,9 +78,6 @@ export const ItemProjectText = styled.div`
     flex-wrap: wrap;
     flex-direction: column;
     width: 100%;
-    @media (max-width: 640px) {
-        
-    }
 `;
 
 export const ItemLanguagesProject = styled.div`
