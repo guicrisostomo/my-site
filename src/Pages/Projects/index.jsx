@@ -17,12 +17,14 @@ import imgIfood from '../../assets/img/imgIfood.svg'
 import { SiHtml5, SiCss3, SiJavascript, SiReact, SiFlutter } from 'react-icons/si';
 import { IoPizzaOutline } from 'react-icons/io5'
 import { useTranslation } from 'react-i18next';
+import { DataProjects } from '../../components/DataProjects';
 
 export function Projects() {
     const { t } = useTranslation()
-
+    
     return(
         <>
+        
             <Header />
             
             <SectionProjects>
@@ -30,6 +32,7 @@ export function Projects() {
                     {t('projects.title.main')}
                 </TextProjects>
 
+                {/*
                 <Items>
                     <ItemProject href='https://github.com/guicrisostomo/Projetos-DIO/tree/master/React/Desafio%20-%20criando%20interface%20do%20iFood' target='_blank'>
                         <ItemProjectImg>
@@ -85,6 +88,10 @@ export function Projects() {
                         
                     </ItemProject>
                 </Items>
+                */}
+
+                <DataProjects />
+
             </SectionProjects>
         </>
     )

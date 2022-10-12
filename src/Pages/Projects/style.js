@@ -97,9 +97,9 @@ export const ItemProjectText = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-
+    width: 100%;
     @media (max-width: 640px) {
-        width: 100%;
+        
     }
 `;
 
