@@ -6,7 +6,7 @@ import {
   ItemSkill,
   TextInfoSkill
 } from './style.js'
-import { SiReact, SiCss3, SiHtml5, SiJavascript, SiMicrosoftsqlserver, SiGit } from "react-icons/si";
+import { SiReact, SiCss3, SiHtml5, SiJavascript, SiMicrosoftsqlserver, SiGit, SiFlutter } from "react-icons/si";
 import Header from '../../components/Header';
 import { useTranslation } from 'react-i18next';
 
@@ -45,6 +45,12 @@ export default function Skill() {
               <SiReact style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px', boxShadow: 'white 0px 0px 50px'}} />
 
               <TextInfoSkill>REACTJS</TextInfoSkill>
+            </ItemSkill>
+
+            <ItemSkill href="https://github.com/guicrisostomo/my-site" target='_blank'>
+              <SiFlutter style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px', boxShadow: 'white 0px 0px 50px'}} />
+
+              <TextInfoSkill>FLUTTER</TextInfoSkill>
             </ItemSkill>
 
             <ItemSkill styled={{cursor: 'none'}}>
