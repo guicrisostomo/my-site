@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from '../../components/Header';
+import Header from '../../components/Header/index.jsx';
 import { 
     SectionProjects,
     TextProjects,
 } from "../Projects/style";
 import { useTranslation } from 'react-i18next';
-import { DataProjects } from '../../components/DataProjects';
+import { DataProjects } from '../../components/DataProjects/index.jsx';
 
 export function Projects() {
     const { t } = useTranslation()

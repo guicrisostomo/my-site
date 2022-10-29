@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Skill from './pages/Skills';
-import Contact from './pages/Contact';
-import Error from './pages/Error';
-import { Projects } from './pages/Projects';
-import { Certificates } from './pages/Certificates';
+import Home from './pages/Home/index.jsx';
+import Skill from './pages/Skills/index.jsx';
+import Contact from './pages/Contact/index.jsx';
+import Error from './pages/Error/index.jsx';
+import { Projects } from './pages/Projects/index.jsx';
+import { Certificates } from './pages/Certificates/index.jsx';
 
 export default function AppRoutes() {
   return (

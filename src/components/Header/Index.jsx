@@ -13,7 +13,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem
-} from '../Navbar'
+} from '../Navbar/index.jsx'
 
 import {
   Box,

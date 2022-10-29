@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
-import Routers from './Routers';
+import Routers from './Routers.jsx';
 import './assets/i18n'
 
 ReactDOM.render(

@@ -18,7 +18,7 @@ import pdfIntroductionNetwork from '../../assets/certificates/CCNAv7 Introduçã
 import pdfIntroductionCybersecurity from '../../assets/certificates/Introduction to Cybersecurity.pdf';
 import pdfLinux from '../../assets/certificates/NDG Linux Unhatched Português.pdf';
 import { useTranslation } from 'react-i18next';
-import Header from '../../components/Header';
+import Header from '../../components/Header/index.jsx';
 
 export function Certificates() {
     const { t } = useTranslation()

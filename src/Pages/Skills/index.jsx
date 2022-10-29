@@ -7,7 +7,7 @@ import {
   TextInfoSkill
 } from './style.js'
 import { SiReact, SiCss3, SiHtml5, SiJavascript, SiMicrosoftsqlserver, SiGit, SiFlutter } from "react-icons/si";
-import Header from '../../components/Header';
+import Header from '../../components/Header/index.jsx';
 import { useTranslation } from 'react-i18next';
 
 export default function Skill() {

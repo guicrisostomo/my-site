@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import Header from '../../components/Header';
-import Presentation from '../../components/Presentation';
+import Header from '../../components/Header/index.jsx';
+import Presentation from '../../components/Presentation/index.jsx';
 
 import {
   SectionAbout,

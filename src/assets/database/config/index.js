@@ -1,15 +1,16 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 
+console.log(process.env.REACT_APP_FIREBASE_MEASUREMENTID)
 const config = {
-    apiKey: "AIzaSyAvoXPd4LzA4O6Ee9CbakzvWTQ6rirCpmo",
-    authDomain: "my-site-710d2.firebaseapp.com",
-    databaseURL: "https://my-site-710d2-default-rtdb.firebaseio.com",
-    projectId: "my-site-710d2",
-    storageBucket: "my-site-710d2.appspot.com",
-    messagingSenderId: "1049374597868",
-    appId: "1:1049374597868:web:e6071f25a10991056f7bc9",
-    measurementId: "G-QMVDQ44478"
+    apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASEURL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
+    appId: process.env.REACT_APP_FIREBASE_APPID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID
 };
 
 const app = initializeApp(config);
