@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@octokit/core": "^4.1.0",
     "svg-url-loader": "^8.0.0"
   }
 }
