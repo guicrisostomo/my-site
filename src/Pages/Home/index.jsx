@@ -19,13 +19,13 @@ export default function Home() {
       
       <SectionAbout>
         
-          <TextAbout>
-            {t('about.title')}
-          </TextAbout>
+        <TextAbout>
+          {t('home.title')}
+        </TextAbout>
 
-          <TextInfoAbout>
-            {t('about.text')}
-          </TextInfoAbout>
+        <TextInfoAbout>
+          {t('home.text')}
+        </TextInfoAbout>
 
         
       </SectionAbout>

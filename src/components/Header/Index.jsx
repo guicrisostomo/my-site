@@ -81,7 +81,7 @@ export default function Header() {
         
         <Link to="/" style={{backgroundColor: pages === '' ? '#282929' : 'transparent', borderRadius: pages === '' ? '10px' : '', padding: pages === '' ? '5px' : '', textDecoration: 'none', alignSelf: 'center'}}>
           <TextHeader expected="">
-            {t('header.about')}
+            {t('header.home')}
           </TextHeader>
         </Link>
 
@@ -130,7 +130,7 @@ export default function Header() {
                       <DropdownMenuItemIndicator>
                         <DotFilledIcon />
                       </DropdownMenuItemIndicator>
-                      {t('header.about')}
+                      {t('header.home')}
                     </DropdownMenuRadioItem>
                   </Link>
 
