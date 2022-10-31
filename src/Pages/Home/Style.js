@@ -88,6 +88,8 @@ export const ItemCommitInfoName = styled.p`
 export const ItemCommitInfoText = styled.p`
     margin-top: -10px;
     font-size: 16px;
+    text-transform: capitalize;
+    padding: 10px;
 `;
 
 export const ItemCommitInfoButton = styled.a`

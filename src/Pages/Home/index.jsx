@@ -22,7 +22,7 @@ import {
 
 export default function Home() {
   const { t } = useTranslation()
-  const [commits, setCommits] = useState([{id: 1, created_at: '10', type: 'PushEvent', repo: {name: 'Repositório'}}])
+  const [commits, setCommits] = useState([{id: 1, created_at: '2019-01-01T00:00:00.000+00:00', type: 'PushEvent', repo: {name: 'Repositório'}}])
   const { i18n } = useTranslation()
 
   const getData = async () => {
@@ -55,7 +55,19 @@ export default function Home() {
     return arrayStr.join(' ');
   }
 
-  console.log(commits)
+  function subHour(time) {
+    const dateStr = time;
+
+    const [dateRelated, timeRelated] = dateStr.split(' ');
+
+    const [month, day, year] = dateRelated.split('/');
+    const [hours, minutes, seconds] = timeRelated.split(':');
+
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date(Date.UTC(year, month, day, hours,  minutes, seconds)).toLocaleTimeString(i18n.languages, options)
+    return date;
+  }
+
   return (
     <>
       
@@ -104,16 +116,9 @@ export default function Home() {
                     <br />
 
                     {
-                      i18n.language === 'pt-BR' ?
-                        t('home.commit.date') + reverseDate(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' '
-                      :
-                        t('home.commit.date') + reverseDateEN(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' '
-
+                      t('home.commit.date') + subHour(reverseDateEN(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' ' + item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]).toString()
                     }
-
-                    {
-                      item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]
-                    }
+                    
                   </ItemCommitInfoText>
                 </ItemCommitInfoTexts>
 
