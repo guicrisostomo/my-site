@@ -19,9 +19,11 @@ export default {
             },
 
             commit: {
-                title: 'My last commits',
-                text: 'A list of my last 5 commits with the purpose of to demonstrating what I\'m currently doing',
-                button: 'My project'
+                title: 'My last events on GitHub',
+                text: 'A list of my last 5 events on GitHub with the purpose of to demonstrating what I\'m currently doing',
+                button: 'My code',
+                date: 'Date: ',
+                typeEvent: 'Type: '
             },
         },
 

@@ -19,9 +19,11 @@ export default {
             },
             
             commit: {
-                title: 'Meus últimos commits',
-                text: 'Uma lista com os meus últimos 5 commits para demonstrar o que estou fazendo atualmente',
-                button: 'Meu projeto'
+                title: 'Meus últimos eventos no GitHub',
+                text: 'Uma lista com os meus últimos 5 eventos no GitHub para demonstrar o que estou fazendo atualmente',
+                button: 'Meu código',
+                date: 'Data: ',
+                typeEvent: 'Tipo: '
             },
         },
 
@@ -43,20 +45,6 @@ export default {
                 item1: 'Clone Ifood',
                 item2: 'TCC - aplicativo para pizzaria',
             },
-            
         },
-
-        projects: {
-            title: {
-                main: 'Projetos',
-                item1: 'Clone Ifood',
-                item2: 'TCC - aplicativo para pizzaria',
-            },
-            
-            info: {
-                item1: 'Projeto criado no bootcamp MRV FullStack Developer da DIO',
-                item2: 'Projeto criado para auxiliar clientes, funcionários e gerentes de uma pizzaria. Além disso, ele é meu trabalho de conclusão do curso da faculdade (trabalho em andamento)',
-            },
-        }
     }
 }

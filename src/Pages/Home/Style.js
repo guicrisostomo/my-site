@@ -85,7 +85,7 @@ export const ItemCommitInfoName = styled.p`
     font-weight: bold;
 `;
 
-export const ItemCommitInfoDate = styled.p`
+export const ItemCommitInfoText = styled.p`
     margin-top: -10px;
     font-size: 16px;
 `;

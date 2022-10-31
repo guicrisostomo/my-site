@@ -17,15 +17,15 @@ import {
   ItemCommitInfoButtonText,
   ItemCommitInfoTexts,
   ItemCommitInfoName,
-  ItemCommitInfoDate,
+  ItemCommitInfoText,
 } from './style.js';
 
 export default function Home() {
   const { t } = useTranslation()
-  const [commits, setCommits] = useState([{id: 1, created_at: '10', repo: {name: 'Repositório'}}])
+  const [commits, setCommits] = useState([{id: 1, created_at: '10', type: 'PushEvent', repo: {name: 'Repositório'}}])
   const { i18n } = useTranslation()
 
-  async function getData() {
+  const getData = async () => {
     
     const perPage = 5;
 
@@ -38,7 +38,9 @@ export default function Home() {
     setCommits(json.data)
   }
 
-  useEffect(getData, [])
+  useEffect(() => {
+    getData()
+  }, [])
 
   function reverseDate(str) {
     return str.split("-").reverse().join("/");
@@ -48,6 +50,12 @@ export default function Home() {
     return str.split("-")[1] + '/' + str.split("-")[2] + '/' + str.split("-")[0];
   }
 
+  function separateUpperLetters(str) {
+    const arrayStr = str.replace('Event', '').split(/(?=[A-ZÀ-Ú])/)
+    return arrayStr.join(' ');
+  }
+
+  console.log(commits)
   return (
     <>
       
@@ -82,26 +90,31 @@ export default function Home() {
             commits.map((item => (
               <ItemCommitInfo key={item.id}>
                 <ItemCommitInfoTexts>
-                <ItemCommitInfoName>
-                  {
-                    item.repo.name.toString().replace('guicrisostomo/', '').replaceAll('-', ' ')
-                  }
-                </ItemCommitInfoName>
+                  <ItemCommitInfoName>
+                    {
+                      item.repo.name.toString().replace('guicrisostomo/', '').replaceAll('-', ' ')
+                    }
+                  </ItemCommitInfoName>
+                  
+                  <ItemCommitInfoText>
+                    {
+                      t('home.commit.typeEvent') + separateUpperLetters(item.type)
+                    }
 
-                <ItemCommitInfoDate>
-                  {
-                    i18n.language === 'pt-BR' ?
-                      reverseDate(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' '
-                    :
-                      reverseDateEN(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' '
+                    <br />
 
-                  }
+                    {
+                      i18n.language === 'pt-BR' ?
+                        t('home.commit.date') + reverseDate(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' '
+                      :
+                        t('home.commit.date') + reverseDateEN(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' '
 
-                  {
-                    item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]
-                  }
-                </ItemCommitInfoDate>
+                    }
 
+                    {
+                      item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]
+                    }
+                  </ItemCommitInfoText>
                 </ItemCommitInfoTexts>
 
                 <ItemCommitInfoButton href={'https://github.com/' + item.repo.name} target='_blank'>
