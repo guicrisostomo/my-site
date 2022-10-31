@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import imgAbout from "../../assets/img/imgAbout.png";
-import imgInfoCommits from "../../assets/img/imgInfoCommits.png";
+import imgInfoEvents from "../../assets/img/imgInfoEvents.png";
 
 export const SectionAbout = styled.section`
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgAbout});
@@ -33,8 +33,8 @@ export const Subtitle = styled.p`
     }
 `;
 
-export const SectionCommits = styled.section`
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgInfoCommits});
+export const SectionEvents = styled.section`
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgInfoEvents});
     width: auto;
     background-repeat: no-repeat;
     background-size: cover;
@@ -42,14 +42,14 @@ export const SectionCommits = styled.section`
     margin-top: 5px;
 `;
 
-export const ItemsCommitInfo = styled.div`
+export const ItemsEventInfo = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
 `;
 
-export const ItemCommitInfo = styled.div`
+export const ItemEventInfo = styled.div`
     width: 100%;
     color: white;
     display: flex;
@@ -74,25 +74,25 @@ export const ItemCommitInfo = styled.div`
     }
 `;
 
-export const ItemCommitInfoTexts = styled.div`
+export const ItemEventInfoTexts = styled.div`
     display: flex;
     flex-direction: column;
 `;
 
-export const ItemCommitInfoName = styled.p`
+export const ItemEventInfoName = styled.p`
     text-transform: uppercase;
     font-size: 18px;
     font-weight: bold;
 `;
 
-export const ItemCommitInfoText = styled.p`
+export const ItemEventInfoText = styled.p`
     margin-top: -10px;
     font-size: 16px;
     text-transform: capitalize;
     padding: 10px;
 `;
 
-export const ItemCommitInfoButton = styled.a`
+export const ItemEventInfoButton = styled.a`
     border-radius: 10px;
     border-color: black;
     border-width: 1px;
@@ -113,7 +113,7 @@ export const ItemCommitInfoButton = styled.a`
     }
 `;
 
-export const ItemCommitInfoButtonText = styled.p`
+export const ItemEventInfoButtonText = styled.p`
     margin-left: 10px;
     font-size: 20px;
 `;

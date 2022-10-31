@@ -10,19 +10,19 @@ import {
   Title,
   SectionAbout,
   Subtitle,
-  SectionCommits,
-  ItemsCommitInfo,
-  ItemCommitInfo,
-  ItemCommitInfoButton,
-  ItemCommitInfoButtonText,
-  ItemCommitInfoTexts,
-  ItemCommitInfoName,
-  ItemCommitInfoText,
+  SectionEvents,
+  ItemsEventInfo,
+  ItemEventInfo,
+  ItemEventInfoButton,
+  ItemEventInfoButtonText,
+  ItemEventInfoTexts,
+  ItemEventInfoName,
+  ItemEventInfoText,
 } from './style.js';
 
 export default function Home() {
   const { t } = useTranslation()
-  const [commits, setCommits] = useState([{id: 1, created_at: '2019-01-01T00:00:00.000+00:00', type: 'PushEvent', repo: {name: 'Repositório'}}])
+  const [events, setEvents] = useState([{id: 1, created_at: '2019-01-01T00:00:00.000+00:00', type: 'PushEvent', repo: {name: 'Repositório'}}])
   const { i18n } = useTranslation()
 
   const getData = async () => {
@@ -35,13 +35,13 @@ export default function Home() {
       per_page: perPage
     })
 
-    setCommits(json.data)
+    setEvents(json.data)
   }
 
   useEffect(() => {
     getData()
   }, [])
-  
+
   function reverseDateEN(str) {
     return str.split("-")[1] + '/' + str.split("-")[2] + '/' + str.split("-")[0];
   }
@@ -63,7 +63,7 @@ export default function Home() {
     const date = new Date(Date.UTC(year, month, day, hours,  minutes, seconds)).toLocaleTimeString(i18n.languages, options)
     return date;
   }
-
+  
   return (
     <>
       
@@ -83,53 +83,53 @@ export default function Home() {
 
       </SectionAbout>
       
-      <SectionCommits>
+      <SectionEvents>
         <Title>
-          {t('home.commit.title')}
+          {t('home.event.title')}
         </Title>
 
         <Subtitle>
-          {t('home.commit.text')}
+          {t('home.event.text')}
         </Subtitle>
 
-        <ItemsCommitInfo>
+        <ItemsEventInfo>
           {
-            commits !== undefined &&
-            commits.map((item => (
-              <ItemCommitInfo key={item.id}>
-                <ItemCommitInfoTexts>
-                  <ItemCommitInfoName>
+            events !== undefined &&
+            events.map((item => (
+              <ItemEventInfo key={item.id}>
+                <ItemEventInfoTexts>
+                  <ItemEventInfoName>
                     {
                       item.repo.name.toString().replace('guicrisostomo/', '').replaceAll('-', ' ')
                     }
-                  </ItemCommitInfoName>
+                  </ItemEventInfoName>
                   
-                  <ItemCommitInfoText>
+                  <ItemEventInfoText>
                     {
-                      t('home.commit.typeEvent') + separateUpperLetters(item.type)
+                      t('home.event.typeEvent') + separateUpperLetters(item.type)
                     }
 
                     <br />
 
                     {
-                      t('home.commit.date') + subHour(reverseDateEN(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' ' + item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]).toString()
+                      t('home.Event.date') + subHour(reverseDateEN(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' ' + item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]).toString()
                     }
                     
-                  </ItemCommitInfoText>
-                </ItemCommitInfoTexts>
+                  </ItemEventInfoText>
+                </ItemEventInfoTexts>
 
-                <ItemCommitInfoButton href={'https://github.com/' + item.repo.name} target='_blank'>
+                <ItemEventInfoButton href={'https://github.com/' + item.repo.name} target='_blank'>
                   <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github' />
 
-                  <ItemCommitInfoButtonText>
-                    {t('home.commit.button')}
-                  </ItemCommitInfoButtonText>
-                </ItemCommitInfoButton>
-              </ItemCommitInfo>
+                  <ItemEventInfoButtonText>
+                    {t('home.event.button')}
+                  </ItemEventInfoButtonText>
+                </ItemEventInfoButton>
+              </ItemEventInfo>
             )))
           }
-        </ItemsCommitInfo>
-      </SectionCommits>
+        </ItemsEventInfo>
+      </SectionEvents>
       
     </>
   );
