@@ -41,6 +41,10 @@ export default function Home() {
   useEffect(() => {
     getData()
   }, [])
+  
+  function reverseDateEN(str) {
+    return str.split("-")[1] + '/' + str.split("-")[2] + '/' + str.split("-")[0];
+  }
 
   function separateUpperLetters(str) {
     const arrayStr = str.replace('Event', '').split(/(?=[A-ZÀ-Ú])/)
@@ -110,7 +114,7 @@ export default function Home() {
                     {
                       t('home.commit.date') + subHour(reverseDateEN(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' ' + item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]).toString()
                     }
-
+                    
                   </ItemCommitInfoText>
                 </ItemCommitInfoTexts>
 
