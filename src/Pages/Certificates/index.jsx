@@ -20,7 +20,7 @@ import pdfLinux from '../../assets/certificates/NDG Linux Unhatched Português.p
 import { useTranslation } from 'react-i18next';
 import Header from '../../components/Header/index.jsx';
 
-export function Certificates() {
+export default function Certificates() {
     const { t } = useTranslation()
 
     return(

@@ -7,7 +7,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { DataProjects } from '../../components/DataProjects/index.jsx';
 
-export function Projects() {
+export default function Projects() {
     const { t } = useTranslation()
     
     return(
