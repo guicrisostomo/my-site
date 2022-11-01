@@ -22,7 +22,7 @@ import {
 
 export default function Home() {
   const { t } = useTranslation()
-  const [events, setEvents] = useState([{id: 1, created_at: '2019-01-01T00:00:00.000+00:00', type: 'PushEvent', repo: {name: 'Repositório'}}])
+  const [events, setEvents] = useState([{id: 1, created_at: '2019-01-01T00:00:00', type: 'PushEvent', repo: {name: 'Repositório'}}])
   const { i18n } = useTranslation()
 
   const getData = async () => {
@@ -112,7 +112,7 @@ export default function Home() {
                     <br />
 
                     {
-                      t('home.Event.date') + subHour(reverseDateEN(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' ' + item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]).toString()
+                      t('home.event.date') + subHour(reverseDateEN(item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' ' + item.created_at.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]).toString()
                     }
                     
                   </ItemEventInfoText>
