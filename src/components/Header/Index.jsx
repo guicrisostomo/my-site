@@ -109,6 +109,12 @@ export default function Header() {
           </TextHeader>
         </Link>
 
+        <Link to="/updates" style={{backgroundColor: pages === 'updates' ? '#282929' : 'transparent', borderRadius: pages === 'updates' ? '10px' : '', padding: pages === 'updates' ? '5px' : '', textDecoration: 'none', alignSelf: 'center'}}>
+          <TextHeader expected="updates">
+            {t('header.updates')}
+          </TextHeader>
+        </Link>
+
         <MenuImgHeader>
           <Box>
             <DropdownMenu>
@@ -167,6 +173,15 @@ export default function Header() {
                         <DotFilledIcon />
                       </DropdownMenuItemIndicator>
                       {t('header.certificates')}
+                    </DropdownMenuRadioItem>
+                  </Link>
+
+                  <Link to="/updates" style={{textDecoration: 'none'}}>
+                    <DropdownMenuRadioItem value='updates'>
+                      <DropdownMenuItemIndicator>
+                        <DotFilledIcon />
+                      </DropdownMenuItemIndicator>
+                      {t('header.updates')}
                     </DropdownMenuRadioItem>
                   </Link>
 

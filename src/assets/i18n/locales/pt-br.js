@@ -43,9 +43,15 @@ export default {
         projects: {
             title: {
                 main: 'Projetos',
-                item1: 'Clone Ifood',
-                item2: 'TCC - aplicativo para pizzaria',
             },
         },
+
+        updates: {
+            title: 'Meus commits de hoje',
+            subtitle: 'Meus commits feitos na data de hoje',
+            message: 'Mensagem: ',
+            buttonCode: 'Meu projeto',
+            buttonChanged: 'Alterações feitas',
+        }
     }
 }

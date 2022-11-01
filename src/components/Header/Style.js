@@ -75,7 +75,7 @@ export const TextHeaderStyle = styled.span`
       }`
     }
 
-    @media (max-width: 815px) {
+    @media (max-width: 1000px) {
         display: none;
     }
 `;

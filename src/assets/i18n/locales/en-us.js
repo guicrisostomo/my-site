@@ -43,14 +43,15 @@ export default {
         projects: {
             title: {
                 main: 'Projects',
-                item1: 'Clone Ifood',
-                item2: 'CCW - application for pizzaria'
             },
-            
-            info: {
-                item1: 'Project created in the bootcamp MRV FullStack Developer of the DIO',
-                item2: 'Project created for to help customer, employees and managers of a pizzaria. Besides, It is my Course Completion Works of the college (work in progress)',
-            },
+        },
+
+        updates: {
+            title: 'My commits today',
+            subtitle: 'My commits to make today',
+            message: 'Message: ',
+            buttonCode: 'My project',
+            buttonChanged: 'Changes made',
         }
     }
 }
