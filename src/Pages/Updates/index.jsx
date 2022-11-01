@@ -21,13 +21,13 @@ import {
 
 export default function Updates() {
   const { t } = useTranslation()
-  const [commits, setCommits] = useState([{sha: 'idCommit', html_url: 'https://github.com/guicrisostomo/', commit: {message: 'Commit', committer: {date: '0000-00-00'}}, repository: {name: 'Repositório', html_url: 'https://github.com/guicrisostomo/'}}])
   const { i18n } = useTranslation()
+  const dateToday = new Date().toLocaleDateString(i18n.languages).split('/');
+  const textDateToday = dateToday[2] + '-' + dateToday[1] + '-' + dateToday[0]
+  const [commits, setCommits] = useState([{sha: 'idCommit', html_url: 'https://github.com/guicrisostomo/', commit: {message: 'Commit', committer: {date: textDateToday}}, repository: {name: 'Repositório', html_url: 'https://github.com/guicrisostomo/'}}])
 
   const getData = async () => {
-    
-    const dateToday = new Date().toLocaleDateString(i18n.languages).split('/');
-    const textDateToday = dateToday[2] + '-' + dateToday[0] + '-' + dateToday[1]
+
     const octokit = new Octokit({ auth: process.env.REACT_APP_GITHUB_TOKEN });
 
     const json = await octokit.request('GET /search/commits?q=committer-date:{date}%20author:{username}', {
