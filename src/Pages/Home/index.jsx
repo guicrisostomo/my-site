@@ -60,7 +60,7 @@ export default function Home() {
     const [hours, minutes, seconds] = timeRelated.split(':');
 
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const date = new Date(Date.UTC(year, month, day, hours,  minutes, seconds)).toLocaleTimeString(i18n.languages, options)
+    const date = new Date(Date.UTC(year, month-1, day, hours,  minutes, seconds)).toLocaleTimeString(i18n.languages, options)
     return date;
   }
   

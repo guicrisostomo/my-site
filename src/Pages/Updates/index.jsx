@@ -23,6 +23,16 @@ export default function Updates() {
   const { t } = useTranslation()
   const { i18n } = useTranslation()
   const dateToday = new Date().toLocaleDateString(i18n.languages).split('/');
+  
+  if (dateToday[0].length === 1) {
+    dateToday[0] = '0' + dateToday[0];
+  }
+
+  if (dateToday[1].length === 1) {
+    dateToday[1] = '0' + dateToday[1];
+  }
+
+  console.log(dateToday)
   const textDateToday = dateToday[2] + '-' + dateToday[0] + '-' + dateToday[1]
   const [commits, setCommits] = useState([{sha: 'idCommit', html_url: 'https://github.com/guicrisostomo/', commit: {message: 'Commit', committer: {date: textDateToday + ' 10:00:00'}}, repository: {name: 'Repositório', html_url: 'https://github.com/guicrisostomo/'}}])
 
