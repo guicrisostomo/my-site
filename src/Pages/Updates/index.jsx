@@ -69,7 +69,7 @@ export default function Updates() {
     const [hours, minutes, seconds] = timeRelated.split(':');
 
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const date = new Date(Date.UTC(year, month-1, day, hours,  minutes, seconds)).toLocaleTimeString(i18n.languages, options)
+    const date = new Date(Date.UTC(year, month-1, day-5, hours+3,  minutes, seconds)).toLocaleTimeString('en-US', options)
     return date;
   }
   
