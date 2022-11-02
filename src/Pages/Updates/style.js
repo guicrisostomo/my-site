@@ -24,7 +24,7 @@ export const Subtitle = styled.p`
 export const SectionCommits = styled.section`
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgInfoCommits});
     width: auto;
-    height: 100vh;
+    height: 100;
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: start;
