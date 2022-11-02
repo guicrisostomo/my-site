@@ -47,7 +47,7 @@ export default function Home() {
   }
 
   function separateUpperLetters(str) {
-    const arrayStr = str.replace('Event', '').split(/(?=[A-ZÀ-Ú])/)
+    const arrayStr = str.replace('event', '').split(/(?=[A-ZÀ-Ú])/)
     return arrayStr.join(' ');
   }
 
@@ -106,7 +106,7 @@ export default function Home() {
                   
                   <ItemEventInfoText>
                     {
-                      t('home.event.typeEvent') + separateUpperLetters(item.type)
+                      t('home.event.typeEvent') + separateUpperLetters(item.type.toString().toLowerCase())
                     }
 
                     <br />
