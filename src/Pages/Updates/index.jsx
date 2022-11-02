@@ -21,7 +21,7 @@ import {
 export default function Updates() {
   const { t } = useTranslation()
   const { i18n } = useTranslation()
-  const dateToday = new Date().toLocaleDateString(i18n.languages).split('/');
+  const dateToday = new Date().toLocaleDateString('en-US').split('/');
   
   if (dateToday[0].length === 1) {
     dateToday[0] = '0' + dateToday[0];
@@ -30,10 +30,10 @@ export default function Updates() {
   if (dateToday[1].length === 1) {
     dateToday[1] = '0' + dateToday[1];
   }
-
-  console.log(dateToday)
+  
   const textDateToday = dateToday[2] + '-' + dateToday[0] + '-' + dateToday[1]
-  const [commits, setCommits] = useState([{sha: 'idCommit', html_url: 'https://github.com/guicrisostomo/', commit: {message: 'Commit', committer: {date: textDateToday + ' 10:00:00'}}, repository: {name: 'Repositório', html_url: 'https://github.com/guicrisostomo/'}}])
+  const [commits, setCommits] = useState([])
+  const [heightSectionCommit, setHeightSectionCommit] = useState('100')
 
   const getData = async () => {
 
@@ -50,6 +50,22 @@ export default function Updates() {
   useEffect(() => {
     getData()
   }, [])
+
+  useEffect(() => {
+    if(commits.length > 0) {
+      setHeightSectionCommit('100')
+    } else {
+      setHeightSectionCommit('100vh')
+    }
+  }, [commits])
+
+  function Section(props) {
+    return (
+      <SectionCommits height={heightSectionCommit}>
+        {props.children}
+      </SectionCommits>
+    )
+  }
 
   function reverseDateEN(str) {
     return str.split("-")[1] + '/' + str.split("-")[2] + '/' + str.split("-")[0];
@@ -69,75 +85,76 @@ export default function Updates() {
     const [hours, minutes, seconds] = timeRelated.split(':');
 
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const date = new Date(Date.UTC(year, month-1, day-5, hours+3,  minutes, seconds)).toLocaleTimeString('en-US', options)
+    const date = new Date(Date.UTC(year, month-1, day-5, hours+3,  minutes, seconds)).toLocaleTimeString(i18n.languages, options)
     return date;
   }
   
+  console.log(commits)
   return (
     <>
       
       <Header />
       
-      <SectionCommits>
-        <Title>
-          {t('updates.title')}
-        </Title>
+        <Section style={{height: heightSectionCommit}}>
+          <Title>
+            {t('updates.title')}
+          </Title>
 
-        <Subtitle>
-          {t('updates.subtitle')}
-        </Subtitle>
+          <Subtitle>
+            {t('updates.subtitle')}
+          </Subtitle>
 
-        <ItemsCommitInfo>
-          {
-            commits !== undefined &&
-            commits.map((item => (
-              <ItemCommitInfo key={item.sha}>
-                <ItemCommitInfoTexts>
-                  <ItemCommitInfoName>
-                    {
-                      item.repository.name.toString().replaceAll('-', ' ')
-                    }
-                  </ItemCommitInfoName>
-                  
-                  <ItemCommitInfoText>
-                    {
-                      t('updates.message') + separateUpperLetters(item.commit.message.toString())
-                    }
-
-                    <br />
-
-                    {
-                      t('home.event.date') + subHour(reverseDateEN(item.commit.committer.date.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' ' + item.commit.committer.date.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]).toString()
-                    }
+          <ItemsCommitInfo>
+            {
+              commits !== undefined &&
+              commits.map((item => (
+                <ItemCommitInfo key={item.sha}>
+                  <ItemCommitInfoTexts>
+                    <ItemCommitInfoName>
+                      {
+                        item.repository.name.toString().replaceAll('-', ' ')
+                      }
+                    </ItemCommitInfoName>
                     
-                  </ItemCommitInfoText>
-                </ItemCommitInfoTexts>
-                
-                <br />
+                    <ItemCommitInfoText>
+                      {
+                        t('updates.message') + separateUpperLetters(item.commit.message.toString())
+                      }
 
-                <div style={{display: 'flex'}}>
-                  <ItemCommitInfoButton href={item.repository.html_url.toString()} target='_blank'>
-                    <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github' />
+                      <br />
 
-                    <ItemCommitInfoButtonText>
-                      {t('updates.buttonCode')}
-                    </ItemCommitInfoButtonText>
-                  </ItemCommitInfoButton>
+                      {
+                        t('home.event.date') + subHour(reverseDateEN(item.commit.committer.date.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[0]) + ' ' + item.commit.committer.date.toString().replaceAll((/[A-Za-z]/g), ' ').split(' ')[1]).toString()
+                      }
+                      
+                    </ItemCommitInfoText>
+                  </ItemCommitInfoTexts>
+                  
+                  <br />
 
-                  <ItemCommitInfoButton href={item.html_url.toString()} target='_blank'>
-                    <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github' />
+                  <div style={{display: 'flex'}}>
+                    <ItemCommitInfoButton href={item.repository.html_url.toString()} target='_blank'>
+                      <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github' />
 
-                    <ItemCommitInfoButtonText>
-                      {t('updates.buttonChanged')}
-                    </ItemCommitInfoButtonText>
-                  </ItemCommitInfoButton>
-                </div>
+                      <ItemCommitInfoButtonText>
+                        {t('updates.buttonCode')}
+                      </ItemCommitInfoButtonText>
+                    </ItemCommitInfoButton>
 
-              </ItemCommitInfo>
-            )))
-          }
-        </ItemsCommitInfo>
-      </SectionCommits>
+                    <ItemCommitInfoButton href={item.html_url.toString()} target='_blank'>
+                      <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github' />
+
+                      <ItemCommitInfoButtonText>
+                        {t('updates.buttonChanged')}
+                      </ItemCommitInfoButtonText>
+                    </ItemCommitInfoButton>
+                  </div>
+
+                </ItemCommitInfo>
+              )))
+            }
+          </ItemsCommitInfo>
+        </Section>
       
     </>
   );
