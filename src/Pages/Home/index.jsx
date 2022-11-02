@@ -22,7 +22,7 @@ import {
 
 export default function Home() {
   const { t } = useTranslation()
-  const [events, setEvents] = useState([{id: 1, created_at: '2019-01-01T00:00:00', type: 'PushEvent', repo: {name: 'Repositório'}}])
+  const [events, setEvents] = useState([])
   const { i18n } = useTranslation()
 
   const getData = async () => {

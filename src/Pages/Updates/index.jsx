@@ -39,9 +39,10 @@ export default function Updates() {
 
     const octokit = new Octokit({ auth: process.env.REACT_APP_VERCEL_GITHUB_TOKEN });
 
-    const json = await octokit.request('GET /search/commits?q=committer-date:{date}%20author:{username}', {
+    const json = await octokit.request('GET /search/commits?q=committer-date:{date}%20author:{username}+sort:{dateasc}', {
       username: 'guicrisostomo',
       date: textDateToday.toString(),
+      dateasc: 'committer-date-desc'
     })
 
     setCommits(json.data.items)
@@ -79,13 +80,8 @@ export default function Updates() {
   function subHour(time) {
     const dateStr = time.replace('.000-03:00', '');
 
-    const [dateRelated, timeRelated] = dateStr.split(' ');
-
-    const [month, day, year] = dateRelated.split('/');
-    const [hours, minutes, seconds] = timeRelated.split(':');
-
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const date = new Date(Date.UTC(year, month-1, day-5, hours+3,  minutes, seconds)).toLocaleTimeString(i18n.languages, options)
+    const date = new Date(dateStr).toLocaleTimeString(i18n.languages, options)
     return date;
   }
   
