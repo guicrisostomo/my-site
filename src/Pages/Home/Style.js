@@ -88,7 +88,6 @@ export const ItemEventInfoName = styled.p`
 export const ItemEventInfoText = styled.p`
     margin-top: -10px;
     font-size: 16px;
-    text-transform: capitalize;
     padding: 10px;
 `;
 
