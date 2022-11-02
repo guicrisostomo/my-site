@@ -3,7 +3,7 @@ import Header from '../../components/Header/index.jsx';
 import { 
     SectionProjects,
     TextProjects,
-} from "../Projects/style";
+} from "./style";
 import { useTranslation } from 'react-i18next';
 import { DataProjects } from '../../components/DataProjects/index.jsx';
 

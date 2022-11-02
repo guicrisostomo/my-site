@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../../components/Header/index.jsx';
 import Presentation from '../../components/Presentation/index.jsx';
@@ -29,7 +29,7 @@ export default function Home() {
     
     const perPage = 5;
 
-    const octokit = new Octokit({ auth: process.env.REACT_APP_GITHUB_TOKEN });
+    const octokit = new Octokit({ auth: process.env.REACT_APP_VERCEL_GITHUB_TOKEN });
     const json = await octokit.request('GET /users/{username}/events/public', {
       username: 'guicrisostomo',
       per_page: perPage

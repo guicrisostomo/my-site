@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../../components/Header/index.jsx';
-import Presentation from '../../components/Presentation/index.jsx';
 import { Octokit } from "@octokit/core";
 import { AiOutlineGithub } from "react-icons/ai";
 
@@ -38,7 +37,7 @@ export default function Updates() {
 
   const getData = async () => {
 
-    const octokit = new Octokit({ auth: process.env.REACT_APP_GITHUB_TOKEN });
+    const octokit = new Octokit({ auth: process.env.REACT_APP_VERCEL_GITHUB_TOKEN });
 
     const json = await octokit.request('GET /search/commits?q=committer-date:{date}%20author:{username}', {
       username: 'guicrisostomo',
