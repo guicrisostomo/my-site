@@ -23,9 +23,6 @@ module.exports = {
       template: "public/index.html",
     }),
   ],
-  devServer: {
-    port: 3000, // you can change the port
-  },
     /*loaders: [
     {
       test: /\.jsx?$/,
@@ -65,5 +62,6 @@ module.exports = {
 
     devServer: {
       historyApiFallback: true,
+      port: 3000,
     },
 }
