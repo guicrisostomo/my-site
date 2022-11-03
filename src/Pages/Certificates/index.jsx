@@ -19,6 +19,7 @@ import pdfIntroductionCybersecurity from '../../assets/certificates/Introduction
 import pdfLinux from '../../assets/certificates/NDG Linux Unhatched Português.pdf';
 import { useTranslation } from 'react-i18next';
 import Header from '../../components/Header/index.jsx';
+import Footer from '../../components/Footer/index.jsx';
 
 export default function Certificates() {
     const { t } = useTranslation()
@@ -65,6 +66,8 @@ export default function Certificates() {
 
                 </Items>
             </SectionCertifications>
+
+            <Footer />
         </>
     )
 }

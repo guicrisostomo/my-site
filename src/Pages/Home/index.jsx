@@ -19,6 +19,7 @@ import {
   ItemEventInfoName,
   ItemEventInfoText,
 } from './style.js';
+import Footer from '../../components/Footer/index.jsx';
 
 export default function Home() {
   const { t } = useTranslation()
@@ -131,6 +132,7 @@ export default function Home() {
         </ItemsEventInfo>
       </SectionEvents>
       
+      <Footer />
     </>
   );
 }

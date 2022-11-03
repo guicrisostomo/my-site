@@ -7,6 +7,7 @@ import {
   DivButtonReturn
 } from './style.js';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../components/Footer/index.jsx';
 
 export default function Error() {
   const navigate = useNavigate();
@@ -26,6 +27,8 @@ export default function Error() {
           </DivButtonReturn>
         </DivInfoError>
       </SectionError>
+
+      <Footer />
     </>
   )
 }

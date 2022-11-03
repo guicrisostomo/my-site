@@ -9,6 +9,7 @@ import {
 import { SiReact, SiCss3, SiHtml5, SiJavascript, SiMicrosoftsqlserver, SiGit, SiFlutter } from "react-icons/si";
 import Header from '../../components/Header/index.jsx';
 import { useTranslation } from 'react-i18next';
+import Footer from '../../components/Footer/index.jsx';
 
 export default function Skill() {
   const { t } = useTranslation()
@@ -68,6 +69,7 @@ export default function Skill() {
 
       </SectionSkills>
 
+      <Footer />
     </>
   )
 }

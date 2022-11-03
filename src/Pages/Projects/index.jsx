@@ -6,6 +6,7 @@ import {
 } from "./style";
 import { useTranslation } from 'react-i18next';
 import { DataProjects } from '../../components/DataProjects/index.jsx';
+import Footer from '../../components/Footer/index.jsx';
 
 export default function Projects() {
     const { t } = useTranslation()
@@ -23,6 +24,8 @@ export default function Projects() {
                 <DataProjects />
 
             </SectionProjects>
+
+            <Footer />
         </>
     )
 }
