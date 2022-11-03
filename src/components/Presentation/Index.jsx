@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
-import { AiOutlineMail, AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
 import PathPhotoPresentation from '../../assets/img/photoPresentation.jpg';
 
 import {
