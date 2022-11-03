@@ -22,7 +22,10 @@ export default function Updates() {
   const { t } = useTranslation()
   const { i18n } = useTranslation()
   const dateToday = new Date().toLocaleDateString('en-US').split('/');
-  
+  let dateTomorrow = new Date()
+  dateTomorrow.setDate(dateTomorrow.getDate() + 1)
+  dateTomorrow = dateTomorrow.toLocaleDateString('en-US').split('/');
+
   if (dateToday[0].length === 1) {
     dateToday[0] = '0' + dateToday[0];
   }
@@ -30,8 +33,17 @@ export default function Updates() {
   if (dateToday[1].length === 1) {
     dateToday[1] = '0' + dateToday[1];
   }
-  
+
+  if (dateTomorrow[0].length === 1) {
+    dateTomorrow[0] = '0' + dateTomorrow[0];
+  }
+
+  if (dateTomorrow[1].length === 1) {
+    dateTomorrow[1] = '0' + dateTomorrow[1];
+  }
+
   const textDateToday = dateToday[2] + '-' + dateToday[0] + '-' + dateToday[1]
+  const textDateTomorrow = dateTomorrow[2] + '-' + dateTomorrow[0] + '-' + dateTomorrow[1]
   const [commits, setCommits] = useState([])
   const [heightSectionCommit, setHeightSectionCommit] = useState('100')
 
@@ -39,9 +51,10 @@ export default function Updates() {
 
     const octokit = new Octokit({ auth: process.env.REACT_APP_VERCEL_GITHUB_TOKEN });
 
-    const json = await octokit.request('GET /search/commits?q=committer-date:{date}%20author:{username}+sort:{dateasc}', {
+    const json = await octokit.request('GET /search/commits?q=committer-date:{date}T03:00:00..{dateTomorrow}T03:00:00%20author:{username}+sort:{dateasc}', {
       username: 'guicrisostomo',
       date: textDateToday.toString(),
+      dateTomorrow: textDateTomorrow.toString(),
       dateasc: 'committer-date-desc'
     })
 
