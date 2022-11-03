@@ -30,7 +30,7 @@ export default function Presentation() {
               typeSpeed={40}
               deleteSpeed={10}
               delaySpeed={1000}
-              words={['Developer front-end Reactjs', 'Desenvolvedor front-end Reactjs']}
+              words={['Developer front-end', 'Desenvolvedor front-end']}
             />
           </TextInfo>
         </div>
