@@ -66,7 +66,7 @@ export default function Updates() {
   }, [])
 
   useEffect(() => {
-    if(commits.length > 0) {
+    if(commits.length > 1) {
       setHeightSectionCommit('100')
     } else {
       setHeightSectionCommit('100vh')
