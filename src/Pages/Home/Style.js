@@ -11,6 +11,7 @@ export const SectionAbout = styled.section`
     justify-content: start;
     height: 100%;
     margin-top: 5px;
+    padding-bottom: 10px;
 `;
 
 export const Title = styled.h1`

@@ -29,6 +29,7 @@ export const SectionCommits = styled.section`
     justify-content: start;
     padding-top: 72px;
     height: ${props => props.height};
+    padding-bottom: 10px;
 `;
 
 export const ItemsCommitInfo = styled.div`

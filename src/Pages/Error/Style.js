@@ -10,6 +10,7 @@ export const SectionError = styled.section`
     justify-content: start;
     height: 100vh;
     padding-top: 72px;
+    padding-bottom: 10px;
 `;
 
 export const DivInfoError = styled.div`

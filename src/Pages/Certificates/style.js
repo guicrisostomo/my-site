@@ -10,6 +10,7 @@ export const SectionCertifications = styled.section`
     justify-content: start;
     height: 100;
     padding-top: 72px;
+    padding-bottom: 10px;
 `;
 
 export const TextCertificates = styled.h1`

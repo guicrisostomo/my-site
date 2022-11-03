@@ -10,10 +10,7 @@ export const SectionProjects = styled.section`
     justify-content: start;
     height: 100;
     padding-top: 72px;
-
-    @media (max-width: 689px) {
-        height: 100;
-    }
+    padding-bottom: 10px;
 `;
 
 export const TextProjects = styled.h1`
