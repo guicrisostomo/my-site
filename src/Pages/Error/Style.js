@@ -8,14 +8,15 @@ export const SectionError = styled.section`
     background-position: center;
     background-size: cover;
     justify-content: start;
-    height: calc(100vh - 72px);
+    height: 100vh;
     padding-top: 72px;
 `;
 
 export const DivInfoError = styled.div`
-    height: calc(100vh - 72px);
+    top: 30%;
+    position: absolute;
+    height: 100;
     width: 100vw;
-    min-height: 10em;
     display: table-cell;
     vertical-align: middle;
     text-align: -webkit-center;
