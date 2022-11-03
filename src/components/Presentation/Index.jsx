@@ -7,8 +7,8 @@ import {
   SectionPresentation,
   TextPresentation,
   TextInfo,
+  DivPresentation,
   PhotoPresentation,
-  Icons
 } from './style.js'
 
 export default function Presentation() {
@@ -24,7 +24,7 @@ export default function Presentation() {
     <SectionPresentation>
         <PhotoPresentation src={PathPhotoPresentation}/>
 
-        <div style={{display: 'flex', flexDirection: 'column'}}>
+        <DivPresentation>
           <TextPresentation><b>G</b>uilherme <b>C</b>risostomo da <b>S</b>ilva</TextPresentation>
           
           <TextInfo style={{color: 'white', margin: 'auto 0', display: 'flex'}}>
@@ -33,23 +33,9 @@ export default function Presentation() {
             <div style={{marginLeft: '-5px'}}>
               <Cursor cursorStyle={'|'} />
             </div>
-            
+
           </TextInfo>
-        </div>
-
-        <div style={{display: 'flex', flexDirection: 'row', marginLeft: 'auto'}}>
-          <Icons href='https://github.com/guicrisostomo' target="_blank">
-            <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github'/>
-          </Icons>
-
-          <Icons href='https://www.linkedin.com/in/guilherme-crisostomo-da-silva' target="_blank">
-            <AiOutlineLinkedin fontSize={30} cursor="pointer"/>
-          </Icons>
-
-          <Icons href="mailto:guilherme.silva9872@gmail.com" target="_blank">
-            <AiOutlineMail fontSize={30} cursor="pointer" />
-          </Icons>
-        </div>
+        </DivPresentation>
     </SectionPresentation>
   )
 }

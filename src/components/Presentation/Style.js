@@ -42,6 +42,11 @@ export const TextInfo = styled.h3`
     }
 `;
 
+export const DivPresentation = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
 export const PhotoPresentation = styled.img`
     height: 100px;
     width: 100px;
@@ -63,24 +68,5 @@ export const PhotoPresentation = styled.img`
         height: 70px;
         width: 70px;
         margin-top: 0px;
-    }
-`;
-
-export const Icons = styled.a`
-    
-    color: white;
-    background-color: inherit;
-    border-radius: 0px;
-    height: max-content;
-    transition: all 0.9s;
-    align-items: right;
-    &:hover {
-        color: black;
-        background-color: white;
-        border-radius: 5px;
-    }
-
-    @media (max-width: 690px) {
-        display: none;
     }
 `;
