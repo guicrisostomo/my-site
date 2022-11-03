@@ -2,18 +2,14 @@ import styled from 'styled-components';
 import imgCertifications from "../../assets/img/imgCertifications.jpg";
 
 export const SectionCertifications = styled.section`
-background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgCertifications});
-width: auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgCertifications});
+    width: auto;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     justify-content: start;
-    height: calc(100vh - 72px);
+    height: 100;
     padding-top: 72px;
-
-    @media (max-width: 689px) {
-        height: 100%;
-    }
 `;
 
 export const TextCertificates = styled.h1`
