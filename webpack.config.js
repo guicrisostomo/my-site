@@ -3,10 +3,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require('dotenv-webpack')
 const webpack = require("webpack");
 module.exports = {
+
   output: {
     path: path.join(__dirname, "build"), // the bundle output path
     filename: "bundle.js", // the name of the bundle
   },
+
   plugins: [
     new webpack.DefinePlugin({
         'process.env.PUBLIC_URL': JSON.stringify(process.env.PUBLIC_URL),
@@ -23,41 +25,36 @@ module.exports = {
       template: "public/index.html",
     }),
   ],
-    /*loaders: [
-    {
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: ['react', 'es2015']
-      }
-    },*/
 
-    module: {
-        rules: [
-            {
-            test: /\.(jsx)$/, // .js and .jsx files
-            exclude: /node_modules/, // excluding the node_modules folder
-            use: {
-                loader: "babel-loader",
-            },
-            },
-            {
-                test: /\.(js)$/,
-                use: {
-                    loader: "babel-loader",
-                },
-                },
-            {
-            test: /\.css$/, // styles files
-            use: ['style-loader', "css-loader",],
-            },
-            {
-            test: /\.(png|jpg|pdf|woff|woff2|eot|ttf|svg)$/, // to import images and fonts
-            loader: "url-loader",
-            options: { limit: false },
-            },
-        ],
+  module: {
+      rules: [
+
+        {
+          test: /\.(jsx)$/,
+          exclude: /node_modules/,
+          use: {
+              loader: "babel-loader",
+          },
+        },
+
+        {
+          test: /\.(js)$/,
+          use: {
+            loader: "babel-loader",
+          },
+        },
+
+        {
+          test: /\.css$/,
+          use: ['style-loader', "css-loader",],
+        },
+
+        {
+          test: /\.(png|jpg|pdf|woff|woff2|eot|ttf|svg)$/,
+          loader: "url-loader",
+          options: { limit: false },
+        },
+      ],
     },
 
     devServer: {
