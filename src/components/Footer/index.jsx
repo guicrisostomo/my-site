@@ -1,4 +1,5 @@
 import React from 'react'
+import { t } from 'i18next';
 import { 
     FooterStyle,
     ImgCopyRight,
@@ -26,7 +27,7 @@ export default function Footer() {
           </Icons>
         </DivContacts>
         <DivTextACreditToMe>
-            Handcrafted by
+            {t('footer.created')}
             <ImgCopyRight src={imgCopyright} />
             Guilherme Crisostomo da Silva
         </DivTextACreditToMe>

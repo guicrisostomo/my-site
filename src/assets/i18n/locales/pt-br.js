@@ -13,6 +13,10 @@ export default {
             english: "Inglês"
         },
 
+        footer: {
+            created: 'Criado por',
+        },
+
         home: {
             about: {
                 title: 'Sobre mim',

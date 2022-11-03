@@ -4,13 +4,16 @@ export default {
             pages: "Pages",
             home: "Home",
             skills: "Skills",
-            contact: "Contact",
             projects: "Projects",
             certificates: "Certificates",
             updates: "Updates",
             language: "Language",
             portuguese: "Portuguese",
             english: "English"
+        },
+
+        footer: {
+            created: 'Created by',
         },
 
         home: {
@@ -26,10 +29,6 @@ export default {
                 date: 'Date: ',
                 typeEvent: 'Type: '
             },
-        },
-
-        contact: {
-            title: 'Contact'
         },
 
         skill: {
