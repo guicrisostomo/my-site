@@ -91,12 +91,6 @@ export default function Header() {
           </TextHeader>
         </Link>
 
-        <Link to="/contact" style={{backgroundColor: pages === 'contact' ? '#282929' : 'transparent', borderRadius: pages === 'contact' ? '10px' : '', padding: pages === 'contact' ? '5px' : '', textDecoration: 'none', alignSelf: 'center'}}>
-          <TextHeader expected="contact">
-            {t('header.contact')}
-          </TextHeader>
-        </Link>
-
         <Link to="/projects" style={{backgroundColor: pages === 'projects' ? '#282929' : 'transparent', borderRadius: pages === 'projects' ? '10px' : '', padding: pages === 'projects' ? '5px' : '', textDecoration: 'none', alignSelf: 'center'}}>
           <TextHeader expected="projects">
             {t('header.projects')}
@@ -146,15 +140,6 @@ export default function Header() {
                         <DotFilledIcon />
                       </DropdownMenuItemIndicator>
                       {t('header.skills')}
-                    </DropdownMenuRadioItem>
-                  </Link>
-
-                  <Link to="/contact" style={{textDecoration: 'none'}}>
-                    <DropdownMenuRadioItem value='contact'>
-                      <DropdownMenuItemIndicator>
-                        <DotFilledIcon />
-                      </DropdownMenuItemIndicator>
-                      {t('header.contact')}
                     </DropdownMenuRadioItem>
                   </Link>
 
