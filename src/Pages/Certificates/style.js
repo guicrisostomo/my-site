@@ -8,7 +8,7 @@ export const SectionCertifications = styled.section`
     background-position: center;
     background-size: cover;
     justify-content: start;
-    height: 100;
+    height: 100vh;
     padding-top: 72px;
     padding-bottom: 10px;
 `;
