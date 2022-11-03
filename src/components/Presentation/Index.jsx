@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typewriter } from 'react-simple-typewriter';
+import { useTypewriter, Cursor } from 'react-simple-typewriter'
 import { AiOutlineMail, AiOutlineLinkedin, AiOutlineGithub } from "react-icons/ai";
 import PathPhotoPresentation from '../../assets/img/photoPresentation.jpg';
 
@@ -12,7 +12,13 @@ import {
 } from './style.js'
 
 export default function Presentation() {
-  
+  const {text} = useTypewriter({
+    words: ['<Developer front-end />', '<Desenvolvedor front-end />'],
+    loop: {},
+    typeSpeed: 40,
+    deleteSpeed: 10,
+    delaySpeed: 1000,
+  })
 
   return (
     <SectionPresentation>
@@ -21,17 +27,13 @@ export default function Presentation() {
         <div style={{display: 'flex', flexDirection: 'column'}}>
           <TextPresentation><b>G</b>uilherme <b>C</b>risostomo da <b>S</b>ilva</TextPresentation>
           
-          <TextInfo style={{color: 'white', marginTop: 0}}>
-              {/* Style will be inherited from the parent element */}
-            <Typewriter
-              loop
-              cursor
-              cursorStyle='_'
-              typeSpeed={40}
-              deleteSpeed={10}
-              delaySpeed={1000}
-              words={['Developer front-end', 'Desenvolvedor front-end']}
-            />
+          <TextInfo style={{color: 'white', margin: 'auto 0', display: 'flex'}}>
+            {text}
+
+            <div style={{marginLeft: '-5px'}}>
+              <Cursor cursorStyle={'|'} />
+            </div>
+            
           </TextInfo>
         </div>
 
