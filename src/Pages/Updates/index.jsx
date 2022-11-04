@@ -8,6 +8,7 @@ import { AiOutlineGithub } from "react-icons/ai";
 import {
   Title,
   Subtitle,
+  SelectDate,
   SectionCommits,
   ItemsCommitInfo,
   ItemCommitInfo,
@@ -18,10 +19,12 @@ import {
   ItemCommitInfoText,
 } from './style.js';
 import Footer from '../../components/Footer/index.jsx';
+import DropDownDate from '../../components/DropDown/index.jsx';
 
 export default function Updates() {
   const { t } = useTranslation()
   const { i18n } = useTranslation()
+  const listOptionsSelectDate = t('updates.select.options', { returnObjects: true })
   const dateToday = new Date().toLocaleDateString('en-US').split('/');
   let dateTomorrow = new Date()
   dateTomorrow.setDate(dateTomorrow.getDate() + 1)
@@ -47,15 +50,16 @@ export default function Updates() {
   const textDateTomorrow = dateTomorrow[2] + '-' + dateTomorrow[0] + '-' + dateTomorrow[1]
   const [commits, setCommits] = useState([])
   const [heightSectionCommit, setHeightSectionCommit] = useState('100')
+  const [selectDate, setSelectDate] = useState('today')
 
-  const getData = async () => {
+  const getData = async (date, dateTomorrow) => {
 
     const octokit = new Octokit({ auth: process.env.REACT_APP_VERCEL_GITHUB_TOKEN });
 
     const json = await octokit.request('GET /search/commits?q=committer-date:{date}T03:00:00..{dateTomorrow}T03:00:00%20author:{username}+sort:{dateasc}', {
       username: 'guicrisostomo',
-      date: textDateToday.toString(),
-      dateTomorrow: textDateTomorrow.toString(),
+      date: date,
+      dateTomorrow: dateTomorrow,
       dateasc: 'committer-date-desc'
     })
 
@@ -63,8 +67,29 @@ export default function Updates() {
   }
 
   useEffect(() => {
-    getData()
-  }, [])
+    switch (selectDate) {
+      case 'Today':
+        getData(textDateToday.toString(), textDateTomorrow.toString())
+        break;
+      case 'This week':
+        const dayToday = new Date().getDay()
+        let dayInitialWeek = new Date()
+        dayInitialWeek.setDate(parseInt(dateToday[1]) - new Date().getDate())
+        getData(dayInitialWeek, textDateTomorrow.toString())
+        break;
+      case 'This month':
+        getData(dateToday[2] + '-' + dateToday[0] + '-01', textDateTomorrow.toString())
+        break;
+      case 'This year':
+        getData(dateToday[2] + '-' + '01-01', textDateTomorrow.toString())
+        break;
+      case 'Custom':
+        break;
+      default:
+        getData(textDateToday.toString(), textDateTomorrow.toString())
+        break;
+    }
+  }, [selectDate])
 
   useEffect(() => {
     if(commits.length > 1) {
@@ -98,21 +123,39 @@ export default function Updates() {
     const date = new Date(dateStr).toLocaleTimeString(i18n.languages, options)
     return date;
   }
+
+  function handleSelectDateTypeChange(e) {
+    setSelectDate(e.target.value);
+  }
   
   return (
     <>
       
       <Header />
-      
+
       <Section style={{height: heightSectionCommit}}>
         <Title>
-          {t('updates.title')}
+          {t('updates.title') + selectDate.toLowerCase()}
         </Title>
 
         <Subtitle>
-          {t('updates.subtitle')}
+          {t('updates.subtitle') + selectDate.toLowerCase()}
         </Subtitle>
 
+        <SelectDate>
+          <Subtitle>
+            {t('updates.select.title')}
+          </Subtitle>
+
+          <select onChange={handleSelectDateTypeChange} defaultValue={selectDate} >
+            {
+              listOptionsSelectDate.map((item => (
+                <option value={item.value} key={item.value + 'Option'}>{item.name}</option>
+              )))
+            }
+          </select>
+        </SelectDate>
+        
         <ItemsCommitInfo>
           {
             commits !== undefined &&

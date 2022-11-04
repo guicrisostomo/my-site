@@ -46,11 +46,40 @@ export default {
         },
 
         updates: {
-            title: 'My commits today',
-            subtitle: 'My commits to make today',
+            title: 'My commits ',
+            subtitle: 'My commits to make ',
             message: 'Message: ',
             buttonCode: 'My project',
             buttonChanged: 'Changes made',
+            select: {
+                title: 'Select the date: ',
+                options: [
+                    {
+                        name: 'Today',
+                        value: 'Today'
+                    },
+
+                    {
+                        name: 'This week',
+                        value: 'This week'
+                    },
+
+                    {
+                        name: 'This month',
+                        value: 'This month'
+                    },
+
+                    {
+                        name: 'This year',
+                        value: 'This year'
+                    },
+
+                    {
+                        name: 'Custom',
+                        value: 'Custom'
+                    },
+                ]
+            }
         }
     }
 }

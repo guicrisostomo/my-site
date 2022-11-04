@@ -51,11 +51,40 @@ export default {
         },
 
         updates: {
-            title: 'Meus commits de hoje',
-            subtitle: 'Meus commits feitos na data de hoje',
+            title: 'Meus commits ',
+            subtitle: 'Meus commits feitos na data de ',
             message: 'Mensagem: ',
             buttonCode: 'Meu projeto',
             buttonChanged: 'Alterações feitas',
+            select: {
+                title: 'Selecione a data: ',
+                options: [
+                    {
+                        name: 'Hoje',
+                        value: 'Today'
+                    },
+
+                    {
+                        name: 'Esta semana',
+                        value: 'This week'
+                    },
+
+                    {
+                        name: 'Este mês',
+                        value: 'This month'
+                    },
+
+                    {
+                        name: 'Este ano',
+                        value: 'This year'
+                    },
+
+                    {
+                        name: 'Personalizado',
+                        value: 'Custom'
+                    },
+                ]
+            }
         }
     }
 }

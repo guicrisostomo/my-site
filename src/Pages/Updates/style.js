@@ -69,6 +69,13 @@ export const ItemCommitInfoTexts = styled.div`
     flex-direction: column;
 `;
 
+export const SelectDate = styled.div`
+    display: flex;
+    padding: 10px;
+    height: 20px;
+    place-items: center;
+`;
+
 export const ItemCommitInfoName = styled.p`
     text-transform: uppercase;
     font-size: 18px;
