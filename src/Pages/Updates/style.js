@@ -113,3 +113,38 @@ export const ItemCommitInfoButtonText = styled.p`
     margin-left: 10px;
     font-size: 20px;
 `;
+
+export const Pages = styled.div`
+    display: flex;
+`;
+
+export const PageContinue = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    height: 10px;
+    width: 10px;
+`;
+
+export const Page = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    border: 2px solid white;
+    transition: 1s all;
+
+    :hover {
+        background: white;
+        color: black;
+        transform: scale(130%, 130%);
+    } 
+`;

@@ -17,9 +17,11 @@ import {
   ItemCommitInfoTexts,
   ItemCommitInfoName,
   ItemCommitInfoText,
+  Pages,
+  PageContinue,
+  Page,
 } from './style.js';
 import Footer from '../../components/Footer/index.jsx';
-import DropDownDate from '../../components/DropDown/index.jsx';
 
 export default function Updates() {
   const { t } = useTranslation()
@@ -51,19 +53,25 @@ export default function Updates() {
   const [commits, setCommits] = useState([])
   const [heightSectionCommit, setHeightSectionCommit] = useState('100')
   const [selectDate, setSelectDate] = useState('today')
+  const [totalCommits, setTotalCommits] = useState(0)
+  const [page, setPage] = useState(1)
+  const perPage = 10
 
   const getData = async (date, dateTomorrow) => {
 
     const octokit = new Octokit({ auth: process.env.REACT_APP_VERCEL_GITHUB_TOKEN });
 
-    const json = await octokit.request('GET /search/commits?q=committer-date:{date}T03:00:00..{dateTomorrow}T03:00:00%20author:{username}+sort:{dateasc}', {
+    const json = await octokit.request('GET /search/commits?q=committer-date:{date}T03:00:00..{dateTomorrow}T03:00:00+author:{username}+sort:{dateasc}', {
       username: 'guicrisostomo',
       date: date,
       dateTomorrow: dateTomorrow,
-      dateasc: 'committer-date-desc'
+      dateasc: 'committer-date-desc',
+      per_page: perPage,
+      page: page,
     })
 
     setCommits(json.data.items)
+    setTotalCommits(json.data.total_count)
   }
 
   useEffect(() => {
@@ -72,10 +80,21 @@ export default function Updates() {
         getData(textDateToday.toString(), textDateTomorrow.toString())
         break;
       case 'This week':
-        const dayToday = new Date().getDay()
-        let dayInitialWeek = new Date()
-        dayInitialWeek.setDate(parseInt(dateToday[1]) - new Date().getDate())
-        getData(dayInitialWeek, textDateTomorrow.toString())
+        let dayInitialDayWeek = new Date()
+        dayInitialDayWeek.setDate(parseInt(dateToday[1]) - new Date().getDate())
+        dayInitialDayWeek = dayInitialDayWeek.toLocaleDateString('en-US').split('/');
+
+        if (dayInitialDayWeek[0].length === 1) {
+          dayInitialDayWeek[0] = '0' + dayInitialDayWeek[0];
+        }
+      
+        if (dayInitialDayWeek[1].length === 1) {
+          dayInitialDayWeek[1] = '0' + dayInitialDayWeek[1];
+        }
+
+        const textInitialDayWeek = dayInitialDayWeek[2] + '-' + dayInitialDayWeek[0] + '-' + dayInitialDayWeek[1]
+
+        getData(textInitialDayWeek, textDateTomorrow.toString())
         break;
       case 'This month':
         getData(dateToday[2] + '-' + dateToday[0] + '-01', textDateTomorrow.toString())
@@ -89,7 +108,11 @@ export default function Updates() {
         getData(textDateToday.toString(), textDateTomorrow.toString())
         break;
     }
-  }, [selectDate])
+
+    if (totalCommits > 10) {
+      GenerateNextPages()
+    }
+  }, [selectDate, page])
 
   useEffect(() => {
     if(commits.length > 1) {
@@ -126,6 +149,144 @@ export default function Updates() {
 
   function handleSelectDateTypeChange(e) {
     setSelectDate(e.target.value);
+  }
+
+  function GenerateNextPages() {
+    const listPages = [];
+    const totalPages = Math.ceil(totalCommits / 10)
+
+    if(page > 1) {
+      
+      if(page > 2) {
+        listPages.push(
+          <Page key={'page1'} onClick={() => setPage(1)}>
+            {1}
+          </Page>
+        )
+
+        if(totalPages > 5 && page !== totalPages) {
+          listPages.push(
+            <PageContinue key={'pageAfterFirst'}>
+              ...
+            </PageContinue>
+          )
+        }
+      }
+
+      if (page === totalPages) {
+        listPages.push(
+          <Page key={'page2'} onClick={() => setPage(2)}>
+            {2}
+          </Page>
+        )
+
+        if(totalPages > 5) {
+          listPages.push(
+            <PageContinue key={'pageAfterFirst'}>
+              ...
+            </PageContinue>
+          )
+        }
+        
+        if (page !== 3) {
+          listPages.push(
+            <Page key={'page' + (page - 2)} onClick={() => setPage((page - 2))}>
+              {(page - 2)}
+            </Page>
+          )
+        }
+
+        listPages.push(
+          <Page key={'page' + (page - 1)} onClick={() => setPage((page - 1))}>
+            {(page - 1)}
+          </Page>
+        )
+
+        listPages.push(
+          <Page key={'page' + page} onClick={() => setPage(page)} style={{backgroundColor: 'white', color: 'black', fontWeight: 'bold'}}>
+            {page}
+          </Page>
+        )
+
+      } else {
+
+        if ((totalPages === (page) || totalPages === (page + 1)) && page !== 3) {
+          listPages.push(
+            <Page key={'page' + (page - 2)} onClick={() => setPage((page - 2))}>
+              {(page - 2)}
+            </Page>
+          )
+        }
+
+        listPages.push(
+          <Page key={'page' + (page - 1)} onClick={() => setPage((page - 1))}>
+            {(page - 1)}
+          </Page>
+        )
+        
+        listPages.push(
+          <Page key={'page' + page} onClick={() => setPage(page)} style={{backgroundColor: 'white', color: 'black', fontWeight: 'bold'}}>
+            {page}
+          </Page>
+        )
+  
+        listPages.push(
+          <Page key={'page' + (page + 1)} onClick={() => setPage((page + 1))}>
+            {(page + 1)}
+          </Page>
+        )
+
+        if(page === 2 && totalPages !== 4) {
+          listPages.push(
+            <Page key={'page' + (page + 2)} onClick={() => setPage((page - 1))}>
+              {(page + 2)}
+            </Page>
+          )
+        }
+      }
+      
+      if ((totalPages - 1) > (page + 1)) {
+        listPages.push(
+          <PageContinue key={'pageBeforeLast'} >
+            ...
+          </PageContinue>
+        )
+      }
+
+      if(totalPages !== (page) && totalPages !== (page + 1)) {
+        listPages.push(
+          <Page key={'page' + totalPages} onClick={() => setPage(totalPages)}>
+            {totalPages}
+          </Page>
+        )
+      }
+      
+    } else {
+      for(let i = page; i <= (totalPages) && i < 5; i++) {
+        listPages.push(
+          <Page key={'page' + i} onClick={() => setPage(i)} style={{backgroundColor: page === i && 'white', color: page === i && 'black', fontWeight: page === i && 'bold'}}>
+            {i}
+          </Page>
+        )
+      }
+
+      if (totalPages > 5) {
+        listPages.push(
+          <PageContinue key={'pageBeforeLast'} >
+            ...
+          </PageContinue>
+        )
+      }
+
+      if (totalPages > 4) {
+        listPages.push(
+          <Page key={'page' + totalPages} onClick={() => setPage(totalPages)}>
+            {totalPages}
+          </Page>
+        )
+      }
+    }
+    return listPages;
   }
   
   return (
@@ -205,6 +366,15 @@ export default function Updates() {
               </ItemCommitInfo>
             )))
           }
+
+          {totalCommits > 10 &&
+            <Pages>
+              {
+                GenerateNextPages()
+              }
+            </Pages>
+          }
+
         </ItemsCommitInfo>
       </Section>
       
