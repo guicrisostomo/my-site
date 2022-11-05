@@ -53,6 +53,7 @@ export default function Updates() {
   const [commits, setCommits] = useState([])
   const [heightSectionCommit, setHeightSectionCommit] = useState('100')
   const [selectDate, setSelectDate] = useState('today')
+  const [selectDateName, setSelectDateName] = useState(i18n.languages === 'en-US' ? 'today' : 'hoje')
   const [totalCommits, setTotalCommits] = useState(0)
   const [page, setPage] = useState(1)
   const perPage = 10
@@ -149,6 +150,8 @@ export default function Updates() {
 
   function handleSelectDateTypeChange(e) {
     setSelectDate(e.target.value);
+
+    setSelectDateName(e.target.name);
   }
 
   function GenerateNextPages() {
@@ -296,11 +299,11 @@ export default function Updates() {
 
       <Section style={{height: heightSectionCommit}}>
         <Title>
-          {t('updates.title') + selectDate.toLowerCase()}
+          {t('updates.title') + selectDateName.toLowerCase()}
         </Title>
 
         <Subtitle>
-          {t('updates.subtitle') + selectDate.toLowerCase()}
+          {t('updates.subtitle') + selectDateName.toLowerCase()}
         </Subtitle>
 
         <SelectDate>
@@ -311,7 +314,7 @@ export default function Updates() {
           <select onChange={handleSelectDateTypeChange} defaultValue={selectDate} >
             {
               listOptionsSelectDate.map((item => (
-                <option value={item.value} key={item.value + 'Option'}>{item.name}</option>
+                <option value={item.value} key={item.value + 'Option'} name={item.name} >{item.name}</option>
               )))
             }
           </select>
