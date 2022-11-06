@@ -353,6 +353,8 @@ export default function Updates() {
 
         <Subtitle>
           {t('updates.subtitle') + selectDateName.toLowerCase()}
+          <br />
+          {t('updates.totalCommits') + totalCommits}
         </Subtitle>
 
         <SelectDate>
@@ -363,7 +365,7 @@ export default function Updates() {
           <select onChange={handleSelectDateTypeChange} defaultValue={selectDate} >
             {
               listOptionsSelectDate.map((item => (
-                <option value={item.value} key={item.value + 'Option'} name={item.name} >{item.name}</option>
+                <option value={item.value} key={item.value + 'Option'} text={item.name} >{item.name}</option>
               )))
             }
           </select>

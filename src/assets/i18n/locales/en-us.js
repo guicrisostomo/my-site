@@ -48,6 +48,7 @@ export default {
         updates: {
             title: 'My commits ',
             subtitle: 'My commits to make ',
+            totalCommits: 'Total of commits: ',
             message: 'Message: ',
             buttonCode: 'My project',
             buttonChanged: 'Changes made',
