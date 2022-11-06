@@ -78,11 +78,11 @@ export default {
                         name: 'Este ano',
                         value: 'This year'
                     },
-                    /*
+                    
                     {
                         name: 'Personalizado',
                         value: 'Custom'
-                    },*/
+                    },
                 ]
             }
         }

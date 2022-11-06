@@ -9,6 +9,9 @@ import {
   Title,
   Subtitle,
   SelectDate,
+  CustomDate,
+  InputDate,
+  ButtonDate,
   SectionCommits,
   ItemsCommitInfo,
   ItemCommitInfo,
@@ -56,13 +59,15 @@ export default function Updates() {
   const [selectDateName, setSelectDateName] = useState(i18n.languages === 'en-US' ? 'today' : 'hoje')
   const [totalCommits, setTotalCommits] = useState(0)
   const [page, setPage] = useState(1)
+  const [textDateEnd, setTextDateEnd] = useState(textDateTomorrow + 'T00:00')
+  const [textDateInitial, setTextDateInitial] = useState(textDateToday + 'T00:00')
   const perPage = 10
 
   const getData = async (date, dateTomorrow) => {
 
     const octokit = new Octokit({ auth: process.env.REACT_APP_VERCEL_GITHUB_TOKEN });
 
-    const json = await octokit.request('GET /search/commits?q=committer-date:{date}T03:00:00..{dateTomorrow}T03:00:00+author:{username}+sort:{dateasc}', {
+    const json = await octokit.request('GET /search/commits?q=committer-date:{date}..{dateTomorrow}+author:{username}+sort:{dateasc}', {
       username: 'guicrisostomo',
       date: date,
       dateTomorrow: dateTomorrow,
@@ -75,10 +80,10 @@ export default function Updates() {
     setTotalCommits(json.data.total_count)
   }
 
-  useEffect(() => {
+  function searchApiGit() {
     switch (selectDate) {
       case 'Today':
-        getData(textDateToday.toString(), textDateTomorrow.toString())
+        getData(textDateToday.toString() + 'T03:00:00', textDateTomorrow.toString() + 'T03:00:00')
         break;
       case 'This week':
         let dayInitialDayWeek = new Date()
@@ -95,15 +100,45 @@ export default function Updates() {
 
         const textInitialDayWeek = dayInitialDayWeek[2] + '-' + dayInitialDayWeek[0] + '-' + dayInitialDayWeek[1]
 
-        getData(textInitialDayWeek, textDateTomorrow.toString())
+        getData(textInitialDayWeek.toString() + 'T03:00:00', textDateTomorrow.toString() + 'T03:00:00')
         break;
       case 'This month':
-        getData(dateToday[2] + '-' + dateToday[0] + '-01', textDateTomorrow.toString())
+        getData(dateToday[2] + '-' + dateToday[0] + '-01' + 'T03:00:00', textDateTomorrow.toString() + 'T03:00:00')
         break;
       case 'This year':
-        getData(dateToday[2] + '-' + '01-01', textDateTomorrow.toString())
+        getData(dateToday[2] + '-' + '01-01' + 'T03:00:00', textDateTomorrow.toString() + 'T03:00:00')
         break;
       case 'Custom':
+        
+        let changeHourDateInitial = new Date(textDateInitial)
+        changeHourDateInitial.setHours(changeHourDateInitial.getHours() + 3)
+        changeHourDateInitial = changeHourDateInitial.toLocaleString('fr-CA').replace(',', '').split('-');
+        let changeHourDateEnd = new Date(textDateEnd)
+        changeHourDateEnd.setHours(changeHourDateEnd.getHours() + 3)
+        changeHourDateEnd = changeHourDateEnd.toLocaleString('fr-CA').replace(',', '').split('-');
+
+        if (changeHourDateInitial[0].length === 1) {
+          changeHourDateInitial[0] = '0' + changeHourDateInitial[0];
+        }
+      
+        if (changeHourDateInitial[1].length === 1) {
+          changeHourDateInitial[1] = '0' + changeHourDateInitial[1];
+        }
+
+        if (changeHourDateEnd[0].length === 1) {
+          changeHourDateEnd[0] = '0' + changeHourDateEnd[0];
+        }
+      
+        if (changeHourDateEnd[1].length === 1) {
+          changeHourDateEnd[1] = '0' + changeHourDateEnd[1];
+        }
+        
+        changeHourDateInitial = changeHourDateInitial.join().replaceAll(',', '-').replace(' ', 'T').replace(' h ', ':').replace(' min ', ':').replace(' s', '')
+        changeHourDateEnd = changeHourDateEnd.join().replaceAll(',', '-').replace(' ', 'T').replace(' h ', ':').replace(' min ', ':').replace(' s', '')
+
+        console.log(changeHourDateEnd.toString())
+
+        getData(changeHourDateInitial.toString(), changeHourDateEnd.toString())
         break;
       default:
         getData(textDateToday.toString(), textDateTomorrow.toString())
@@ -113,6 +148,12 @@ export default function Updates() {
     if (totalCommits > 10) {
       GenerateNextPages()
     }
+  }
+
+  useEffect(() => {
+    setPage(1)
+      
+    searchApiGit()
   }, [selectDate, page])
 
   useEffect(() => {
@@ -152,6 +193,14 @@ export default function Updates() {
     setSelectDate(e.target.value);
 
     setSelectDateName(e.target.name);
+  }
+
+  function handleOnChangeDateInitial(e) {
+    setTextDateInitial(e.target.value);
+  }
+
+  function handleOnChangeDateEnd(e) {
+    setTextDateEnd(e.target.value);
   }
 
   function GenerateNextPages() {
@@ -319,6 +368,39 @@ export default function Updates() {
             }
           </select>
         </SelectDate>
+
+        {selectDate === 'Custom' &&
+          <CustomDate>
+
+            Data inicial:
+
+            <InputDate
+              type="datetime-local"
+              id='parsfsdfsdty'
+              defaultValue={textDateInitial}
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+              onChange={handleOnChangeDateInitial}
+              required 
+            />
+
+            <br />
+
+            Data final:
+
+            <InputDate
+              type="datetime-local"
+              defaultValue={textDateEnd}
+              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+              onChange={handleOnChangeDateEnd}
+              required
+            />
+
+            <br />
+
+            <ButtonDate onClick={() => searchApiGit()}>Filtrar</ButtonDate>
+
+          </CustomDate>
+        }
         
         <ItemsCommitInfo>
           {

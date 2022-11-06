@@ -54,7 +54,6 @@ export default {
             select: {
                 title: 'Select the date: ',
                 options: [
-                
                     {
                         name: 'Today',
                         value: 'Today'
@@ -74,11 +73,11 @@ export default {
                         name: 'This year',
                         value: 'This year'
                     },
-/*
+
                     {
                         name: 'Custom',
                         value: 'Custom'
-                    },*/
+                    },
                 ]
             }
         }

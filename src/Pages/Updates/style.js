@@ -71,9 +71,36 @@ export const ItemCommitInfoTexts = styled.div`
 
 export const SelectDate = styled.div`
     display: flex;
-    padding: 10px;
     height: 20px;
     place-items: center;
+`;
+
+export const CustomDate = styled.div`
+    padding: 10px;
+    color: white;
+`;
+
+export const InputDate = styled.input`
+    margin-left: 10px;
+    margin-top: 5px;
+`;
+
+export const ButtonDate = styled.button`
+    padding: 10px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    transition: 1s all;
+    width: 100%;
+    cursor: pointer;
+    transform: scale(90%, 90%);
+
+    :hover {
+        background-color: white;
+        color: black;
+        transform: scale(100%, 100%);
+    }
 `;
 
 export const ItemCommitInfoName = styled.p`
@@ -141,6 +168,7 @@ export const Page = styled.div`
     width: 10px;
     border: 2px solid white;
     transition: 1s all;
+    cursor: pointer;
 
     :hover {
         background: white;
