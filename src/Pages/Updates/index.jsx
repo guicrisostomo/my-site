@@ -139,7 +139,7 @@ export default function Updates() {
         getData(changeHourDateInitial.toString(), changeHourDateEnd.toString())
         break;
       default:
-        getData(textDateToday.toString(), textDateTomorrow.toString())
+        getData(textDateToday.toString() + 'T03:00:00', textDateTomorrow.toString() + 'T03:00:00')
         break;
     }
 
