@@ -56,28 +56,33 @@ export default {
                 title: 'Select the date: ',
                 options: [
                     {
+                        id: 1,
                         name: 'Today',
-                        value: 'Today'
+                        valueSelect: 'Today'
                     },
 
                     {
+                        id: 2,
                         name: 'This week',
-                        value: 'This week'
+                        valueSelect: 'This week'
                     },
 
                     {
+                        id: 3,
                         name: 'This month',
-                        value: 'This month'
+                        valueSelect: 'This month'
                     },
 
                     {
+                        id: 4,
                         name: 'This year',
-                        value: 'This year'
+                        valueSelect: 'This year'
                     },
 
                     {
+                        id: 5,
                         name: 'Custom',
-                        value: 'Custom'
+                        valueSelect: 'Custom'
                     },
                 ]
             }

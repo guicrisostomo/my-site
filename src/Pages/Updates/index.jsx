@@ -82,10 +82,10 @@ export default function Updates() {
 
   function searchApiGit() {
     switch (selectDate) {
-      case 'Today':
+      case 1:
         getData(textDateToday.toString() + 'T03:00:00', textDateTomorrow.toString() + 'T03:00:00')
         break;
-      case 'This week':
+      case 2:
         let dayInitialDayWeek = new Date()
         dayInitialDayWeek.setDate(parseInt(dateToday[1]) - new Date().getDate())
         dayInitialDayWeek = dayInitialDayWeek.toLocaleDateString('en-US').split('/');
@@ -102,13 +102,13 @@ export default function Updates() {
 
         getData(textInitialDayWeek.toString() + 'T03:00:00', textDateTomorrow.toString() + 'T03:00:00')
         break;
-      case 'This month':
+      case 3:
         getData(dateToday[2] + '-' + dateToday[0] + '-01' + 'T03:00:00', textDateTomorrow.toString() + 'T03:00:00')
         break;
-      case 'This year':
+      case 4:
         getData(dateToday[2] + '-' + '01-01' + 'T03:00:00', textDateTomorrow.toString() + 'T03:00:00')
         break;
-      case 'Custom':
+      case 5:
         
         let changeHourDateInitial = new Date(textDateInitial)
         changeHourDateInitial.setHours(changeHourDateInitial.getHours() + 3)
@@ -135,8 +135,6 @@ export default function Updates() {
         
         changeHourDateInitial = changeHourDateInitial.join().replaceAll(',', '-').replace(' ', 'T').replace(' h ', ':').replace(' min ', ':').replace(' s', '')
         changeHourDateEnd = changeHourDateEnd.join().replaceAll(',', '-').replace(' ', 'T').replace(' h ', ':').replace(' min ', ':').replace(' s', '')
-
-        console.log(changeHourDateEnd.toString())
 
         getData(changeHourDateInitial.toString(), changeHourDateEnd.toString())
         break;
@@ -190,9 +188,9 @@ export default function Updates() {
   }
 
   function handleSelectDateTypeChange(e) {
-    setSelectDate(e.target.value);
+    setSelectDate(listOptionsSelectDate[e.target.value - 1].id);
 
-    setSelectDateName(e.target.name);
+    setSelectDateName(listOptionsSelectDate[e.target.value - 1].name);
   }
 
   function handleOnChangeDateInitial(e) {
@@ -365,13 +363,13 @@ export default function Updates() {
           <select onChange={handleSelectDateTypeChange} defaultValue={selectDate} >
             {
               listOptionsSelectDate.map((item => (
-                <option value={item.value} key={item.value + 'Option'} text={item.name} >{item.name}</option>
+                <option value={item.id} key={item.valueSelect + 'Option'} >{item.name}</option>
               )))
             }
           </select>
         </SelectDate>
 
-        {selectDate === 'Custom' &&
+        {selectDate === 5 &&
           <CustomDate>
 
             Data inicial:
