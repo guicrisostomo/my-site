@@ -1,4 +1,6 @@
 # My site
+The project was created with intention to talk about me and my other projects
+
 ## Getting Started
 
 First, run the development server:
