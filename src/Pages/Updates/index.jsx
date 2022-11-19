@@ -149,8 +149,6 @@ export default function Updates() {
   }
 
   useEffect(() => {
-    setPage(1)
-      
     searchApiGit()
   }, [selectDate, page])
 
