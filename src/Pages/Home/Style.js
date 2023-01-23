@@ -8,6 +8,7 @@ export const SectionAbout = styled.section`
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     justify-content: start;
     height: 100%;
     margin-top: 5px;
@@ -39,6 +40,7 @@ export const SectionEvents = styled.section`
     width: auto;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     justify-content: start;
     margin-top: 5px;
 `;

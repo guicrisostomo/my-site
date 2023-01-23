@@ -7,6 +7,7 @@ export const SectionError = styled.section`
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     justify-content: start;
     height: 100vh;
     padding-top: 72px;

@@ -26,6 +26,7 @@ export const SectionCommits = styled.section`
     width: auto;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     justify-content: start;
     padding-top: 72px;
     height: ${props => props.height};
