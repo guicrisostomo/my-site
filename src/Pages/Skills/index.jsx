@@ -6,7 +6,7 @@ import {
   ItemSkill,
   TextInfoSkill
 } from './style.js'
-import { SiReact, SiCss3, SiHtml5, SiJavascript, SiMicrosoftsqlserver, SiGit, SiFlutter } from "react-icons/si";
+import { SiReact, SiCss3, SiHtml5, SiJavascript, SiGit, SiFlutter, SiPostgresql, SiCsharp, SiDotnet, SiStyledcomponents, SiTailwindcss, SiTypescript } from "react-icons/si";
 import Header from '../../components/Header/index.jsx';
 import { useTranslation } from 'react-i18next';
 import Footer from '../../components/Footer/index.jsx';
@@ -42,6 +42,12 @@ export default function Skill() {
               <TextInfoSkill>JAVASCRIPT</TextInfoSkill>
             </ItemSkill>
 
+            <ItemSkill href="https://github.com/guicrisostomo/application-RSAcryptography" target='_blank'>
+              <SiTypescript style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px', boxShadow: 'white 0px 0px 50px'}} />
+
+              <TextInfoSkill>TYPESCRIPT</TextInfoSkill>
+            </ItemSkill>
+
             <ItemSkill href="https://github.com/guicrisostomo/my-site" target='_blank'>
               <SiReact style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px', boxShadow: 'white 0px 0px 50px'}} />
 
@@ -54,10 +60,34 @@ export default function Skill() {
               <TextInfoSkill>FLUTTER</TextInfoSkill>
             </ItemSkill>
 
-            <ItemSkill styled={{cursor: 'none'}}>
-              <SiMicrosoftsqlserver style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px', boxShadow: 'white 0px 0px 50px'}}/>
+            <ItemSkill href="https://github.com/guicrisostomo/Projetos-DIO/tree/master/C%23/Desafio%20-%20Criando%20app%20de%20cadastro%20de%20s%C3%A9ries" target='_blank'>
+              <SiCsharp style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px', boxShadow: 'white 0px 0px 50px'}} />
 
-              <TextInfoSkill>SQL SERVER</TextInfoSkill>
+              <TextInfoSkill>C#</TextInfoSkill>
+            </ItemSkill>
+
+            <ItemSkill href="https://github.com/guicrisostomo/Projetos-DIO/tree/master/C%23/Desafio%20-%20Criando%20app%20de%20cadastro%20de%20s%C3%A9ries" target='_blank'>
+              <SiDotnet style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px', boxShadow: 'white 0px 0px 50px'}} />
+
+              <TextInfoSkill>.NET</TextInfoSkill>
+            </ItemSkill>
+
+            <ItemSkill href="https://github.com/guicrisostomo/my-site" target='_blank'>
+              <SiStyledcomponents style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px', boxShadow: 'white 0px 0px 50px'}} />
+
+              <TextInfoSkill>STYLED COMPONENTS</TextInfoSkill>
+            </ItemSkill>
+
+            <ItemSkill href="https://github.com/guicrisostomo/application-RSAcryptography" target='_blank'>
+              <SiTailwindcss style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px', boxShadow: 'white 0px 0px 50px'}} />
+
+              <TextInfoSkill>TAILWIND</TextInfoSkill>
+            </ItemSkill>
+
+            <ItemSkill href='https://github.com/guicrisostomo/College-exercises' target='_blank'>
+              <SiPostgresql style={{display: 'flex', width: 50, height: 50, marginRight: '10px', borderRadius: '50%', borderStyle: 'solid', borderWidth: '1px', borderColor: 'white', padding: '5px', boxShadow: 'white 0px 0px 50px'}}/>
+
+              <TextInfoSkill>SQL</TextInfoSkill>
             </ItemSkill>
 
             <ItemSkill href="https://github.com/guicrisostomo/" target='_blank'>
