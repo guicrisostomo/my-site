@@ -22,7 +22,7 @@ export const Subtitle = styled.p`
 `;
 
 export const SectionCommits = styled.section`
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgInfoCommits});
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.pixabay.com/photo/2015/12/04/14/05/code-1076536_960_720.jpg");
     width: auto;
     background-repeat: no-repeat;
     background-size: cover;
