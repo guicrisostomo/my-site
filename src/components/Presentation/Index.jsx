@@ -12,10 +12,10 @@ import {
 
 export default function Presentation() {
   const {text} = useTypewriter({
-    words: ['<Developer front-end />', '<Desenvolvedor front-end />'],
+    words: ['<Desenvolvedor front-end />', '<Desenvolvedor back end />', '<Desenvolvedor full stack />', '<Developer front-end />', '<Developer back end />', '<Developer full stack />'],
     loop: {},
     typeSpeed: 40,
-    deleteSpeed: 10,
+    deleteSpeed: 40,
     delaySpeed: 1000,
   })
 
