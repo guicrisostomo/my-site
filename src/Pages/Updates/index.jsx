@@ -9,6 +9,7 @@ import {
   Title,
   Subtitle,
   SelectDate,
+  SelectStyle,
   CustomDate,
   InputDate,
   ButtonDate,
@@ -358,13 +359,13 @@ export default function Updates() {
             {t('updates.select.title')}
           </Subtitle>
 
-          <select onChange={handleSelectDateTypeChange} defaultValue={selectDate} >
+          <SelectStyle onChange={handleSelectDateTypeChange} defaultValue={selectDate} >
             {
               listOptionsSelectDate.map((item => (
                 <option value={item.id} key={item.valueSelect + 'Option'} >{item.name}</option>
               )))
             }
-          </select>
+          </SelectStyle>
         </SelectDate>
 
         {selectDate === 5 &&

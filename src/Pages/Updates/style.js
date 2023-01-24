@@ -76,6 +76,20 @@ export const SelectDate = styled.div`
     place-items: center;
 `;
 
+export const SelectStyle = styled.select`
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s all;
+
+    :hover {
+        background-color: white;
+        color: black;
+    }
+`;
+
 export const CustomDate = styled.div`
     padding: 10px;
     color: white;
