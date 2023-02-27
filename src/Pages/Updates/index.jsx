@@ -407,15 +407,20 @@ export default function Updates() {
             commits.map((item => (
               <ItemCommitInfo key={item.sha}>
                 <ItemCommitInfoTexts>
+
                   <ItemCommitInfoName>
                     {
-                      item.repository.name.toString().replaceAll('-', ' ')
+                        !item.repository.private ?
+                          item.repository.name.toString().replaceAll('-', ' ')
+                        :
+                          'Repositório privado'
                     }
                   </ItemCommitInfoName>
                   
                   <ItemCommitInfoText>
                     {
-                      t('updates.message') + separateUpperLetters(item.commit.message.toString())
+                      !item.repository.private &&
+                        t('updates.message') + separateUpperLetters(item.commit.message.toString())
                     }
 
                     <br />
@@ -428,24 +433,27 @@ export default function Updates() {
                 </ItemCommitInfoTexts>
                 
                 <br />
+                
+                { 
+                  !item.repository.private &&
+                    <div style={{display: 'flex'}}>
+                      <ItemCommitInfoButton href={item.repository.html_url.toString()} target='_blank'>
+                        <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github' />
 
-                <div style={{display: 'flex'}}>
-                  <ItemCommitInfoButton href={item.repository.html_url.toString()} target='_blank'>
-                    <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github' />
+                        <ItemCommitInfoButtonText>
+                          {t('updates.buttonCode')}
+                        </ItemCommitInfoButtonText>
+                      </ItemCommitInfoButton>
 
-                    <ItemCommitInfoButtonText>
-                      {t('updates.buttonCode')}
-                    </ItemCommitInfoButtonText>
-                  </ItemCommitInfoButton>
+                      <ItemCommitInfoButton href={item.html_url.toString()} target='_blank'>
+                        <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github' />
 
-                  <ItemCommitInfoButton href={item.html_url.toString()} target='_blank'>
-                    <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github' />
-
-                    <ItemCommitInfoButtonText>
-                      {t('updates.buttonChanged')}
-                    </ItemCommitInfoButtonText>
-                  </ItemCommitInfoButton>
-                </div>
+                        <ItemCommitInfoButtonText>
+                          {t('updates.buttonChanged')}
+                        </ItemCommitInfoButtonText>
+                      </ItemCommitInfoButton>
+                    </div>
+                }
 
               </ItemCommitInfo>
             )))
