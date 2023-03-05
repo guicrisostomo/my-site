@@ -190,6 +190,8 @@ export default function Updates() {
     setSelectDate(listOptionsSelectDate[e.target.value - 1].id);
 
     setSelectDateName(listOptionsSelectDate[e.target.value - 1].name);
+
+    setPage(1);
   }
 
   function handleOnChangeDateInitial(e) {
