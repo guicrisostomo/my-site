@@ -203,138 +203,40 @@ export default function Updates() {
   function GenerateNextPages() {
     const listPages = [];
     const totalPages = Math.ceil(totalCommits / 10)
+    let pageLast = 0;
 
-    if(page > 1) {
+    for(let j = 1, i = 0; j <= (totalPages) && i < 5; i++, j++) {
       
-      if(page > 2) {
-        listPages.push(
-          <Page key={'page1'} onClick={() => setPage(1)}>
-            {1}
-          </Page>
-        )
 
-        if(totalPages > 5 && page !== totalPages) {
-          listPages.push(
-            <PageContinue key={'pageAfterFirst'}>
-              ...
-            </PageContinue>
-          )
-        }
+      if (totalPages > 4 && i === 1 && page > 2 && page <= totalPages - 1) {
+        j = page - 1;
       }
 
-      if (page === totalPages) {
-        listPages.push(
-          <Page key={'page2'} onClick={() => setPage(2)}>
-            {2}
-          </Page>
-        )
-
-        if(totalPages > 5) {
-          listPages.push(
-            <PageContinue key={'pageAfterFirst'}>
-              ...
-            </PageContinue>
-          )
-        }
-        
-        if (page !== 3) {
-          listPages.push(
-            <Page key={'page' + (page - 2)} onClick={() => setPage((page - 2))}>
-              {(page - 2)}
-            </Page>
-          )
-        }
-
-        listPages.push(
-          <Page key={'page' + (page - 1)} onClick={() => setPage((page - 1))}>
-            {(page - 1)}
-          </Page>
-        )
-
-        listPages.push(
-          <Page key={'page' + page} onClick={() => setPage(page)} style={{backgroundColor: 'white', color: 'black', fontWeight: 'bold'}}>
-            {page}
-          </Page>
-        )
-
-      } else {
-
-        if ((totalPages === (page) || totalPages === (page + 1)) && page !== 3) {
-          listPages.push(
-            <Page key={'page' + (page - 2)} onClick={() => setPage((page - 2))}>
-              {(page - 2)}
-            </Page>
-          )
-        }
-
-        listPages.push(
-          <Page key={'page' + (page - 1)} onClick={() => setPage((page - 1))}>
-            {(page - 1)}
-          </Page>
-        )
-        
-        listPages.push(
-          <Page key={'page' + page} onClick={() => setPage(page)} style={{backgroundColor: 'white', color: 'black', fontWeight: 'bold'}}>
-            {page}
-          </Page>
-        )
-  
-        listPages.push(
-          <Page key={'page' + (page + 1)} onClick={() => setPage((page + 1))}>
-            {(page + 1)}
-          </Page>
-        )
-
-        if(page === 2 && totalPages !== 4) {
-          listPages.push(
-            <Page key={'page' + (page + 2)} onClick={() => setPage((page - 1))}>
-              {(page + 2)}
-            </Page>
-          )
-        }
-      }
-      
-      if ((totalPages - 1) > (page + 1)) {
-        listPages.push(
-          <PageContinue key={'pageBeforeLast'} >
-            ...
-          </PageContinue>
-        )
+      if ((totalPages > 4) && ((page === totalPages && i === 1) || (page === (totalPages - 1) && i === 1))) {
+        j = totalPages - 3;
       }
 
-      if(totalPages !== (page) && totalPages !== (page + 1)) {
-        listPages.push(
-          <Page key={'page' + totalPages} onClick={() => setPage(totalPages)}>
-            {totalPages}
-          </Page>
-        )
-      }
-      
-    } else {
-      for(let i = page; i <= (totalPages) && i < 5; i++) {
-        listPages.push(
-          <Page key={'page' + i} onClick={() => setPage(i)} style={{backgroundColor: page === i && 'white', color: page === i && 'black', fontWeight: page === i && 'bold'}}>
-            {i}
-          </Page>
-        )
+      if (totalPages > 4 && i === 4) {
+        j = totalPages;
       }
 
-      if (totalPages > 5) {
-        listPages.push(
-          <PageContinue key={'pageBeforeLast'} >
-            ...
-          </PageContinue>
-        )
-      }
-
-      if (totalPages > 4) {
-        listPages.push(
-          <Page key={'page' + totalPages} onClick={() => setPage(totalPages)}>
-            {totalPages}
+      listPages.push(
+        <>
+          {j !== (pageLast - 1) && j !== (pageLast + 1) && 
+            <>
+              <PageContinue>...</PageContinue>
+            </>
+          }
+          
+          <Page key={'page' + j} onClick={() => setPage(j)} style={{backgroundColor: page === j && 'white', color: page === j && 'black', fontWeight: page === j && 'bold'}}>
+            {j}
           </Page>
-        )
-      }
+        </>
+      )
+
+      pageLast = j;
     }
+
     return listPages;
   }
   
