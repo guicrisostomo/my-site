@@ -18,7 +18,7 @@ import pdfDevelopmentWEB from '../../assets/certificates/Introdução à Program
 import pdfIntroductionNetwork from '../../assets/certificates/CCNAv7 Introdução às redes.pdf';
 import pdfIntroductionCybersecurity from '../../assets/certificates/Introduction to Cybersecurity.pdf';
 import pdfLinux from '../../assets/certificates/NDG Linux Unhatched Português.pdf';
-import pdfComputerOperator from '../../assets/certificates/Operador de Computador.pdf';
+import pdfComputerOperator from '../../assets/certificates/Operador de computador.pdf';
 import { useTranslation } from 'react-i18next';
 import Header from '../../components/Header/index.jsx';
 import Footer from '../../components/Footer/index.jsx';
