@@ -10,6 +10,7 @@ import {
 import imgDIO from '../../assets/img/imgDIO.jpg';
 import imgCisco from '../../assets/img/imgCisco.jpg';
 import imgIFSP from '../../assets/img/imgIFSP.jpg';
+import imgVisualMidia from '../../assets/img/imgVisualMidia.jpg';
 
 import pdfMRV from '../../assets/certificates/MRV Fullstack Developer.pdf';
 import pdfMobileAppDevelopment from '../../assets/certificates/Programação de Computadores e Dispositivos Móveis.pdf';
@@ -17,6 +18,7 @@ import pdfDevelopmentWEB from '../../assets/certificates/Introdução à Program
 import pdfIntroductionNetwork from '../../assets/certificates/CCNAv7 Introdução às redes.pdf';
 import pdfIntroductionCybersecurity from '../../assets/certificates/Introduction to Cybersecurity.pdf';
 import pdfLinux from '../../assets/certificates/NDG Linux Unhatched Português.pdf';
+import pdfComputerOperator from '../../assets/certificates/Operador de Computador.pdf';
 import { useTranslation } from 'react-i18next';
 import Header from '../../components/Header/index.jsx';
 import Footer from '../../components/Footer/index.jsx';
@@ -61,6 +63,12 @@ export default function Certificates() {
 
                     <ItemCertificates href={pdfLinux} target='_blank'  urlImage={imgCisco}>
                         <TextInfoCertificates>NDG Linux Unhatched
+                        </TextInfoCertificates>
+                    </ItemCertificates>
+
+                    <ItemCertificates href={pdfComputerOperator} target='_blank'  urlImage={imgVisualMidia}>
+                        <TextInfoCertificates>
+                            Operador de Computador
                         </TextInfoCertificates>
                     </ItemCertificates>
 
