@@ -20,11 +20,15 @@ import {
   ItemEventInfoText,
 } from './style.js';
 import Footer from '../../components/Footer/index.jsx';
+import { useMemo } from 'react';
+import getCodeTimeToday from '../../controller/codeTime/infoCodeTime.js';
+import CodeTime from '../../model/codeTime.js';
 
 export default function Home() {
   const { t } = useTranslation()
   const [events, setEvents] = useState([])
   const { i18n } = useTranslation()
+  const [codeTime, setCodeTime] = useState(CodeTime.create(0, 0, 0))
 
   const getData = async () => {
     
@@ -64,6 +68,25 @@ export default function Home() {
     const date = new Date(Date.UTC(year, month-1, day, hours,  minutes, seconds)).toLocaleTimeString(i18n.languages, options)
     return date;
   }
+
+  function alimentaDadosClasseCodeTime(data) {
+    
+    const itemToday = data[data.length - 1]
+        
+        const codeTime = CodeTime.create(
+            itemToday.total,
+            itemToday.categories[1].total,
+            itemToday.categories[0].total,
+        )
+
+        return codeTime;
+   }
+
+  useMemo(() => {
+    getCodeTimeToday().then((data) => {
+        setCodeTime(alimentaDadosClasseCodeTime(data))
+    });
+  }, [])
   
   return (
     <>
@@ -78,7 +101,26 @@ export default function Home() {
         </Title>
 
         <Subtitle>
-          {t('home.about.text')}
+            Tempo total: {
+                codeTime ? (codeTime.timeTotal / 60).toFixed(0) : ''
+            } minutos
+
+            <br />
+
+            Tempo codando: {
+                codeTime ? (codeTime.timeCoding / 60).toFixed(0) : ''
+            } minutos
+
+            <br />
+
+            Tempo navegando: {
+                codeTime ? (codeTime.timeBrowsing / 60).toFixed(0) : ''
+            } minutos
+
+            <br />
+            <br />
+
+            {t('home.about.text')}
         </Subtitle>
 
 
