@@ -64,6 +64,13 @@ export function DataProjects() {
                                     {i18n.language === "en-US" && (
                                         value.descricaoEN
                                     )}
+                                    
+                                    <br />
+                                    <br />
+
+                                    <img src={
+                                        'https://wakatime.com/badge/github/guicrisostomo/' + value.link.replace('https://github.com/guicrisostomo/', '') + '.svg'
+                                    } alt='time_wasting_proj' />
                                 </TextInfoProject>
 
                                 <ItemLanguagesProject>
