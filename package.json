@@ -17,6 +17,7 @@
     "bootstrap": "^5.2.2",
     "css-loader": "^6.7.1",
     "dotenv-webpack": "^8.0.1",
+    "fetch-jsonp": "^1.2.3",
     "firebase": "^9.13.0",
     "html-webpack-plugin": "^5.5.0",
     "i18next": "^21.9.1",
