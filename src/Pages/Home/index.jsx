@@ -102,20 +102,26 @@ export default function Home() {
 
         <Subtitle>
             Tempo total: {
-                codeTime ? (codeTime.timeTotal / 60).toFixed(0) : ''
+                codeTime ? (codeTime.timeTotal / 3600).toFixed(0) : ''
+            } horas e {
+                codeTime ? (codeTime.timeTotal / 60).toFixed(0) - ((codeTime.timeTotal / 3600).toString().split('.')[0] * 60) : ''
             } minutos
 
             <br />
 
             Tempo codando: {
-                codeTime ? (codeTime.timeCoding / 60).toFixed(0) : ''
+                codeTime ? (codeTime.timeCoding / 3600).toString().split('.')[0] : ''
+            } horas e {
+                codeTime ? ((codeTime.timeCoding / 60).toFixed(0) - ((codeTime.timeCoding / 3600).toString().split('.')[0] * 60)) : ''
             } minutos
 
             <br />
 
             Tempo navegando: {
-                codeTime ? (codeTime.timeBrowsing / 60).toFixed(0) : ''
-            } minutos
+                codeTime ? (codeTime.timeBrowsing / 3600).toString().split('.')[0] : ''
+            } horas e {
+                codeTime ? (codeTime.timeBrowsing / 60).toFixed(0) - ((codeTime.timeBrowsing / 3600).toString().split('.')[0] * 60) : ''
+            } minutos 
 
             <br />
             <br />
