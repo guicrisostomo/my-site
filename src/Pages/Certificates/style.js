@@ -26,7 +26,7 @@ export const TextCertificates = styled.h1`
 `;
 
 export const ItemCertificates = styled.a`
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${props => props.urlImage});
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)), url(${props => props.urlImage});
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
