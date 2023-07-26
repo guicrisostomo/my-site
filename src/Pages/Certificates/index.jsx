@@ -11,6 +11,7 @@ import imgDIO from '../../assets/img/imgDIO.jpg';
 import imgCisco from '../../assets/img/imgCisco.jpg';
 import imgIFSP from '../../assets/img/imgIFSP.jpg';
 import imgVisualMidia from '../../assets/img/imgVisualMidia.jpg';
+import imgOracle from '../../assets/img/imgOracle.png';
 
 import pdfMRV from '../../assets/certificates/MRV Fullstack Developer.pdf';
 import pdfMobileAppDevelopment from '../../assets/certificates/Programação de Computadores e Dispositivos Móveis.pdf';
@@ -19,6 +20,8 @@ import pdfIntroductionNetwork from '../../assets/certificates/CCNAv7 Introduçã
 import pdfIntroductionCybersecurity from '../../assets/certificates/Introduction to Cybersecurity.pdf';
 import pdfLinux from '../../assets/certificates/NDG Linux Unhatched Português.pdf';
 import pdfComputerOperator from '../../assets/certificates/Operador de computador.pdf';
+import pdfDatabaseDesign from '../../assets/certificates/Database Design and Programming with SQL.pdf';
+
 import { useTranslation } from 'react-i18next';
 import Header from '../../components/Header/index.jsx';
 import Footer from '../../components/Footer/index.jsx';
@@ -69,6 +72,12 @@ export default function Certificates() {
                     <ItemCertificates href={pdfComputerOperator} target='_blank'  urlImage={imgVisualMidia}>
                         <TextInfoCertificates>
                             Operador de Computador
+                        </TextInfoCertificates>
+                    </ItemCertificates>
+
+                    <ItemCertificates href={pdfDatabaseDesign} target='_blank'  urlImage={imgOracle}>
+                        <TextInfoCertificates>
+                        Database Design and Programming with SQL
                         </TextInfoCertificates>
                     </ItemCertificates>
 
