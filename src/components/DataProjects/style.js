@@ -8,29 +8,29 @@ export const Items = styled.div`
 `;
 
 export const ItemProject = styled.a`
-    width: 100%;
-    color: white;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #000000a1;
-    align-items: center;
-    border-radius: 5px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: white;
-    padding: 42px 42px 42px 42px;
-    box-shadow: 11px 11px 50px white;
-    margin-top: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    transform: scale(80%, 80%);
-    transition: 1s all;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #000000a1;
+  align-items: center;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  padding: 42px 42px 42px 42px;
+  box-shadow: 1px 1px 10px white;
+  margin-top: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  transform: scale(80%, 80%);
+  transition: 1s all;
 
-    :hover {
-        background-color: white;
-        color: black;
-        transform: scale(90%, 90%);
-    }
+  :hover {
+    background-color: #f2f2f2;
+    color: black;
+    transform: scale(90%, 90%);
+  }
 `;
 
 export const ItemSkillImg = styled.img`
