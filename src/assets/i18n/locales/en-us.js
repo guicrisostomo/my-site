@@ -15,11 +15,10 @@ export default {
         footer: {
             created: 'Created by',
         },
-
         home: {
             about: {
                 title: "About me",
-                text: "I believe in the ideia of changing the world, to make it better, and I saw in the technology a way to make it possible. I've been connected to programming since my 15s and everyday I fall even deeper for it. Also, I'm always trying to improve out of my comfort zone (I love to learn and face new challenges) and give all my energy towards challenges that comes. Now, I'm student of the 4th semester of Systems Analysis and Development at Fatec Ribeirão Preto."
+                text: "Currently, I have a degree in Systems Analysis and Development (ADS) from FATEC and a Front-end developer from Exart. As for my professional life, I work with React, along with tools such as TypeScript, Vite, Tailwind CSS, Shadcn, Redux and consumption of REST APIs. I have already worked on creating websites according to figma; viewing and sending images and other documents to the API; creating graphics through the data obtained by the back-end; creating sessions using cookies with JWT standard; sending authorization tokens to the API. I have always loved challenges and solving problems (things that made me like the IT area a lot)! As for my personal life, I love to code in my spare time, play on the console/PC, watch series and chat with friends. I am good at working in a team and I am proactive!"
             },
 
             event: {

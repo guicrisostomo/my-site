@@ -1,96 +1,96 @@
 export default {
-    translations: {
-        header: {
-            pages: "Páginas",
-            home: "Inicio",
-            skills: "Habilidades",
-            contact: "Contato",
-            projects: "Projetos",
-            certificates: "Certificados",
-            updates: "Atualizações",
-            language: "Idioma",
-            portuguese: "Português",
-            english: "Inglês"
-        },
+  translations: {
+    header: {
+      pages: "Páginas",
+      home: "Inicio",
+      skills: "Habilidades",
+      contact: "Contato",
+      projects: "Projetos",
+      certificates: "Certificados",
+      updates: "Atualizações",
+      language: "Idioma",
+      portuguese: "Português",
+      english: "Inglês",
+    },
 
-        footer: {
-            created: 'Criado por',
-        },
+    footer: {
+      created: "Criado por",
+    },
 
-        home: {
-            about: {
-                title: 'Sobre mim',
-                text: 'Eu acredito muito na ideia de mudar o mundo, torná-lo cada vez melhor e vi na tecnologia um meio para tornar isso possível. Desde os 15 anos, eu tenho contato com a programação e, todos os dias, me apaixono mais por ela. Além disso, sempre busco me aperfeiçoar, sair da minha zona de conforto (sou apaixonado por aprender e enfrentar novos desafios) e sempre dar toda minha energia nos desafios que surgem. Atualmente, sou estudante do 4 semestre de análise e desenvolvimento de sistemas pela FATEC de Ribeirão Preto.'
-            },
-            
-            event: {
-                title: 'Meus últimos eventos no GitHub',
-                text: 'Uma lista com os meus últimos 5 eventos no GitHub para demonstrar o que estou fazendo atualmente',
-                button: 'Meu código',
-                date: 'Data: ',
-                typeEvent: 'Tipo: '
-            },
-        },
+    home: {
+      about: {
+        title: "Sobre mim",
+        text: "Atualmente, sou formado em Analise e Desenvolvimento de Sistemas (ADS) pela FATEC e desenvolvedor Front-end pela Exart. Quanto a minha vida profissional, atuo com React, juntamente com ferramentas como TypeScript, Vite, Tailwind CSS, Shadcn, Redux e consumo de APIs REST Já atuei na criação de sites conforme figma; visualização e envio imagens e outros documentos para API; elaboração gráficos por meio dos dados obtidos pelo back-end; criação sessões utilizando cookies com padrão JWT; envio tokens de autorização para a API. Sempre adorei desafios e solucionar problemas (coisas pelas quais me fizeram gostar e muito da área de TI)! Quanto a minha vida particular, adoro codar na horas vagas, jogar no console/PC, assistir séries e conversar com amigos! Sou bom em trabalhar em equipe e sou proativo!",
+      },
 
-        contact: {
-            title: 'Contato'
-        },
+      event: {
+        title: "Meus últimos eventos no GitHub",
+        text: "Uma lista com os meus últimos 5 eventos no GitHub para demonstrar o que estou fazendo atualmente",
+        button: "Meu código",
+        date: "Data: ",
+        typeEvent: "Tipo: ",
+      },
+    },
 
-        skill: {
-            title: 'Habilidades'
-        },
+    contact: {
+      title: "Contato",
+    },
 
-        certificates: {
-            title: 'Certificados',
-        },
+    skill: {
+      title: "Habilidades",
+    },
 
-        projects: {
-            title: {
-                main: 'Projetos',
-            },
-        },
+    certificates: {
+      title: "Certificados",
+    },
 
-        updates: {
-            title: 'Meus commits ',
-            subtitle: 'Meus commits feitos na data de ',
-            totalCommits: 'Total de commits: ',
-            message: 'Mensagem: ',
-            buttonCode: 'Meu projeto',
-            buttonChanged: 'Alterações feitas',
-            select: {
-                title: 'Selecione a data: ',
-                options: [
-                    {
-                        id: 1,
-                        name: 'Hoje',
-                        valueSelect: 'Today'
-                    },
+    projects: {
+      title: {
+        main: "Projetos",
+      },
+    },
 
-                    {
-                        id: 2,
-                        name: 'Esta semana',
-                        valueSelect: 'This week'
-                    },
+    updates: {
+      title: "Meus commits ",
+      subtitle: "Meus commits feitos na data de ",
+      totalCommits: "Total de commits: ",
+      message: "Mensagem: ",
+      buttonCode: "Meu projeto",
+      buttonChanged: "Alterações feitas",
+      select: {
+        title: "Selecione a data: ",
+        options: [
+          {
+            id: 1,
+            name: "Hoje",
+            valueSelect: "Today",
+          },
 
-                    {
-                        id: 3,
-                        name: 'Este mês',
-                        valueSelect: 'This month'
-                    },
+          {
+            id: 2,
+            name: "Esta semana",
+            valueSelect: "This week",
+          },
 
-                    {
-                        id: 4,
-                        name: 'Este ano',
-                        valueSelect: 'This year'
-                    },
-                    
-                    {
-                        id: 5,
-                        name: 'Personalizado',
-                        valueSelect: 'Custom'
-                    },
-                ]
-            }
-        }
-    }
-}
+          {
+            id: 3,
+            name: "Este mês",
+            valueSelect: "This month",
+          },
+
+          {
+            id: 4,
+            name: "Este ano",
+            valueSelect: "This year",
+          },
+
+          {
+            id: 5,
+            name: "Personalizado",
+            valueSelect: "Custom",
+          },
+        ],
+      },
+    },
+  },
+};
