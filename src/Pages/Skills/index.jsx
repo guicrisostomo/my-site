@@ -14,12 +14,11 @@ import {
   SiGit,
   SiFlutter,
   SiPostgresql,
-  SiCsharp,
-  SiDotnet,
   SiStyledcomponents,
   SiTailwindcss,
   SiTypescript,
   SiNestjs,
+  SiRedux,
 } from "react-icons/si";
 import Header from "../../components/Header/index.jsx";
 import { useTranslation } from "react-i18next";
@@ -146,6 +145,25 @@ export default function Skill() {
             <TextInfoSkill>REACTJS</TextInfoSkill>
           </ItemSkill>
 
+          <ItemSkill target="_blank">
+            <SiRedux
+              style={{
+                display: "flex",
+                width: 50,
+                height: 50,
+                marginRight: "10px",
+                borderRadius: "50%",
+                borderStyle: "solid",
+                borderWidth: "1px",
+                borderColor: "white",
+                padding: "5px",
+                boxShadow: "white 0px 0px 50px",
+              }}
+            />
+
+            <TextInfoSkill>REDUX</TextInfoSkill>
+          </ItemSkill>
+
           <ItemSkill
             href="https://github.com/guicrisostomo/my-site"
             target="_blank"
@@ -251,25 +269,6 @@ export default function Skill() {
             />
 
             <TextInfoSkill>GIT</TextInfoSkill>
-          </ItemSkill>
-
-          <ItemSkill href="https://github.com/guicrisostomo/" target="_blank">
-            <SiNestjs
-              style={{
-                display: "flex",
-                width: 50,
-                height: 50,
-                marginRight: "10px",
-                borderRadius: "50%",
-                borderStyle: "solid",
-                borderWidth: "1px",
-                borderColor: "white",
-                padding: "5px",
-                boxShadow: "white 0px 0px 50px",
-              }}
-            />
-
-            <TextInfoSkill>NESTJS</TextInfoSkill>
           </ItemSkill>
         </Items>
       </SectionSkills>
