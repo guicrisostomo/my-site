@@ -27,7 +27,7 @@ export default function Experience() {
   const { t } = useTranslation();
   const listExperience = [
     {
-      nameCompany: "Exart",
+      nameCompany: "PA Informática",
       date: t("experience.0.date"),
       position: t("experience.0.position"),
       description: t("experience.0.description"),
