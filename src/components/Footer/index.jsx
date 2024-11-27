@@ -12,7 +12,7 @@ import imgCopyright from "../../assets/img/imgCopyright.svg";
 
 export default function Footer() {
   return (
-    <FooterStyle>
+    <FooterStyle data-testid='footer'>
         <DivContacts>
           <Icons href='https://github.com/guicrisostomo' target="_blank">
             <AiOutlineGithub cursor="pointer" className='icon-github'/>
