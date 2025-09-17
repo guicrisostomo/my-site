@@ -1,7 +1,6 @@
 import { DotFilledIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import React from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,15 +23,17 @@ import {
 
 import { t } from "i18next";
 import { Link } from "react-router-dom";
+import React from "react";
 
 export default function Header() {
   const [pages, setPages] = useState("");
   const [language, setLanguage] = useState("portuguese");
   const [scrolled, setScrolled] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
+  const [blockPopup, setBlockPopup] = useState(false); // impede exibir mais de uma vez
+  
   const { i18n } = useTranslation();
 
-
-  // usePrompt("Tem certeza que deseja sair desta página?", true);
 
   // Detecta se o usuário está saindo do site (fechando aba, recarregando ou navegando para fora)
   useEffect(() => {
@@ -71,21 +72,19 @@ export default function Header() {
     }
   }
 
-  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const handleMouseLeave = (event) => {
-      if (event.clientY < 10) {
+      if (event.clientY < 10 && !blockPopup) {
         setShowPopup(true);
+        setBlockPopup(true);
       }
     };
-
     document.addEventListener('mouseout', handleMouseLeave);
-
     return () => {
       document.removeEventListener('mouseout', handleMouseLeave);
     };
-  }, []);
+  }, [blockPopup]);
 
   const handleStay = () => {
     setShowPopup(false);
@@ -94,7 +93,7 @@ export default function Header() {
   return (
     <Hheader
       style={{ backgroundColor: scrolled > 1 ? "black" : "transparent" }}
-      onClick={() => setShowPopup(false)}
+      onClick={handleStay}
     >
       {showPopup && (
         <div style={{
