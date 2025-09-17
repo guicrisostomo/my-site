@@ -29,3 +29,4 @@ yarn-error.log*
 vercel.cmd
 vercel.ps1
 .env.local
+.bashrc
