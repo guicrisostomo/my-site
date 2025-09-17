@@ -14,30 +14,27 @@ import {
 } from "./style";
 import { useTranslation } from "react-i18next";
 
+export async function fetchProjects() {
+  const projectsCol = collection(db, "projects");
+  const projectsColOrder = query(projectsCol, orderBy("order", "asc"));
+  const projectsSnapshot = await getDocs(projectsColOrder);
+  return projectsSnapshot.docs.map((doc) => doc.data());
+}
+
 export function DataProjects() {
   const [projects, setProjects] = useState([]);
   const { i18n } = useTranslation();
-  const runCallback = (cb) => {
-    return cb();
-  };
-
-  async function fetchProjects() {
-    const projectsCol = collection(db, "projects");
-    const projectsColOrder = query(projectsCol, orderBy("order", "asc"));
-    const projectsSnapshot = await getDocs(projectsColOrder);
-    setProjects(projectsSnapshot.docs.map((doc) => doc.data()));
-    return projects;
-  }
 
   useEffect(() => {
-    fetchProjects();
+    fetchProjects().then((data) => {
+      console.log(data);
+      setProjects(data);
+    });
   }, []);
 
-  return projects.map((value) =>
-    runCallback(() => {
-      try {
-        return (
-          <Items key={value.nomeEN}>
+  return <div  data-testid='data-projects'>{projects.map((value) =>
+        (
+          <Items key={value.nomeEN} data-testid="listitem">
             <ItemProject href={value.link} target="_blank">
               <ItemProjectImg>
                 <ImgProject src={value.linkImage} />
@@ -51,12 +48,6 @@ export function DataProjects() {
                 </TextTitleProject>
 
                 <TextInfoProject>
-                  {i18n.language === "pt-BR" && value.descricaoPT}
-
-                  {i18n.language === "en-US" && value.descricaoEN}
-
-                  <br />
-                  <br />
 
                   <img
                     src={
@@ -72,27 +63,17 @@ export function DataProjects() {
                 </TextInfoProject>
 
                 <ItemLanguagesProject>
-                  {runCallback(() => {
-                    const row = [];
-
-                    for (var i = 0; i < value.skills.length; i++) {
-                      row.push(
-                        <ItemSkillImg
-                          src={value.skills[i]}
-                          ImgDark={value.skillDark}
-                          key={"skill" + i}
-                        />
-                      );
-                    }
-
-                    return row;
-                  })}
+                  {value.skills.map((value) => (
+                    <ItemSkillImg
+                      key={value}
+                      src={value}
+                      alt={value}
+                    />
+                  ))}
                 </ItemLanguagesProject>
               </ItemProjectText>
             </ItemProject>
           </Items>
-        );
-      } catch (error) {}
-    })
-  );
+        )
+  )}</div>;
 }
