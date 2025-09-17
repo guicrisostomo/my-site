@@ -25,26 +25,9 @@ import { useTranslation } from "react-i18next";
 
 export default function Experience() {
   const { t } = useTranslation();
-  const listExperience = [
-    {
-      nameCompany: "PA Informática",
-      date: t("experience.0.date"),
-      position: t("experience.0.position"),
-      description: t("experience.0.description"),
-      skills: [
-        "React",
-        "Vite",
-        "TypeScript",
-        "Tailwind CSS",
-        "Redux",
-        "Zod",
-        "React Hook Form",
-        "Flutter",
-        "Git",
-      ],
-    },
-  ];
-
+  const listExperience = t("experience", { returnObjects: true });
+  
+  console.log(listExperience);
   const GetIconSkill = (skill) => {
     switch (skill) {
       case "React":
@@ -163,11 +146,11 @@ export default function Experience() {
       <Header />
 
       <SectionExperience>
-        {listExperience.map((experience, index) => (
+        {listExperience?.map((experience, index) => (
           <CardExperience key={index}>
             <div>
               <h1>
-                {experience.nameCompany} - {experience.position}
+                {experience.company} - {experience.position}
               </h1>
               <TextDateExperience>{experience.date}</TextDateExperience>
             </div>

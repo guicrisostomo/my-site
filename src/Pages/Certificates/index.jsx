@@ -12,6 +12,8 @@ import imgCisco from "../../assets/img/imgCisco.jpg";
 import imgIFSP from "../../assets/img/imgIFSP.jpg";
 import imgVisualMidia from "../../assets/img/imgVisualMidia.jpg";
 import imgOracle from "../../assets/img/imgOracle.png";
+import imgFatec from "../../assets/img/imgFatec.png";
+import imgUspEsalq from "../../assets/img/imgUspEsalq.jpg";
 
 import { useTranslation } from "react-i18next";
 import Header from "../../components/Header/index.jsx";
@@ -65,6 +67,18 @@ export default function Certificates() {
           <ItemCertificates urlImage={imgOracle}>
             <TextInfoCertificates>
               Database Design and Programming with SQL
+            </TextInfoCertificates>
+          </ItemCertificates>
+
+          <ItemCertificates urlImage={imgFatec}>
+            <TextInfoCertificates>
+              Análise e Desenvolvimento de Sistemas
+            </TextInfoCertificates>
+          </ItemCertificates>
+
+          <ItemCertificates urlImage={imgUspEsalq}>
+            <TextInfoCertificates>
+              MBA em Engenharia de Software (em andamento)
             </TextInfoCertificates>
           </ItemCertificates>
         </Items>

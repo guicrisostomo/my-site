@@ -53,10 +53,29 @@ export default {
 
     experience: [
       {
-        date: "2023 - Atual",
+        date: "Janeiro de 2023 - Atualmente",
+        position: "Gerente",
+        description: "Atuo como Gerente na Pizzaria La Pasta, onde sou responsável por gerenciar a equipe de atendimento, supervisionar equipamentos e garantir a implementação de soluções eficientes em tecnologia, além de montar designs para as redes sociais e cardápios.",
+        company: "Pizzaria La Pasta",
+        skills: [],
+      },
+      {
+        date: "Setembro de 2023 - Abril de 2025",
         position: "Desenvolvedor Front-end",
         description:
           "Trabalho com React, juntamente com ferramentas como TypeScript, Vite, Tailwind CSS, Shadcn, Redux, React Forms, Zod. Já atuei na criação de sites conforme figma; visualização e envio imagens e outros documentos para API; elaboração gráficos por meio dos dados obtidos pelo back-end; criação sessões utilizando cookies com padrão JWT; envio tokens de autorização para a API.",
+        company: "PA Informática",
+        skills: [
+          "React",
+          "Vite",
+          "TypeScript",
+          "Tailwind CSS",
+          "Redux",
+          "Zod",
+          "React Hook Form",
+          "Flutter",
+          "Git",
+        ],
       },
     ],
 

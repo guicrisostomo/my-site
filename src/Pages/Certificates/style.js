@@ -9,7 +9,7 @@ export const SectionCertifications = styled.section`
     background-size: cover;
     background-attachment: fixed;
     justify-content: start;
-    height: 100vh;
+    height: 100%;
     padding-top: 72px;
     padding-bottom: 10px;
 `;
@@ -30,13 +30,15 @@ export const ItemCertificates = styled.a`
     url(${(props) => props.urlImage});
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   justify-content: start;
   color: white;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 20vw;
+  width: 150px;
+  height: 150px;
+  text-align: center;
   background-color: #000000a1;
   align-items: center;
   border-radius: 5px;

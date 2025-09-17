@@ -47,10 +47,30 @@ export default {
 
     experience: [
       {
-        date: "2023 - Current",
+        date: "September 2023 - April 2025",
+        position: "Manager",
+        description:
+          "I work as a Manager at Pizzaria La Pasta, where I am responsible for managing the service team, supervising equipment, and ensuring the implementation of efficient technology solutions, in addition to creating designs for social media and menus.",
+        company: "Pizzaria La Pasta",
+        skills: [],
+      },
+      {
+        date: "September 2023 - April 2025",
         position: "Front-end Developer",
         description:
           "I work with React, along with tools such as TypeScript, Vite, Tailwind CSS, Shadcn, Redux, React Forms, Zod. I have already worked on creating websites according to figma; viewing and sending images and other documents to the API; creating graphics through the data obtained by the back-end; creating sessions using cookies with JWT standard; sending authorization tokens to the API.",
+        skills: [
+          "React",
+          "Vite",
+          "TypeScript",
+          "Tailwind CSS",
+          "Redux",
+          "Zod",
+          "React Hook Form",
+          "Flutter",
+          "Git",
+        ],
+        company: "PA Informática",
       },
     ],
 
