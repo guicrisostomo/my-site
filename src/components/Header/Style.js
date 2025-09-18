@@ -116,6 +116,10 @@ export const ContentTextHeader = styled.div`
   align-items: center;
   justify-content: between;
   gap: 8px;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 export const MenuImgHeader = styled.div`

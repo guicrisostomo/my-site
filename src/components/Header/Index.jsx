@@ -179,10 +179,12 @@ export default function Header() {
           </div>
         </div>
       )}
-      <ContentTextHeader>
-        <Link to="/" style={{ textDecoration: "none", alignSelf: "center" }}>
+
+      <Link to="/" style={{ textDecoration: "none", alignSelf: "center" }}>
           <AbbreviationName>GCS</AbbreviationName>
         </Link>
+      <ContentTextHeader>
+        
 
         {/* Links com destaque moderno para o item selecionado */}
         <Link

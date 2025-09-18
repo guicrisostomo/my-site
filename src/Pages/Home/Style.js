@@ -10,10 +10,9 @@ export const SectionAbout = styled.section`
     background-size: cover;
     background-attachment: fixed;
     justify-content: flex-start;
-    min-height: 320px;
     box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
     backdrop-filter: blur(2px);
-    height: 100%;
+    height: 100;
 `;
 
 export const Title = styled.h1`
