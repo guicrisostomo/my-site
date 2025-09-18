@@ -51,7 +51,9 @@ export default {
       },
     },
 
-    experience: [
+    experience: {
+      title: "Experiência",
+      jobs: [
       {
         date: "Janeiro de 2023 - Atualmente",
         position: "Gerente",
@@ -77,7 +79,7 @@ export default {
           "Git",
         ],
       },
-    ],
+    ]},
 
     updates: {
       title: "Meus commits ",

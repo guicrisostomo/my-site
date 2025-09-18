@@ -33,7 +33,7 @@ export const SectionCommits = styled.section`
     background-size: cover;
     background-attachment: fixed;
     justify-content: flex-start;
-    height: 100;
+    height: 100%;
     margin-top: 12px;
     padding-top: 80px;
     padding-bottom: 32px;
@@ -41,6 +41,10 @@ export const SectionCommits = styled.section`
     box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
     backdrop-filter: blur(2px);
     height: ${props => props.height};
+    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const ItemsCommitInfo = styled.div`

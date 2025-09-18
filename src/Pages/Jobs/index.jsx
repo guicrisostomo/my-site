@@ -8,6 +8,7 @@ import {
   FooterSkillsExperience,
   TextDateExperience,
   TextDescriptionExperience,
+  TitleSectionExperience
 } from "./style";
 
 import {
@@ -26,7 +27,7 @@ import Footer from "../../components/Footer/index.jsx";
 
 export default function Experience() {
   const { t } = useTranslation();
-  const listExperience = t("experience", { returnObjects: true });
+  const listExperience = t("experience.jobs", { returnObjects: true });
   
   console.log(listExperience);
   const GetIconSkill = (skill) => {
@@ -147,6 +148,7 @@ export default function Experience() {
       <Header />
 
       <SectionExperience>
+        <TitleSectionExperience>{t("experience.title")}</TitleSectionExperience>
         {listExperience?.map((experience, index) => (
           <CardExperience key={index}>
             <div>

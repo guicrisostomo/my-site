@@ -117,7 +117,7 @@ export const ContentTextHeader = styled.div`
   justify-content: between;
   gap: 8px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 1400px) {
     display: none;
   }
 `;

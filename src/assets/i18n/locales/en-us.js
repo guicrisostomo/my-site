@@ -45,7 +45,9 @@ export default {
       },
     },
 
-    experience: [
+    experience: {
+      title: "Experience",
+      jobs: [
       {
         date: "September 2023 - April 2025",
         position: "Manager",
@@ -72,7 +74,7 @@ export default {
         ],
         company: "PA Informática",
       },
-    ],
+    ]},
 
     updates: {
       title: "My commits ",
