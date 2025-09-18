@@ -1,32 +1,113 @@
-import { styled, keyframes } from '@stitches/react';
-import { mauve, blackA } from '@radix-ui/colors';
-import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import styled, { keyframes } from 'styled-components';
 
-const slideUpAndFade = keyframes({
-    '0%': { opacity: 0, transform: 'translateY(2px)' },
-    '100%': { opacity: 1, transform: 'translateY(0)' },
-  });
+// Animação fade para o menu
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(-12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+`;
 
-const slideRightAndFade = keyframes({
-'0%': { opacity: 0, transform: 'translateX(-2px)' },
-'100%': { opacity: 1, transform: 'translateX(0)' },
-});
+export const NavbarContainer = styled.nav`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: transparent;
+  position: relative;
+  z-index: 20;
+  padding: 0 24px;
+  @media (max-width: 700px) {
+    padding: 0 8px;
+  }
+`;
 
-const slideDownAndFade = keyframes({
-'0%': { opacity: 0, transform: 'translateY(-2px)' },
-'100%': { opacity: 1, transform: 'translateY(0)' },
-});
+export const IconButton = styled.button`
+  all: unset;
+  font-family: 'Fira Mono', 'JetBrains Mono', 'Roboto Mono', monospace;
+  border-radius: 50%;
+  height: 44px;
+  width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+  box-shadow: 0 2px 10px 0 rgba(0,198,255,0.10);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  border: 2px solid rgba(255,255,255,0.08);
+  &:hover {
+    background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
+    color: #222;
+    box-shadow: 0 4px 16px 0 rgba(0,198,255,0.18);
+    border: 2px solid #00c6ff;
+  }
+`;
 
-const slideLeftAndFade = keyframes({
-'0%': { opacity: 0, transform: 'translateX(2px)' },
-'100%': { opacity: 1, transform: 'translateX(0)' },
-});
+export const DropdownMenu = styled.div`
+  min-width: 220px;
+  background: rgba(20, 20, 30, 0.98);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  padding: 16px 0;
+  position: absolute;
+  top: 60px;
+  right: 24px;
+  z-index: 100;
+  animation: ${fadeIn} 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1.5px solid rgba(0,198,255,0.10);
+  backdrop-filter: blur(12px) saturate(160%);
+  @media (max-width: 700px) {
+    right: 4px;
+    min-width: 160px;
+    padding: 10px 0;
+  }
+`;
 
-const itemStyles = {
-all: 'unset',
-fontSize: 13,
-lineHeight: 1,
-color: 'black',
+export const DropdownItem = styled.button`
+  all: unset;
+  font-family: 'Fira Mono', 'JetBrains Mono', 'Roboto Mono', monospace;
+  font-size: 1rem;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 28px;
+  margin: 0 8px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  text-align: left;
+  border: 1.5px solid transparent;
+  background: rgba(255,255,255,0.02);
+  &:hover {
+    background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+    color: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0,198,255,0.10);
+    border: 1.5px solid #00c6ff;
+  }
+  &:disabled {
+    color: #909096;
+    pointer-events: none;
+    background: none;
+    border: 1.5px dashed #909096;
+  }
+`;
+
+export const DropdownSeparator = styled.div`
+  height: 1.5px;
+  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+  margin: 10px 0;
+  opacity: 0.25;
+  border-radius: 2px;
+`;
+
+export const DropdownLabel = styled.div`
+  font-size: 0.95rem;
+  color: #b0c4d4;
+  padding: 8px 28px 2px 28px;
+  font-family: 'Fira Mono', 'JetBrains Mono', 'Roboto Mono', monospace;
+  letter-spacing: 1px;
+  opacity: 0.85;
 cursor: 'pointer',
 borderRadius: 3,
 display: 'flex',
@@ -38,100 +119,9 @@ paddingLeft: 25,
 userSelect: 'none',
 transition: 'all 0.5s',
 '&[data-disabled]': {
-    color: '#909096',
-    pointerEvents: 'none',
-},
-
-'&:focus': {
-    backgroundColor: 'black',
-    color: 'white',
-},
-};
-
-export const Box = styled('div', {});
-
-export const RightSlot = styled('div', {
-  marginLeft: 'auto',
-  paddingLeft: 20,
-  color: mauve.mauve11,
-  ':focus > &': { color: 'white' },
-  '[data-disabled] &': { color: mauve.mauve8 },
-});
-
-export const IconButton = styled('button', {
-  all: 'unset',
-  fontFamily: 'inherit',
-  borderRadius: '100%',
-  height: 35,
-  width: 35,
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: 'white',
-  backgroundColor: 'black!important',
-  transition: 'all 0.9s',
-  boxShadow: `0 2px 10px ${blackA.blackA7}`,
-  '&:hover': { backgroundColor: 'white!important',
-               color: 'black' 
-             },
-  '&:focus': { boxShadow: `0 0 0 2px black` },
-});
-
-
-export const StyledContent = styled(DropdownMenuPrimitive.Content, {
-    minWidth: 220,
-    backgroundColor: 'white',
-    borderRadius: 6,
-    padding: 5,
-    boxShadow:
-      '0px 10px 38px -10px rgba(22, 23, 24, 0.35), 0px 10px 20px -15px rgba(22, 23, 24, 0.2)',
-    '@media (prefers-reduced-motion: no-preference)': {
-      animationDuration: '400ms',
-      animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
-      animationFillMode: 'forwards',
-      willChange: 'transform, opacity',
-      '&[data-state="open"]': {
-        '&[data-side="top"]': { animationName: slideDownAndFade },
-        '&[data-side="right"]': { animationName: slideLeftAndFade },
-        '&[data-side="bottom"]': { animationName: slideUpAndFade },
-        '&[data-side="left"]': { animationName: slideRightAndFade },
-      },
-    },
-  });
-  
-export const StyledItem = styled(DropdownMenuPrimitive.Item, { ...itemStyles });
-export const StyledCheckboxItem = styled(DropdownMenuPrimitive.CheckboxItem, { ...itemStyles });
-export const StyledRadioItem = styled(DropdownMenuPrimitive.RadioItem, { ...itemStyles });
-export const StyledTriggerItem = styled(DropdownMenuPrimitive.TriggerItem, {
-    '&[data-state="open"]': {
-    backgroundColor: 'black',
-    color: 'white',
-    },
-    ...itemStyles,
-});
-
-export const StyledLabel = styled(DropdownMenuPrimitive.Label, {
-    paddingLeft: 25,
-    fontSize: 12,
-    lineHeight: '25px',
-    color: mauve.mauve11,
-});
-
-export const StyledSeparator = styled(DropdownMenuPrimitive.Separator, {
-    height: 1,
-    backgroundColor: 'black',
-    margin: 5,
-});
-
-export const StyledItemIndicator = styled(DropdownMenuPrimitive.ItemIndicator, {
-    position: 'absolute',
-    left: 0,
-    width: 25,
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-});
-
-export const StyledArrow = styled(DropdownMenuPrimitive.Arrow, {
-    fill: 'white',
-});
+    color: #909096;
+    pointer-events: none;
+    background: none;
+    border: 1.5px dashed #909096;
+  }
+`;

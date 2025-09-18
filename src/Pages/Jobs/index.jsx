@@ -22,6 +22,7 @@ import {
 } from "react-icons/si";
 import { SiZod } from "react-icons/si";
 import { useTranslation } from "react-i18next";
+import Footer from "../../components/Footer/index.jsx";
 
 export default function Experience() {
   const { t } = useTranslation();
@@ -167,6 +168,8 @@ export default function Experience() {
           </CardExperience>
         ))}
       </SectionExperience>
+
+      <Footer />
     </>
   );
 }

@@ -340,7 +340,7 @@ export default function Updates() {
                 
                 { 
                   !item.repository.private &&
-                    <div style={{display: 'flex'}}>
+                    <div style={{display: 'flex', width: '100%', gap: '12px'}}>
                       <ItemCommitInfoButton href={item.repository.html_url.toString()} target='_blank'>
                         <AiOutlineGithub fontSize={30} cursor="pointer" className='icon-github' />
 

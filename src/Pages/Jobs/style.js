@@ -2,74 +2,92 @@ import styled from "styled-components";
 import imgExperience from "../../assets/img/imgExperience.jpg";
 
 export const SectionExperience = styled.section`
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(${imgExperience});
-  width: auto;
+  background: linear-gradient(120deg, rgba(24,26,27,0.92) 60%, rgba(0,0,0,0.7)), url(${imgExperience});
+  width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  justify-content: start;
+  justify-content: flex-start;
   height: 100;
-  min-height: 90%;
-  padding-top: 72px;
-  padding-bottom: 10px;
+  margin-top: 12px;
+  padding-top: 80px;
+  padding-bottom: 32px;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+  backdrop-filter: blur(2px);
 `;
 
 export const CardExperience = styled.div`
-  width: 100%;
-  color: white;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #000000a1;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: white;
-  padding: 42px 42px 42px 42px;
-  box-shadow: 1px 1px 10px white;
-  margin-top: 20px;
-  cursor: pointer;
-  text-decoration: none;
-  transform: scale(80%, 80%);
-  transition: 1s all;
+  min-width: 320px;
+  max-width: 540px;
+  color: #e0e0e0;
   display: flex;
   flex-direction: column;
-
-  :hover {
-    background-color: #f2f2f2;
-    color: black;
-    transform: scale(90%, 90%);
+  background: rgba(24,26,27,0.92);
+  align-items: flex-start;
+  border-radius: 16px;
+  border: 1.5px solid #23272F;
+  padding: 32px 32px 24px 32px;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+  margin: 0 auto 24px auto;
+  text-decoration: none;
+  font-family: 'Fira Mono', 'Roboto Mono', monospace;
+  transition: box-shadow 0.3s, background 0.3s, color 0.3s, transform 0.3s;
+  position: relative;
+  border-bottom: 3px solid #00e676;
+  &:hover {
+    background: linear-gradient(120deg, #181A1B 80%, #23272F 100%);
+    color: #00e676;
+    box-shadow: 0 8px 32px 0 rgba(0,255,128,0.10);
+    transform: translateY(-4px) scale(1.03);
   }
 `;
 
 export const TextDateExperience = styled.p`
-  font-size: 20px;
-  margin-top: -15px;
+  font-size: 18px;
+  margin-top: 0;
+  color: #00e676;
+  font-family: 'Fira Mono', 'Roboto Mono', monospace;
+  font-weight: 700;
 `;
 
 export const TextDescriptionExperience = styled.p`
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 10px;
   text-align: justify;
   text-justify: inter-word;
+  color: #bdbdbd;
+  font-family: 'Fira Mono', 'Roboto Mono', monospace;
 `;
 
 export const FooterSkillsExperience = styled.footer`
   display: flex;
   flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
 `;
 
 export const SkillsExperience = styled.div`
   display: flex;
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+  width: 48px;
+  height: 48px;
+  margin-right: 0;
   border-radius: 50%;
-  padding: 5px;
-  background-color: white;
-  color: black;
-  box-shadow: white 0px 0px 50px;
+  padding: 6px;
+  background: linear-gradient(135deg, #23272F 60%, #181A1B 100%);
+  color: #00e676;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   place-content: center;
   align-items: center;
+  border: 1.5px solid #23272F;
+  font-size: 22px;
+  transition: all 0.25s;
+  &:hover {
+    color: #fff;
+    background: linear-gradient(135deg, #00e676 60%, #00bfa5 100%);
+    border-color: #00e676;
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,255,128,0.10);
+  }
 `;

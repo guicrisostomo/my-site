@@ -2,16 +2,21 @@ import styled from 'styled-components';
 import imgError from '../../assets/img/imgError.png';
 
 export const SectionError = styled.section`
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgError});
-    width: auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    justify-content: start;
-    height: 100vh;
-    padding-top: 72px;
-    padding-bottom: 10px;
+    background: linear-gradient(120deg, rgba(24,26,27,0.92) 60%, rgba(0,0,0,0.7)), url(${imgError});
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  justify-content: flex-start;
+  height: 100;
+  margin-top: 12px;
+  padding-top: 80px;
+  padding-bottom: 32px;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
+  backdrop-filter: blur(2px);
+  height: 100%;
 `;
 
 export const DivInfoError = styled.div`

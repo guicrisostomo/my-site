@@ -84,8 +84,8 @@ export default {
       subtitle: "Meus commits feitos na data de ",
       totalCommits: "Total de commits: ",
       message: "Mensagem: ",
-      buttonCode: "Meu projeto",
-      buttonChanged: "Alterações feitas",
+      buttonCode: "Meu proj.",
+      buttonChanged: "Alt. feitas",
       select: {
         title: "Selecione a data: ",
         options: [

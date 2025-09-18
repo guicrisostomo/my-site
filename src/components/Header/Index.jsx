@@ -1,18 +1,16 @@
-import { DotFilledIcon, HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { useEffect, useState } from "react";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
+  DropdownItem,
+  DropdownLabel,
   DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItemIndicator,
-  DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuTrigger,
+  DropdownSeparator,
+  IconButton
 } from "../Navbar/index.jsx";
 
-import { Box, IconButton } from "../Navbar/style.js";
-
+import { t } from "i18next";
+import { Link } from "react-router-dom";
 import {
   AbbreviationName,
   ContentTextHeader,
@@ -21,25 +19,37 @@ import {
   TextHeaderStyle,
 } from "./style.js";
 
-import { t } from "i18next";
-import { Link } from "react-router-dom";
-import React from "react";
-
 export default function Header() {
   const [pages, setPages] = useState("");
-  const [language, setLanguage] = useState("portuguese");
   const [scrolled, setScrolled] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
   const [blockPopup, setBlockPopup] = useState(false); // impede exibir mais de uma vez
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef();
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    }
+    if (menuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [menuOpen]);
   
   const { i18n } = useTranslation();
 
 
-  // Detecta se o usuário está saindo do site (fechando aba, recarregando ou navegando para fora)
   useEffect(() => {
     const handleBeforeUnload = (event) => {
-      event.preventDefault(); // necessário para alguns navegadores
-      event.returnValue = ''; // obrigatoriamente string vazia ou uma mensagem (poucos navegadores suportam)
+      event.preventDefault();
+      event.returnValue = '';
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
@@ -49,10 +59,6 @@ export default function Header() {
     };
   }, []);
 
-  function handleChangeLanguage(language) {
-    i18n.changeLanguage(language);
-  }
-
   window.addEventListener("scroll", (event) => {
     setScrolled(window.scrollY);
   });
@@ -60,8 +66,6 @@ export default function Header() {
   useEffect(() => {
     const FixURL = window.location;
     setPages(FixURL.pathname.replace("/", ""));
-
-    setLanguage(i18n.language);
   }, []);
 
   function TextHeader(props) {
@@ -180,14 +184,20 @@ export default function Header() {
           <AbbreviationName>GCS</AbbreviationName>
         </Link>
 
+        {/* Links com destaque moderno para o item selecionado */}
         <Link
           to="/"
           style={{
-            backgroundColor: pages === "" ? "#282929" : "transparent",
-            borderRadius: pages === "" ? "10px" : "",
-            padding: pages === "" ? "5px" : "",
+            background: pages === "" ? "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)" : "transparent",
+            color: pages === "" ? "#fff" : "#b0c4d4",
+            borderRadius: "12px",
+            padding: "7px 18px",
+            margin: "0 2px",
+            fontWeight: pages === "" ? 700 : 500,
+            boxShadow: pages === "" ? "0 2px 12px 0 rgba(0,198,255,0.10)" : "none",
             textDecoration: "none",
             alignSelf: "center",
+            transition: "all 0.3s"
           }}
         >
           <TextHeader expected="">{t("header.home")}</TextHeader>
@@ -196,11 +206,16 @@ export default function Header() {
         <Link
           to="/experience"
           style={{
-            backgroundColor: pages === "experience" ? "#282929" : "transparent",
-            borderRadius: pages === "experience" ? "10px" : "",
-            padding: pages === "experience" ? "5px" : "",
+            background: pages === "experience" ? "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)" : "transparent",
+            color: pages === "experience" ? "#fff" : "#b0c4d4",
+            borderRadius: "12px",
+            padding: "7px 18px",
+            margin: "0 2px",
+            fontWeight: pages === "experience" ? 700 : 500,
+            boxShadow: pages === "experience" ? "0 2px 12px 0 rgba(0,198,255,0.10)" : "none",
             textDecoration: "none",
             alignSelf: "center",
+            transition: "all 0.3s"
           }}
         >
           <TextHeader expected="experience">{t("header.experience")}</TextHeader>
@@ -209,11 +224,16 @@ export default function Header() {
         <Link
           to="/skill"
           style={{
-            backgroundColor: pages === "skill" ? "#282929" : "transparent",
-            borderRadius: pages === "skill" ? "10px" : "",
-            padding: pages === "skill" ? "5px" : "",
+            background: pages === "skill" ? "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)" : "transparent",
+            color: pages === "skill" ? "#fff" : "#b0c4d4",
+            borderRadius: "12px",
+            padding: "7px 18px",
+            margin: "0 2px",
+            fontWeight: pages === "skill" ? 700 : 500,
+            boxShadow: pages === "skill" ? "0 2px 12px 0 rgba(0,198,255,0.10)" : "none",
             textDecoration: "none",
             alignSelf: "center",
+            transition: "all 0.3s"
           }}
         >
           <TextHeader expected="skill">{t("header.skills")}</TextHeader>
@@ -222,11 +242,16 @@ export default function Header() {
         <Link
           to="/projects"
           style={{
-            backgroundColor: pages === "projects" ? "#282929" : "transparent",
-            borderRadius: pages === "projects" ? "10px" : "",
-            padding: pages === "projects" ? "5px" : "",
+            background: pages === "projects" ? "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)" : "transparent",
+            color: pages === "projects" ? "#fff" : "#b0c4d4",
+            borderRadius: "12px",
+            padding: "7px 18px",
+            margin: "0 2px",
+            fontWeight: pages === "projects" ? 700 : 500,
+            boxShadow: pages === "projects" ? "0 2px 12px 0 rgba(0,198,255,0.10)" : "none",
             textDecoration: "none",
             alignSelf: "center",
+            transition: "all 0.3s"
           }}
         >
           <TextHeader expected="projects">{t("header.projects")}</TextHeader>
@@ -235,130 +260,151 @@ export default function Header() {
         <Link
           to="/certificates"
           style={{
-            backgroundColor:
-              pages === "certificates" ? "#282929" : "transparent",
-            borderRadius: pages === "certificates" ? "10px" : "",
-            padding: pages === "certificates" ? "5px" : "",
+            background: pages === "certificates" ? "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)" : "transparent",
+            color: pages === "certificates" ? "#fff" : "#b0c4d4",
+            borderRadius: "12px",
+            padding: "7px 18px",
+            margin: "0 2px",
+            fontWeight: pages === "certificates" ? 700 : 500,
+            boxShadow: pages === "certificates" ? "0 2px 12px 0 rgba(0,198,255,0.10)" : "none",
             textDecoration: "none",
             alignSelf: "center",
+            transition: "all 0.3s"
           }}
         >
-          <TextHeader expected="certificates">
-            {t("header.certificates")}
-          </TextHeader>
+          <TextHeader expected="certificates">{t("header.certificates")}</TextHeader>
         </Link>
 
         <Link
           to="/updates"
           style={{
-            backgroundColor: pages === "updates" ? "#282929" : "transparent",
-            borderRadius: pages === "updates" ? "10px" : "",
-            padding: pages === "updates" ? "5px" : "",
+            background: pages === "updates" ? "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)" : "transparent",
+            color: pages === "updates" ? "#fff" : "#b0c4d4",
+            borderRadius: "12px",
+            padding: "7px 18px",
+            margin: "0 2px",
+            fontWeight: pages === "updates" ? 700 : 500,
+            boxShadow: pages === "updates" ? "0 2px 12px 0 rgba(0,198,255,0.10)" : "none",
             textDecoration: "none",
             alignSelf: "center",
+            transition: "all 0.3s"
           }}
         >
           <TextHeader expected="updates">{t("header.updates")}</TextHeader>
         </Link>
 
-        <MenuImgHeader>
-          <Box>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <IconButton
-                  aria-label="Customise options"
-                  style={{
-                    backgroundColor: scrolled > 30 ? "black" : "transparent",
-                  }}
-                >
-                  <HamburgerMenuIcon />
-                </IconButton>
-              </DropdownMenuTrigger>
-
-              <DropdownMenuContent
-                sideOffset={5}
-                style={{ marginLeft: -12, top: 0 }}
-              >
-                <DropdownMenuLabel>{t("header.pages")}</DropdownMenuLabel>
-
-                <DropdownMenuRadioGroup value={pages} onValueChange={setPages}>
-                  <Link to="/" style={{ textDecoration: "none" }}>
-                    <DropdownMenuRadioItem value="">
-                      <DropdownMenuItemIndicator>
-                        <DotFilledIcon />
-                      </DropdownMenuItemIndicator>
-                      {t("header.home")}
-                    </DropdownMenuRadioItem>
-                  </Link>
-
-                  <Link to="/skill" style={{ textDecoration: "none" }}>
-                    <DropdownMenuRadioItem value="skill">
-                      <DropdownMenuItemIndicator>
-                        <DotFilledIcon />
-                      </DropdownMenuItemIndicator>
-                      {t("header.skills")}
-                    </DropdownMenuRadioItem>
-                  </Link>
-
-                  <Link to="/projects" style={{ textDecoration: "none" }}>
-                    <DropdownMenuRadioItem value="projects">
-                      <DropdownMenuItemIndicator>
-                        <DotFilledIcon />
-                      </DropdownMenuItemIndicator>
-                      {t("header.projects")}
-                    </DropdownMenuRadioItem>
-                  </Link>
-
-                  <Link to="/certificates" style={{ textDecoration: "none" }}>
-                    <DropdownMenuRadioItem value="certificates">
-                      <DropdownMenuItemIndicator>
-                        <DotFilledIcon />
-                      </DropdownMenuItemIndicator>
-                      {t("header.certificates")}
-                    </DropdownMenuRadioItem>
-                  </Link>
-
-                  <Link to="/updates" style={{ textDecoration: "none" }}>
-                    <DropdownMenuRadioItem value="updates">
-                      <DropdownMenuItemIndicator>
-                        <DotFilledIcon />
-                      </DropdownMenuItemIndicator>
-                      {t("header.updates")}
-                    </DropdownMenuRadioItem>
-                  </Link>
-                </DropdownMenuRadioGroup>
-
-                <DropdownMenuLabel>{t("header.language")}</DropdownMenuLabel>
-
-                <DropdownMenuRadioGroup
-                  value={language}
-                  onValueChange={setLanguage}
-                >
-                  <DropdownMenuRadioItem
-                    onClick={() => handleChangeLanguage("pt-BR")}
-                    value="pt-BR"
-                  >
-                    <DropdownMenuItemIndicator>
-                      <DotFilledIcon />
-                    </DropdownMenuItemIndicator>
-                    {t("header.portuguese")}
-                  </DropdownMenuRadioItem>
-
-                  <DropdownMenuRadioItem
-                    onClick={() => handleChangeLanguage("en-US")}
-                    value="en-US"
-                  >
-                    <DropdownMenuItemIndicator>
-                      <DotFilledIcon />
-                    </DropdownMenuItemIndicator>
-                    {t("header.english")}
-                  </DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </Box>
-        </MenuImgHeader>
+        
       </ContentTextHeader>
+      <MenuImgHeader>
+          <div style={{ position: 'relative' }} ref={menuRef}>
+            <IconButton
+              aria-label="Menu"
+              style={{ backgroundColor: scrolled > 30 ? "black" : "transparent" }}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <HamburgerMenuIcon />
+            </IconButton>
+            {menuOpen && (
+              <DropdownMenu style={{ right: 0, top: 50 }}>
+                <DropdownLabel>Páginas</DropdownLabel>
+                <DropdownItem
+                  as={Link}
+                  to="/"
+                  onClick={() => setMenuOpen(false)}
+                  style={pages === "" ? {
+                    background: "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)",
+                    color: "#fff",
+                    fontWeight: 700,
+                    boxShadow: "0 2px 12px 0 rgba(0,198,255,0.10)"
+                  } : {}}
+                >
+                  {t("header.home")}
+                </DropdownItem>
+                <DropdownItem
+                  as={Link}
+                  to="/experience"
+                  onClick={() => setMenuOpen(false)}
+                  style={pages === "experience" ? {
+                    background: "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)",
+                    color: "#fff",
+                    fontWeight: 700,
+                    boxShadow: "0 2px 12px 0 rgba(0,198,255,0.10)"
+                  } : {}}
+                >
+                  {t("header.experience")}
+                </DropdownItem>
+                <DropdownItem
+                  as={Link}
+                  to="/skill"
+                  onClick={() => setMenuOpen(false)}
+                  style={pages === "skill" ? {
+                    background: "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)",
+                    color: "#fff",
+                    fontWeight: 700,
+                    boxShadow: "0 2px 12px 0 rgba(0,198,255,0.10)"
+                  } : {}}
+                >
+                  {t("header.skills")}
+                </DropdownItem>
+                <DropdownItem
+                  as={Link}
+                  to="/projects"
+                  onClick={() => setMenuOpen(false)}
+                  style={pages === "projects" ? {
+                    background: "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)",
+                    color: "#fff",
+                    fontWeight: 700,
+                    boxShadow: "0 2px 12px 0 rgba(0,198,255,0.10)"
+                  } : {}}
+                >
+                  {t("header.projects")}
+                </DropdownItem>
+                <DropdownItem
+                  as={Link}
+                  to="/certificates"
+                  onClick={() => setMenuOpen(false)}
+                  style={pages === "certificates" ? {
+                    background: "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)",
+                    color: "#fff",
+                    fontWeight: 700,
+                    boxShadow: "0 2px 12px 0 rgba(0,198,255,0.10)"
+                  } : {}}
+                >
+                  {t("header.certificates")}
+                </DropdownItem>
+                <DropdownItem
+                  as={Link}
+                  to="/updates"
+                  onClick={() => setMenuOpen(false)}
+                  style={pages === "updates" ? {
+                    background: "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)",
+                    color: "#fff",
+                    fontWeight: 700,
+                    boxShadow: "0 2px 12px 0 rgba(0,198,255,0.10)"
+                  } : {}}
+                >
+                  {t("header.updates")}
+                </DropdownItem>
+                <DropdownSeparator />
+                <DropdownLabel>Idioma</DropdownLabel>
+                <DropdownItem onClick={() => { i18n.changeLanguage("pt-BR"); setMenuOpen(false); }} style={i18n.language === "pt-BR" ? {
+                  background: "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)",
+                  color: "#fff", fontWeight: 700,
+                  boxShadow: "0 2px 12px 0 rgba(0,198,255,0.10)"
+                } : {}}>
+                  {t("header.portuguese")}
+                </DropdownItem>
+                <DropdownItem onClick={() => { i18n.changeLanguage("en-US"); setMenuOpen(false); }} style={i18n.language === "en-US" ? {
+                  background: "linear-gradient(90deg, #00c6ff 0%, #0072ff 100%)",
+                  color: "#fff", fontWeight: 700,
+                  boxShadow: "0 2px 12px 0 rgba(0,198,255,0.10)"
+                } : {}}>
+                  {t("header.english")}
+                </DropdownItem>
+              </DropdownMenu>
+            )}
+          </div>
+        </MenuImgHeader>
     </Hheader>
   );
 }
