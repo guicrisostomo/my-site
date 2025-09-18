@@ -13,8 +13,6 @@ export const FooterStyle = styled.footer`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    bottom: 0;
 `;
 
 export const ImgCopyRight = styled.img`

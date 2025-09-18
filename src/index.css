@@ -24,5 +24,7 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 20px;
+  overflow-x: hidden;
 }

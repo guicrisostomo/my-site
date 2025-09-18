@@ -33,7 +33,7 @@ export const SectionCommits = styled.section`
     background-size: cover;
     background-attachment: fixed;
     justify-content: flex-start;
-    height: 100%;
+    
     margin-top: 12px;
     padding-top: 80px;
     padding-bottom: 32px;

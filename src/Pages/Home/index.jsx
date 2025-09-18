@@ -37,8 +37,8 @@ export default function Home() {
           {t("home.about.text")}
         </Subtitle>
       </SectionAbout>
-
       <Footer />
+
     </>
   );
 }

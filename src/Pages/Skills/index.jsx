@@ -272,8 +272,8 @@ export default function Skill() {
           </ItemSkill>
         </Items>
       </SectionSkills>
-
       <Footer />
+
     </>
   );
 }

@@ -9,14 +9,14 @@ export const SectionError = styled.section`
   background-size: cover;
   background-attachment: fixed;
   justify-content: flex-start;
-  height: 100%;
+  
   margin-top: 12px;
   padding-top: 80px;
   padding-bottom: 32px;
   border-radius: 18px;
   box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
   backdrop-filter: blur(2px);
-  height: 100%;
+  
   gap: 24px;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,7 @@ export const SectionError = styled.section`
 export const DivInfoError = styled.div`
     top: 30%;
     position: absolute;
-    height: 100%;
+    
     width: 100vw;
     display: table-cell;
     vertical-align: middle;

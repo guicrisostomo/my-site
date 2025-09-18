@@ -12,7 +12,7 @@ export const SectionAbout = styled.section`
     justify-content: flex-start;
     box-shadow: 0 4px 32px 0 rgba(0,0,0,0.18);
     backdrop-filter: blur(2px);
-    height: 100%;
+    
     gap: 24px;
   display: flex;
   flex-direction: column;
