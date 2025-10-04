@@ -15,6 +15,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@vercel/client": "^12.2.4",
     "bootstrap": "^5.2.2",
+    "caniuse-lite": "^1.0.30001747",
     "css-loader": "^6.7.1",
     "dotenv-webpack": "^8.0.1",
     "fetch-jsonp": "^1.2.3",
