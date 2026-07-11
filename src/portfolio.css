@@ -1303,3 +1303,35 @@ body::before {
 @keyframes marquee { to { transform:translateX(-50%); } }
 @media(max-width:480px){.aurora{opacity:.2;transform:scale(.7)}.spark-one{right:4%;top:12%}.spark-two{display:none}.tech-marquee{padding:12px 0}.tech-marquee>div{gap:20px;font-size:11px;animation-duration:19s}.hero h1{font-size:clamp(2.55rem,13vw,3.5rem);line-height:1}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none}.hero h1,.aurora,.spark,.tech-marquee>div,.project-top::after{animation:none}}
+
+/* The hero prioritizes work; the portrait is only a subtle identity cue. */
+.work-panel-head { display:flex; align-items:center; gap:12px; padding:2px 2px 18px; border-bottom:1px solid var(--line); }
+.profile-avatar { width:44px; height:44px; flex:0 0 auto; border-radius:50%; object-fit:cover; border:2px solid rgba(124,255,213,.45); }
+.work-panel-head>div:nth-child(2) { min-width:0; display:grid; gap:3px; }
+.work-panel-head strong { font:700 13px 'Sora',sans-serif; }
+.work-panel-head span { color:var(--muted); font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.work-panel-head .hero-badge { position:static; margin-left:auto; max-width:150px; padding:8px 10px; box-shadow:none; font-size:10px; line-height:1.25; animation:none; }
+.work-showcase { min-height:300px; display:flex; flex-direction:column; justify-content:flex-end; position:relative; overflow:hidden; margin-top:16px; padding:30px; border-radius:20px; background:radial-gradient(circle at 80% 10%,rgba(255,114,182,.25),transparent 28%),radial-gradient(circle at 10% 80%,rgba(124,255,213,.2),transparent 30%),linear-gradient(145deg,#11192d,#211735 65%,#102b2a); }
+.work-showcase:before { content:""; position:absolute; width:190px; height:190px; right:-55px; top:-60px; border:1px solid rgba(255,255,255,.13); border-radius:50%; box-shadow:0 0 0 28px rgba(255,255,255,.025),0 0 0 56px rgba(255,255,255,.018); }
+.showcase-orbit { position:absolute; top:24px; left:28px; display:flex; gap:8px; }
+.showcase-orbit svg { width:34px; height:34px; padding:8px; border-radius:10px; color:var(--accent); background:rgba(5,8,15,.5); border:1px solid rgba(255,255,255,.1); backdrop-filter:blur(8px); }
+.work-showcase>span { position:relative; color:var(--accent); font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.16em; }
+.work-showcase>strong { position:relative; margin-top:8px; font:700 clamp(2rem,3vw,3.2rem)/.98 'Sora',sans-serif; letter-spacing:-.055em; }
+.work-showcase>p { position:relative; max-width:38ch; margin:14px 0 0; color:#b9c3d8; font-size:13px; line-height:1.55; }
+@media(max-width:480px){.work-panel-head .hero-badge{max-width:120px}.work-showcase{min-height:250px;padding:22px}.work-showcase>strong{font-size:2rem}.profile-avatar{width:38px;height:38px}}
+
+/* Keep the dark showcase accessible and polished inside the light theme. */
+.work-showcase > strong { color:#f7f9ff; text-shadow:0 2px 24px rgba(0,0,0,.22); }
+.work-panel-head .hero-badge { color:#f7f9ff; }
+:root[data-theme="light"] .hero-panel { background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(246,248,255,.9)); border-color:rgba(44,62,92,.12); box-shadow:0 24px 70px rgba(34,54,84,.13); }
+:root[data-theme="light"] .work-panel-head { border-bottom-color:rgba(44,62,92,.12); }
+:root[data-theme="light"] .work-panel-head strong { color:#172033; }
+:root[data-theme="light"] .work-panel-head span { color:#5c6b86; }
+:root[data-theme="light"] .work-panel-head .hero-badge { background:linear-gradient(135deg,#182238,#303b59); color:#f7f9ff; border:1px solid rgba(255,255,255,.08); }
+:root[data-theme="light"] .work-panel-head .hero-badge i { box-shadow:0 0 0 4px rgba(75,227,142,.12); }
+:root[data-theme="light"] .work-showcase { box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 20px 50px rgba(24,34,56,.2); }
+:root[data-theme="light"] .work-showcase > strong { color:#f8faff; }
+:root[data-theme="light"] .work-showcase > p { color:#c5ccdc; }
+:root[data-theme="light"] .hero-mini-cards div { background:linear-gradient(135deg,#f9fcfc,#f2f5fb); border-color:rgba(44,62,92,.12); box-shadow:0 8px 24px rgba(44,62,92,.06); }
+:root[data-theme="light"] .hero-mini-cards p { color:#4f607c; font-weight:500; }
+:root[data-theme="light"] .mini-icon { color:#078f78; background:linear-gradient(135deg,rgba(36,210,177,.12),rgba(105,141,255,.1)); border:1px solid rgba(36,160,142,.08); }

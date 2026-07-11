@@ -542,12 +542,16 @@ export default function Portfolio() {
         </div>
 
         <aside className="hero-panel reveal">
-          <div className="photo-card">
-            <img src={photo} alt="Guilherme Crisostomo" />
+          <div className="work-panel-head">
+            <img className="profile-avatar" src={photo} alt="Guilherme Crisostomo" />
+            <div><strong>Guilherme Crisostomo</strong><span>{copy.eyebrow}</span></div>
+            <div className="hero-badge"><i />{copy.status}</div>
           </div>
-          <div className="hero-badge">
-            <i />
-            {copy.status}
+          <div className="work-showcase" aria-label="Principais capacidades">
+            <div className="showcase-orbit"><SiReact /><SiTypescript /><SiTailwindcss /></div>
+            <span>Product thinking</span>
+            <strong>Design, código<br />e produto.</strong>
+            <p>Interfaces que conectam objetivos de negócio a experiências claras.</p>
           </div>
           <div className="hero-mini-cards">
             <div>
