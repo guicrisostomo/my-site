@@ -18,8 +18,10 @@ import {
   FiZap,
 } from "react-icons/fi";
 import {
+  SiCss3,
   SiFlutter,
   SiGit,
+  SiHtml5,
   SiJavascript,
   SiPostgresql,
   SiReact,
@@ -27,6 +29,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
+import { supabase } from "./assets/database/supabase/client";
 import photo from "./assets/img/photoPresentation.png";
 import "./portfolio.css";
 
@@ -148,32 +151,7 @@ const content = {
     projectsTitle: "Selected projects",
     projectsText:
       "A selection of work that shows interface, logic and focus on outcomes.",
-    projects: [
-      [
-        "RSA Cryptography",
-        "An app that explores RSA cryptography through a direct and educational experience.",
-        "TypeScript · Security · Front-end",
-        "https://github.com/guicrisostomo/application-RSAcryptography",
-      ],
-      [
-        "Personal portfolio",
-        "The evolution of this portfolio, with anchor navigation, responsive layout and a content-first approach.",
-        "React · UI · Responsive",
-        "https://github.com/guicrisostomo/my-site",
-      ],
-      [
-        "DIO projects",
-        "A collection of challenges and applications developed during hands-on tech programs.",
-        "JavaScript · HTML · CSS",
-        "https://github.com/guicrisostomo/Projetos-DIO",
-      ],
-      [
-        "Academic exercises",
-        "Solutions built during college, focused on fundamentals, data and architecture.",
-        "SQL · Logic · Software",
-        "https://github.com/guicrisostomo/College-exercises",
-      ],
-    ],
+    projects: [],
     viewProject: "Open project",
     skillsTitle: "Skills and stack",
     skillsText:
@@ -225,6 +203,150 @@ const projectIconSets = [
   [SiPostgresql, FiCode],
 ];
 
+const fallbackProjects = {
+  pt: content.pt.projects.map(([title, description, tags, url]) => ({
+    title,
+    description,
+    tags,
+    url,
+    skills: [],
+    image: "",
+  })),
+  en: content.en.projects.map(([title, description, tags, url]) => ({
+    title,
+    description,
+    tags,
+    url,
+    skills: [],
+    image: "",
+  })),
+};
+
+const projectFields = {
+  title: ["nomePT", "nomeEN", "titlePT", "titleEN", "name", "title"],
+  description: ["descricaoPT", "descricaoEN", "descriptionPT", "descriptionEN", "description", "summary"],
+  tags: ["tagsPT", "tagsEN", "tags", "stack"],
+  url: ["link", "url", "href"],
+  image: ["linkImage", "image", "imageUrl", "thumbnail", "cover", "coverUrl", "banner"],
+  skills: ["skills", "techs", "technologies"],
+};
+
+const projectIconRegistry = {
+  react: SiReact,
+  typescript: SiTypescript,
+  javascript: SiJavascript,
+  tailwind: SiTailwindcss,
+  tailwindcss: SiTailwindcss,
+  redux: SiRedux,
+  flutter: SiFlutter,
+  postgresql: SiPostgresql,
+  postgres: SiPostgresql,
+  git: SiGit,
+  html: SiHtml5,
+  html5: SiHtml5,
+  css: SiCss3,
+  css3: SiCss3,
+  code: FiCode,
+  security: FiShield,
+  shield: FiShield,
+  mobile: FiSmartphone,
+  database: FiDatabase,
+  layers: FiLayers,
+  zap: FiZap,
+  arrow: FiArrowUpRight,
+};
+
+function getLocalizedField(record, fields, lang) {
+  const preferredSuffix = lang === "pt" ? "PT" : "EN";
+  const fallbackSuffix = lang === "pt" ? "EN" : "PT";
+  const recordKeys = Object.keys(record);
+  const localizedFields = fields.filter((field) => /(?:PT|EN)$/.test(field));
+  const neutralFields = fields.filter((field) => !/(?:PT|EN)$/.test(field));
+  const candidates = [
+    ...localizedFields.map((field) => field.replace(/(?:PT|EN)$/, preferredSuffix)),
+    ...localizedFields.map((field) => field.replace(/(?:PT|EN)$/, fallbackSuffix)),
+    ...neutralFields,
+  ];
+
+  for (const field of [...new Set(candidates)]) {
+    const actualKey = recordKeys.find(
+      (key) => key.toLowerCase() === field.toLowerCase()
+    );
+    const value = actualKey ? record[actualKey] : undefined;
+    if (value) {
+      return value;
+    }
+  }
+
+  return "";
+}
+
+function normalizeProject(record, lang) {
+  return {
+    id: record.id,
+    title: getLocalizedField(record, projectFields.title, lang),
+    description: getLocalizedField(record, projectFields.description, lang),
+    tags: getLocalizedField(record, projectFields.tags, lang),
+    url: getLocalizedField(record, projectFields.url, lang) || "#",
+    image: getLocalizedField(record, projectFields.image, lang),
+    skills: parseProjectSkills(record.skills || record.techs || record.technologies),
+  };
+}
+
+function parseProjectSkills(value) {
+  if (!value) {
+    return [];
+  }
+
+  if (Array.isArray(value)) {
+    return value;
+  }
+
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+
+    if (!trimmed) {
+      return [];
+    }
+
+    try {
+      const parsed = JSON.parse(trimmed);
+      if (Array.isArray(parsed)) {
+        return parsed;
+      }
+    } catch {
+      // Fall through to delimiter-based parsing.
+    }
+
+    return trimmed
+      .split(/[,|·;/]/)
+      .map((item) => item.trim())
+      .filter(Boolean);
+  }
+
+  return [];
+}
+
+function resolveProjectIcons(record, index) {
+  const rawSkills = Array.isArray(record.skills) ? record.skills : [];
+  const normalizedIcons = rawSkills
+    .map((entry) => String(entry).trim().toLowerCase())
+    .map((entry) => projectIconRegistry[entry])
+    .filter(Boolean);
+
+  if (normalizedIcons.length > 0) {
+    return normalizedIcons;
+  }
+
+  return projectIconSets[index] || [FiCode, FiArrowUpRight];
+}
+
+function getProjectSkillUrls(record) {
+  const rawSkills = Array.isArray(record.skills) ? record.skills : parseProjectSkills(record.skills);
+
+  return rawSkills.filter((entry) => typeof entry === "string" && entry.length > 0);
+}
+
 const navIcons = [FiTarget, FiLayers, FiCode, FiZap, FiMail];
 const groupIcons = [FiCode, FiSmartphone, FiDatabase];
 
@@ -246,6 +368,7 @@ export default function Portfolio() {
   });
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [projectRecords, setProjectRecords] = useState([]);
   const copy = content[lang];
   const sectionIds = ["inicio", "diferenciais", "projetos", "skills", "contato"];
 
@@ -273,6 +396,56 @@ export default function Portfolio() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const elements = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, [projectRecords]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadProjects() {
+      if (!supabase) {
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("projects")
+        .select("*")
+        .order("order", { ascending: true });
+
+      if (!isMounted) {
+        return;
+      }
+
+      if (error) {
+        console.error("Erro ao carregar projetos do Supabase:", error.message);
+        return;
+      }
+
+      setProjectRecords(Array.isArray(data) ? data : []);
+    }
+
+    loadProjects();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const projectsToRender = projectRecords.length
+    ? projectRecords.map((record) => normalizeProject(record, lang))
+    : fallbackProjects[lang];
 
   return (
     <main className="portfolio-shell">
@@ -331,6 +504,10 @@ export default function Portfolio() {
       </header>
 
       <section className="hero section" id="inicio">
+        <div className="aurora aurora-one" aria-hidden="true" />
+        <div className="aurora aurora-two" aria-hidden="true" />
+        <div className="spark spark-one" aria-hidden="true">✦</div>
+        <div className="spark spark-two" aria-hidden="true">✦</div>
         <div className="hero-copy-block reveal">
           <p className="eyebrow">
             <span />
@@ -385,6 +562,10 @@ export default function Portfolio() {
         </aside>
       </section>
 
+      <div className="tech-marquee" aria-label="Tecnologias utilizadas">
+        <div><span>React</span><i>✦</i><span>TypeScript</span><i>✦</i><span>UI Design</span><i>✦</i><span>APIs</span><i>✦</i><span>Mobile</span><i>✦</i><span>React</span><i>✦</i><span>TypeScript</span><i>✦</i><span>UI Design</span><i>✦</i><span>APIs</span><i>✦</i><span>Mobile</span></div>
+      </div>
+
       <section className="section section-light" id="diferenciais">
         <div className="section-heading reveal">
           <p>
@@ -429,22 +610,35 @@ export default function Portfolio() {
         </div>
 
         <div className="project-grid">
-          {copy.projects.map(([title, description, tags, url], index) => {
-            const [PrimaryIcon, SecondaryIcon] = projectIconSets[index];
+          {projectsToRender.map((project, index) => {
+            const { title, description, tags, url, image } = project;
+            const projectIcons = resolveProjectIcons(project, index);
+            const projectSkillUrls = getProjectSkillUrls(project);
 
             return (
-              <a className="project-card reveal" href={url} target="_blank" rel="noreferrer" key={title}>
-                <div className="project-top">
+              <a className="project-card reveal" href={url} target="_blank" rel="noreferrer" key={project.id || url || index}>
+                <div className={image ? "project-top project-top--media" : "project-top"}>
+                  {image ? <img className="project-cover" src={image} alt={title} loading="lazy" /> : null}
                   <span className="project-index">0{index + 1}</span>
                   <div className="project-icons">
-                    <PrimaryIcon />
-                    <SecondaryIcon />
+                    {projectIcons.map((Icon, iconIndex) => (
+                      <Icon key={`${title}-${iconIndex}`} />
+                    ))}
                   </div>
                 </div>
                 <div className="project-body">
                   <p>{tags}</p>
                   <h3>{title}</h3>
                   <span>{description}</span>
+                  {projectSkillUrls.length > 0 ? (
+                    <div className="project-skill-row" aria-label={`Tecnologias do projeto ${title}`}>
+                      {projectSkillUrls.map((skillUrl, skillIndex) => (
+                        <span className="project-skill-badge" key={`${title}-${skillIndex}`}>
+                          <img src={skillUrl} alt="" loading="lazy" />
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
                   <b>
                     {copy.viewProject}
                     <FiArrowUpRight />

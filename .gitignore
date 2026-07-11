@@ -30,3 +30,5 @@ vercel.cmd
 vercel.ps1
 .env.local
 .bashrc
+
+.env*
