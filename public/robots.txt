@@ -1,9 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
 
-User-agent: Googlebot
-Disallow:
-
-User-agent: Googlebot-Image
-Disallow: /personal
+Sitemap: https://guicrisostomo.vercel.app/sitemap.xml

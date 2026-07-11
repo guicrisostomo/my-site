@@ -1,25 +1,17 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "GC Portfólio",
+  "name": "Guilherme Crisostomo — Desenvolvedor Front-end e Mobile",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "icon.ico",
+      "sizes": "any",
       "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#05070b",
+  "background_color": "#05070b",
+  "lang": "pt-BR",
+  "description": "Portfólio de Guilherme Crisostomo, desenvolvedor front-end e mobile."
 }
