@@ -29,6 +29,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { supabase } from "./assets/database/supabase/client";
 import photo from "./assets/img/photoPresentation.png";
 import "./portfolio.css";
@@ -726,6 +727,7 @@ export default function Portfolio() {
           </nav>
         </div>
       </footer>
+      <SpeedInsights />
     </main>
   );
 }
